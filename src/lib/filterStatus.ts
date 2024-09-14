@@ -1,14 +1,12 @@
-export function filterStatus(dataList: any[], statusFilter: string) {
-  // Sort the data list by the createdAt date in descending order
-  const sortedList = dataList.sort((a, b) => {
-    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-  })
+export function filterStatus(type: any, status: string) {
+  const sortedStatus = type.sort(
+    (a, b) =>
+      Number(new Date(b.createdAt)) - Number(new Date(a.createdAt)),
+  )
 
-  // If no status filter is provided, return the sorted list
-  if (!statusFilter) {
-    return sortedList
+  if (!status) {
+    return sortedStatus
   }
 
-  // Filter the sorted list to include only items with the specified status
-  return sortedList.filter(item => item.status && item.status.includes(statusFilter))
+  return sortedStatus.filter((type: any) => type.status.string.includes(status))
 }
