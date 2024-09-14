@@ -1,14 +1,12 @@
-export function filterTags(dataList: any[], tagFilter: string) {
-  // Sort the list by the createdAt property, from newest to oldest
-  const sortedData = dataList.sort((a, b) => {
-    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-  })
+export function filterTags(type: any, tag: string) {
+  const sortedTags = type.sort(
+    (a, b) =>
+      Number(new Date(b.createdAt)) - Number(new Date(a.createdAt)),
+  )
 
-  // If no tag is provided, return the sorted list
-  if (!tagFilter) {
-    return sortedData
+  if (!tag) {
+    return sortedTags
   }
 
-  // Filter the list to return only items that include the specified tag
-  return sortedData.filter(item => item.tags && item.tags.includes(tagFilter))
+  return sortedTags.filter((type: any) => type.tags.includes(tag))
 }
