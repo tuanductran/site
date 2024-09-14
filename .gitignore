@@ -40,3 +40,4 @@ yarn-error.log*
 tsconfig.tsbuildinfo
 public/sitemap-0.xml
 public/sitemap.xml
+.env
