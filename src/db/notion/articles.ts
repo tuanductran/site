@@ -21,7 +21,10 @@ class ArticlesService {
     const articles = await this.getDatabaseContent(this.databaseId)
 
     return articles
-      .sort((a, b) => dateSortDesc(a.createdAt, b.createdAt))
+      .sort(
+      (a, b) =>
+        Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
+    )
   }
 
   async getArticle(id: string) {
