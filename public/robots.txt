@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://tuanductran.site
+
+# Sitemaps
+Sitemap: https://tuanductran.site/sitemap.xml
