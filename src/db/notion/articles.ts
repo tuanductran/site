@@ -1,5 +1,4 @@
 import { formatDate } from '@lib/date'
-import { dateSortDesc } from '@lib/dateSortDesc'
 import { slugify } from '@lib/slugify'
 import { Client, isFullPage } from '@notionhq/client'
 import type { BlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
@@ -21,10 +20,9 @@ class ArticlesService {
     const articles = await this.getDatabaseContent(this.databaseId)
 
     return articles
-      .sort(
-      (a, b) =>
-        Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
-    )
+      .sort((a, b) => {
+        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      })
   }
 
   async getArticle(id: string) {

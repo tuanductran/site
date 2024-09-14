@@ -1,5 +1,4 @@
 import { formatDate } from '@lib/date'
-import { dateSortDesc } from '@lib/dateSortDesc'
 import { Client, isFullPage } from '@notionhq/client'
 import type { NotionViewing } from '@schema'
 
@@ -17,7 +16,9 @@ class ViewingService {
     const viewing = await this.getDatabaseContent(this.databaseId)
 
     return viewing
-      .sort((a, b) => dateSortDesc(a.createdAt, b.createdAt))
+      .sort((a, b) => {
+        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      })
   }
 
   private getDatabaseContent = async (databaseId: string): Promise<NotionViewing[]> => {
