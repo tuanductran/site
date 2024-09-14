@@ -1,3 +1,5 @@
+import million from 'million/compiler'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
@@ -45,4 +47,10 @@ const nextConfig = {
   },
 }
 
-export default nextConfig
+const millionConfig = {
+  auto: { rsc: true },
+  mute: true,
+  rsc: true,
+}
+
+export default million.next(nextConfig, millionConfig)
