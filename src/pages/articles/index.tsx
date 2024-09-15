@@ -1,25 +1,18 @@
 import Link from '@components/Link'
-import { NotionTags } from '@components/Tags'
 import { siteConfig } from '@data'
 import { articlesApi } from '@db'
-import { filterTags } from '@lib/filterTags'
 import type { NotionArticle } from '@schema'
 import type { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
-import { useState } from 'react'
 
 const seoTitle = 'Articles Collection'
 const seoDescription = 'Explore all your articles in one place'
 
 interface ArticlesProps {
   articles: NotionArticle[]
-  tags: string[]
 }
 
-const ArticlesPage: React.FC<ArticlesProps> = ({ articles, tags }) => {
-  const [selectedTag, setSelectedTag] = useState<string | null>(null)
-  const filteredArticles = filterTags(articles, selectedTag)
-
+function ArticlesPage({ articles }: ArticlesProps) {
   return (
     <>
       <NextSeo
@@ -32,12 +25,7 @@ const ArticlesPage: React.FC<ArticlesProps> = ({ articles, tags }) => {
       />
       <section className="overflow-hidden">
         <h1 className="mb-6 text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">{seoTitle}</h1>
-        <NotionTags
-          tags={tags}
-          selectedTag={selectedTag}
-          setSelectedTag={setSelectedTag}
-        />
-        {filteredArticles.map((articles: NotionArticle) => {
+        {articles.map((articles) => {
           return (
             <Link
               key={articles.id}
@@ -63,12 +51,10 @@ const ArticlesPage: React.FC<ArticlesProps> = ({ articles, tags }) => {
 
 export const getStaticProps: GetStaticProps<ArticlesProps> = async () => {
   const articles = await articlesApi.getArticles()
-  const tags = Array.from(new Set(articles.flatMap(articles => articles.tags)))
 
   return {
     props: {
       articles,
-      tags,
     },
     revalidate: 10,
   }

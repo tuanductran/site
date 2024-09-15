@@ -1,25 +1,18 @@
 import Link from '@components/Link'
-import { NotionTags } from '@components/Tags'
 import { siteConfig } from '@data'
 import { viewingApi } from '@db'
-import { filterTags } from '@lib/filterTags'
 import type { NotionViewing } from '@schema'
 import type { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
-import { useState } from 'react'
 
 const seoTitle = 'Viewing Collection'
 const seoDescription = 'Explore all your viewings here'
 
 interface ViewingProps {
   viewing: NotionViewing[]
-  tags: string[]
 }
 
-const ViewingPage: React.FC<ViewingProps> = ({ viewing, tags }) => {
-  const [selectedTag, setSelectedTag] = useState<string | null>(null)
-  const filteredViewing = filterTags(viewing, selectedTag)
-
+function ViewingPage({ viewing }: ViewingProps) {
   return (
     <>
       <NextSeo
@@ -32,12 +25,7 @@ const ViewingPage: React.FC<ViewingProps> = ({ viewing, tags }) => {
       />
       <section className="overflow-hidden">
         <h1 className="mb-6 text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">{seoTitle}</h1>
-        <NotionTags
-          tags={tags}
-          selectedTag={selectedTag}
-          setSelectedTag={setSelectedTag}
-        />
-        {filteredViewing.map((viewing: NotionViewing) => {
+        {viewing.map((viewing) => {
           return (
             <Link
               key={viewing.id}
@@ -63,12 +51,10 @@ const ViewingPage: React.FC<ViewingProps> = ({ viewing, tags }) => {
 
 export const getStaticProps: GetStaticProps<ViewingProps> = async () => {
   const viewing = await viewingApi.getViewing()
-  const tags = Array.from(new Set(viewing.flatMap(viewing => viewing.tags)))
 
   return {
     props: {
       viewing,
-      tags,
     },
     revalidate: 10,
   }

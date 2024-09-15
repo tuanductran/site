@@ -1,25 +1,18 @@
 import Link from '@components/Link'
-import { NotionTags } from '@components/Tags'
 import { siteConfig } from '@data'
 import { notesApi } from '@db'
-import { filterTags } from '@lib/filterTags'
 import type { NotionNote } from '@schema'
 import type { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
-import { useState } from 'react'
 
 const seoTitle = 'Notes Collection'
 const seoDescription = 'Explore all your notes in one place'
 
 interface NotesProps {
   notes: NotionNote[]
-  tags: string[]
 }
 
-const NotesPage: React.FC<NotesProps> = ({ notes, tags }) => {
-  const [selectedTag, setSelectedTag] = useState<string | null>(null)
-  const filteredNotes = filterTags(notes, selectedTag)
-
+function NotesPage({ notes }: NotesProps) {
   return (
     <>
       <NextSeo
@@ -32,12 +25,7 @@ const NotesPage: React.FC<NotesProps> = ({ notes, tags }) => {
       />
       <section className="overflow-hidden">
         <h1 className="mb-6 text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">{seoTitle}</h1>
-        <NotionTags
-          tags={tags}
-          selectedTag={selectedTag}
-          setSelectedTag={setSelectedTag}
-        />
-        {filteredNotes.map((notes: NotionNote) => {
+        {notes.map((notes) => {
           return (
             <Link
               key={notes.id}
@@ -63,12 +51,10 @@ const NotesPage: React.FC<NotesProps> = ({ notes, tags }) => {
 
 export const getStaticProps: GetStaticProps<NotesProps> = async () => {
   const notes = await notesApi.getNotes()
-  const tags = Array.from(new Set(notes.flatMap(notes => notes.tags)))
 
   return {
     props: {
       notes,
-      tags,
     },
     revalidate: 10,
   }

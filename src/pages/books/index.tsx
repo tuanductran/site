@@ -1,25 +1,18 @@
 import Link from '@components/Link'
-import { NotionTags } from '@components/Tags'
 import { siteConfig } from '@data'
 import { booksApi } from '@db'
-import { filterStatus } from '@lib/filterStatus'
 import type { NotionBooks } from '@schema'
 import type { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
-import { useState } from 'react'
 
 const seoTitle = 'Books Collection'
 const seoDescription = 'Explore our extensive collection of books'
 
 interface BooksProps {
   books: NotionBooks[]
-  status: string[]
 }
 
-const BooksPage: React.FC<BooksProps> = ({ books, status }) => {
-  const [selectedStatus, setSelectedStatus] = useState<string | null>(null)
-  const filteredBooks = filterStatus(books, selectedStatus)
-
+function BooksPage({ books }: BooksProps) {
   return (
     <>
       <NextSeo
@@ -32,12 +25,7 @@ const BooksPage: React.FC<BooksProps> = ({ books, status }) => {
       />
       <section className="overflow-hidden">
         <h1 className="mb-6 text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">{seoTitle}</h1>
-        <NotionTags
-          tags={status}
-          selectedTag={selectedStatus}
-          setSelectedTag={setSelectedStatus}
-        />
-        {filteredBooks.map((books: NotionBooks) => {
+        {books.map((books) => {
           return (
             <Link
               key={books.id}
@@ -63,12 +51,10 @@ const BooksPage: React.FC<BooksProps> = ({ books, status }) => {
 
 export const getStaticProps: GetStaticProps<BooksProps> = async () => {
   const books = await booksApi.getBooks()
-  const status = Array.from(new Set(books.flatMap(books => books.status.string)))
 
   return {
     props: {
       books,
-      status,
     },
     revalidate: 10,
   }

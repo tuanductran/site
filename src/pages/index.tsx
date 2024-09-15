@@ -12,7 +12,7 @@ interface IndexProps {
   notes: NotionNote[]
 }
 
-const IndexPage: React.FC<IndexProps> = ({ notes }) => {
+function IndexPage({ notes }: IndexProps) {
   return (
     <>
       <NextSeo

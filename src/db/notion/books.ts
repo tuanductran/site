@@ -49,7 +49,6 @@ class BooksService {
             'multi_select' in page.properties.Tags
               ? page.properties.Tags.multi_select.map(tag => tag.name)
               : [],
-          status: 'formula' in page.properties.Status ? page.properties.Status.formula : '',
           title:
             'title' in page.properties.Title
               ? page.properties.Title.title[0].plain_text

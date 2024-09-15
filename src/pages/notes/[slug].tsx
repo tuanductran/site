@@ -11,10 +11,10 @@ interface NoteProps {
   noteContent: any[]
 }
 
-const NotePage: React.FC<NoteProps> = ({
+function NotePage({
   note,
   noteContent,
-}) => {
+}: NoteProps) {
   const { createdAt, editedAt, slug, title } = note
   const canonicalUrl = `${siteConfig.siteURL}/notes/${slug}`
   const ogImageUrl = `${siteConfig.siteURL}/api/og?title=${title}`

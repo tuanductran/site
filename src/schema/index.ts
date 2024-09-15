@@ -32,7 +32,6 @@ export const BooksSchema = z.strictObject({
   public_url: z.string(),
   tags: z.array(z.string()),
   title: z.string(),
-  status: z.any(),
 })
 
 export const NoteSchema = z.strictObject({
