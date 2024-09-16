@@ -12,9 +12,6 @@ const navItems = {
   '/books': {
     name: 'Books',
   },
-  '/jobs': {
-    name: 'Jobs',
-  },
   '/notes': {
     name: 'Notes',
   },

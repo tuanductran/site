@@ -13,14 +13,11 @@
   },
   "dependencies": {
     "@notionhq/client": "2.2.15",
-    "@octokit/rest": "^21.0.2",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
     "@vercel/speed-insights": "^1.0.12",
     "autoprefixer": "^10.4.20",
-    "axios": "^1.7.7",
     "clsx": "^2.1.1",
-    "million": "^3.1.11",
     "next": "15.0.0-rc.0",
     "nprogress": "^0.2.0",
     "plaiceholder": "3.0.0",
@@ -29,7 +26,6 @@
     "react-dom": "19.0.0-rc-7771d3a7-20240827",
     "rss": "^1.2.2",
     "sharp": "0.33.5",
-    "swr": "^2.2.5",
     "tailwind-merge": "^2.5.2",
     "tailwindcss": "^3.4.11",
     "zod": "^3.23.8"
@@ -37,7 +33,6 @@
   "devDependencies": {
     "@antfu/eslint-config": "3.6.0",
     "@eslint-react/eslint-plugin": "^1.14.1",
-    "@svgr/webpack": "^8.1.0",
     "@types/node": "^22",
     "@types/nprogress": "^0.2.3",
     "@types/prismjs": "^1.26.4",

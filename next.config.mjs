@@ -1,5 +1,3 @@
-import million from 'million/compiler'
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
@@ -37,20 +35,6 @@ const nextConfig = {
       },
     ]
   },
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    })
-
-    return config
-  },
 }
 
-const millionConfig = {
-  auto: { rsc: true },
-  mute: true,
-  rsc: true,
-}
-
-export default million.next(nextConfig, millionConfig)
+export default nextConfig
