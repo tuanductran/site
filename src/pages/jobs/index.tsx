@@ -84,9 +84,7 @@ export default function Jobs() {
                 </p>
               )}
         </div>
-        {jobs.sort((a, b) => {
-          return new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-        }).map(job => (
+        {jobs.map(job => (
           <Link key={job.id} href={job.html_url} className="flex flex-col space-y-1 mb-4" title={job.title}>
             <div className="w-full flex flex-col">
               <h3 className="text-base font-semibold tracking-tight text-slate-900 dark:text-slate-200 line-clamp-1">
