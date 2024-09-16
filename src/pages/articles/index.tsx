@@ -13,6 +13,7 @@ interface ArticlesProps {
 }
 
 function ArticlesPage({ articles }: ArticlesProps) {
+  const isEmpty = articles.length === 0
   return (
     <>
       <NextSeo
@@ -25,6 +26,7 @@ function ArticlesPage({ articles }: ArticlesProps) {
       />
       <section className="overflow-hidden">
         <h1 className="mb-6 text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">{seoTitle}</h1>
+        {isEmpty && <p className="prose prose-slate dark:prose-dark">Yay, no articles found.</p>}
         {articles.map((articles) => {
           return (
             <Link

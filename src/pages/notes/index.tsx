@@ -13,6 +13,7 @@ interface NotesProps {
 }
 
 function NotesPage({ notes }: NotesProps) {
+  const isEmpty = notes.length === 0
   return (
     <>
       <NextSeo
@@ -25,6 +26,7 @@ function NotesPage({ notes }: NotesProps) {
       />
       <section className="overflow-hidden">
         <h1 className="mb-6 text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">{seoTitle}</h1>
+        {isEmpty && <p className="prose prose-slate dark:prose-dark">Yay, no notes found.</p>}
         {notes.map((notes) => {
           return (
             <Link

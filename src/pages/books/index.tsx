@@ -13,6 +13,7 @@ interface BooksProps {
 }
 
 function BooksPage({ books }: BooksProps) {
+  const isEmpty = books.length === 0
   return (
     <>
       <NextSeo
@@ -25,6 +26,7 @@ function BooksPage({ books }: BooksProps) {
       />
       <section className="overflow-hidden">
         <h1 className="mb-6 text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">{seoTitle}</h1>
+        {isEmpty && <p className="prose prose-slate dark:prose-dark">Yay, no books found.</p>}
         {books.map((books) => {
           return (
             <Link
