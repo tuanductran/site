@@ -1,4 +1,5 @@
 import { ChannelLink } from '@components/ChannelLink'
+import { AdguardIcon, BootstrapIcon, FigmaIcon, NextDNSIcon, NextIcon, NotionIcon, NuxtIcon, ReactIcon, TailwindIcon, UbuntuIcon, UnocssIcon, VueIcon } from '@components/icons'
 import Link from '@components/Link'
 import { NoteLink } from '@components/NoteLink'
 import { siteConfig } from '@data'
@@ -28,12 +29,12 @@ function IndexPage({ notes }: IndexProps) {
         }}
       />
       <section className="overflow-hidden">
-        <h1 className="mb-6 text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">{siteConfig.name}</h1>
+        <h1 className="mb-8 text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">{siteConfig.name}</h1>
         <p className="prose prose-slate dark:prose-dark">{siteConfig.about}</p>
         <div className="prose prose-slate dark:prose-dark">
           <p>Tôi đã lựa chọn và tổng hợp những kênh YouTube nổi bật nhất về tâm linh và vũ trụ để chia sẻ với bạn và nhiều người khác.</p>
         </div>
-        <div className="my-6 flex w-full flex-col space-x-0 space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+        <div className="my-8 flex w-full flex-col space-x-0 space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
           <ChannelLink
             imgSrc="https://yt3.googleusercontent.com/1Kux1I5B3eSkURlbMa_OBll_84fYbaufQR4Rt6q9b4-ZNNzcmmpeCUy3sG8DcfhbIi0rdwshqA=s160-c-k-c0x00ffffff-no-rj"
             channelName="BA Universe"
@@ -48,7 +49,7 @@ function IndexPage({ notes }: IndexProps) {
         <div className="prose prose-slate dark:prose-dark">
           <p>Tôi đã tổng hợp và chia sẻ với bạn cũng như nhiều người khác những bài viết nổi bật về tâm linh và vũ trụ.</p>
         </div>
-        <div className="my-6 flex w-full flex-col space-y-4">
+        <div className="my-8 flex w-full flex-col space-y-4">
           {notes.slice(0, 3).map(note => (
             <NoteLink
               key={note.id}
@@ -62,20 +63,106 @@ function IndexPage({ notes }: IndexProps) {
           <p>
             Bảo vệ quyền riêng tư trực tuyến của bạn chưa bao giờ dễ dàng hơn thế! Tôi đang sử dụng:
             {' '}
-            <Link href="https://nextdns.io/?from=wpp35fr3" title="NextDNS">NextDNS</Link>
+            <strong>NextDNS</strong>
             {' '}
             và
             {' '}
-            <Link href="https://github.com/AdguardTeam/AdGuardHome" title="Adguard Home">Adguard Home</Link>
+            <strong>Adguard Home</strong>
             {' '}
             để kiểm soát dữ liệu của mình, chặn theo dõi và duyệt web một cách an toàn.
           </p>
         </div>
-        <div className="my-6 prose prose-slate dark:prose-dark">
+        <div className="my-8 flex h-14 w-full flex-row space-x-2 overflow-x-auto">
+          <Link
+            href="https://nuxt.com/"
+            className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
+            title="Nuxt.js"
+          >
+            <NuxtIcon className="size-6 fill-current" />
+          </Link>
+          <Link
+            href="https://vuejs.org/"
+            className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
+            title="Vue.js"
+          >
+            <VueIcon className="size-6 fill-current" />
+          </Link>
+          <Link
+            href="https://getbootstrap.com/"
+            className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
+            title="Bootstrap CSS"
+          >
+            <BootstrapIcon className="size-6 fill-current" />
+          </Link>
+          <Link
+            href="https://tailwindcss.com/"
+            className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
+            title="TailwindCSS"
+          >
+            <TailwindIcon className="size-6 fill-current" />
+          </Link>
+          <Link
+            href="https://unocss.dev/"
+            className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
+            title="UnoCSS"
+          >
+            <UnocssIcon className="size-6 fill-current" />
+          </Link>
+          <Link
+            href="https://www.figma.com/"
+            className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
+            title="Figma"
+          >
+            <FigmaIcon className="size-6 fill-current" />
+          </Link>
+          <Link
+            href="https://ubuntu.com/"
+            className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
+            title="Ubuntu"
+          >
+            <UbuntuIcon className="size-6 fill-current" />
+          </Link>
+          <Link
+            href="https://www.notion.so/"
+            className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
+            title="Notion"
+          >
+            <NotionIcon className="size-6 fill-current" />
+          </Link>
+          <Link
+            href="https://nextjs.org/"
+            className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
+            title="Next.js"
+          >
+            <NextIcon className="size-6 fill-current" />
+          </Link>
+          <Link
+            href="https://react.dev/"
+            className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
+            title="React.js"
+          >
+            <ReactIcon className="size-6 fill-current" />
+          </Link>
+          <Link
+            href="https://nextdns.io/?from=wpp35fr3"
+            className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
+            title="NextDNS"
+          >
+            <NextDNSIcon className="size-6 fill-current" />
+          </Link>
+          <Link
+            href="https://github.com/AdguardTeam/AdGuardHome"
+            className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
+            title="Adguard Home"
+          >
+            <AdguardIcon className="size-6 fill-current" />
+          </Link>
+        </div>
+        <div className="prose prose-slate dark:prose-dark">
           <p>
             Có thể bạn sẽ thích:
             {' '}
-            <Link href="/notes/40-bi-quyet-de-song-hanh-phuc-va-tang-cuong-nang-luong-tich-cuc" title="40 Bí Quyết Để Sống Hạnh Phúc và Tăng Cường Năng Lượng Tích Cực">40 Bí Quyết Để Sống Hạnh Phúc và Tăng Cường Năng Lượng Tích Cực</Link>
+            <Link href="/articles/chon-may-tinh-phu-hop-cho-cong-viec" title="Chọn Máy Tính Phù Hợp Cho Công Việc">Chọn Máy Tính Phù Hợp Cho Công Việc</Link>
             ,
             {' '}
             <Link href="/articles/my-nextdns-setup" title="My NextDNS Setup">My NextDNS Setup</Link>
@@ -102,8 +189,8 @@ function IndexPage({ notes }: IndexProps) {
 }
 
 export const getStaticProps: GetStaticProps<IndexProps> = async () => {
-  const notes = await notesApi.getNotes()
-  const featuredNotes = notes.filter(note => note.isFeatured)
+  const notesData = await notesApi.getNotes()
+  const featuredNotes = notesData.filter(note => note.isFeatured)
 
   return {
     props: {

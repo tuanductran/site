@@ -11,7 +11,7 @@ export function NoteLink({ slug, title, createdAt }: Props) {
   return (
     <div className="group">
       <Link
-        href={`/notes/${slug}`}
+        href={slug}
         title={title}
         className="flex w-full items-center justify-between bg-slate-50 rounded-lg p-6 dark:bg-slate-800 dark:highlight-white/5"
       >

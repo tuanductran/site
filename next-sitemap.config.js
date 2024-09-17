@@ -3,7 +3,7 @@ module.exports = {
   siteUrl: process.env.NEXT_PUBLIC_URL || 'https://tuanductran.site',
   generateRobotsTxt: true,
   autoLastmod: false,
-  generateIndexSitemap: true,
+  generateIndexSitemap: false,
   changefreq: null,
   priority: null,
   robotsTxtOptions: {

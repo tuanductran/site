@@ -13,7 +13,7 @@ export function NoteLayout({ note, children }: NoteProps) {
       <h1 className="text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">
         {note.title}
       </h1>
-      <div className="flex justify-between items-center my-6 text-sm text-slate-700 dark:text-slate-400">
+      <div className="flex justify-between items-center my-8 text-sm text-slate-700 dark:text-slate-400">
         <p>{note.createdAt}</p>
       </div>
       <Prose>{children}</Prose>
