@@ -7,7 +7,7 @@ const SocialMediaSchema = z.strictObject({
 })
 
 export const siteConfig = z.strictObject({
-  about: z.string(),
+  about: z.any(),
   name: z.string(),
   desc: z.string(),
   siteURL: z.string().startsWith('https://').optional(),
@@ -40,7 +40,7 @@ export const NoteSchema = z.strictObject({
   id: z.string(),
   isFeatured: z.boolean(),
   isPublished: z.boolean(),
-  slug: z.string(),
+  public_url: z.string(),
   tags: z.array(z.string()),
   title: z.string(),
 })

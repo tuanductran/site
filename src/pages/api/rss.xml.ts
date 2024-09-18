@@ -1,5 +1,5 @@
 import { siteConfig } from '@data'
-import { articlesApi, notesApi } from '@db'
+import { articlesApi } from '@db'
 import type { NextApiHandler } from 'next'
 import RSS from 'rss'
 
@@ -20,7 +20,6 @@ const generateRssFeed: NextApiHandler = async (req, res) => {
 
   try {
     const articles = await articlesApi.getArticles()
-    const notes = await notesApi.getNotes()
 
     for (const article of articles) {
       rssFeed.item({
@@ -29,16 +28,6 @@ const generateRssFeed: NextApiHandler = async (req, res) => {
         title: article.title,
         categories: article.tags || [],
         url: `https://tuanductran.site/articles/${article.slug}`,
-      })
-    }
-
-    for (const note of notes) {
-      rssFeed.item({
-        date: note.createdAt,
-        description: note.title,
-        title: note.title,
-        categories: note.tags || [],
-        url: `https://tuanductran.site/notes/${note.slug}`,
       })
     }
 

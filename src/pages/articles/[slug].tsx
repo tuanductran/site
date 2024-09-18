@@ -20,7 +20,7 @@ function ArticlePage({
 }: ArticleProps) {
   const { createdAt, editedAt, slug, title } = article
   const canonicalUrl = `${siteConfig.siteURL}/articles/${slug}`
-  const ogImageUrl = `${siteConfig.siteURL}/api/og?title=${title}`
+  const ogImageUrl = `${siteConfig.siteURL}/api/og?title=${encodeURIComponent(title)}`
 
   useEffect(() => {
     Prism.highlightAll()

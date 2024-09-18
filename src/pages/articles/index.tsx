@@ -21,11 +21,11 @@ function ArticlesPage({ articles }: ArticlesProps) {
         description={seoDescription}
         canonical={`${siteConfig.siteURL}/articles`}
         openGraph={{
-          images: [{ url: `${siteConfig.siteURL}/api/og?title=${`${seoTitle} - ${siteConfig.name}`}` }],
+          images: [{ url: `${siteConfig.siteURL}/api/og?title=${encodeURIComponent(seoTitle)}` }],
         }}
       />
       <section className="overflow-hidden">
-        <h1 className="mb-9 text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">{seoTitle}</h1>
+        <h1 className="mb-6 text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">{seoTitle}</h1>
         {isEmpty && <p className="prose prose-slate dark:prose-dark">Yay, no articles found.</p>}
         {articles.map((articles) => {
           return (

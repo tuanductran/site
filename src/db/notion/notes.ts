@@ -1,10 +1,6 @@
 import { formatDate } from '@lib/date'
-import { slugify } from '@lib/slugify'
 import { Client, isFullPage } from '@notionhq/client'
-import type { BlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
 import type { NotionNote } from '@schema'
-
-import { BlockTypeTransformLookup } from './BlockTypeTransformLookup'
 
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
@@ -23,10 +19,6 @@ class NotesService {
       .sort((a, b) => {
         return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
       })
-  }
-
-  async getNote(id: string) {
-    return this.getPageContent(id)
   }
 
   private getDatabaseContent = async (databaseId: string): Promise<NotionNote[]> => {
@@ -61,10 +53,7 @@ class NotesService {
             'checkbox' in page.properties.public
               ? page.properties.public.checkbox
               : false,
-          slug:
-            'title' in page.properties.title
-              ? slugify(page.properties.title.title[0].plain_text)
-              : '',
+          public_url: page.public_url,
           tags:
             'multi_select' in page.properties.tags
               ? page.properties.tags.multi_select.map(tag => tag.name)
@@ -76,79 +65,6 @@ class NotesService {
         }
       })
       .filter(post => post.isPublished)
-  }
-
-  private getPageContent = async (pageId: string) => {
-    const blocks = await this.getBlocks(pageId)
-
-    const blocksChildren = await Promise.all(
-      blocks.map(async (block) => {
-        const { id } = block
-        const contents = block[block.type as keyof typeof block] as any
-        if (
-          !['unsupported', 'child_page'].includes(block.type)
-          && block.has_children
-        ) {
-          contents.children = await this.getBlocks(id)
-        }
-
-        return block
-      }),
-    )
-
-    return Promise.all(
-      blocksChildren.map(async (block) => {
-        return BlockTypeTransformLookup[block.type](block)
-      }),
-    ).then((blocks) => {
-      return blocks.reduce((acc: any, curr) => {
-        if (curr.type === 'bulleted_list_item') {
-          if (acc[acc.length - 1]?.type === 'bulleted_list') {
-            acc[acc.length - 1][acc[acc.length - 1].type].children?.push(curr)
-          }
-          else {
-            acc.push({
-              type: 'bulleted_list',
-              bulleted_list: { children: [curr] },
-            })
-          }
-        }
-        else if (curr.type === 'numbered_list_item') {
-          if (acc[acc.length - 1]?.type === 'numbered_list') {
-            acc[acc.length - 1][acc[acc.length - 1].type].children?.push(curr)
-          }
-          else {
-            acc.push({
-              type: 'numbered_list',
-              numbered_list: { children: [curr] },
-            })
-          }
-        }
-        else {
-          acc.push(curr)
-        }
-        return acc
-      }, [])
-    })
-  }
-
-  private getBlocks = async (blockId: string) => {
-    const list = await this.notion.blocks.children.list({
-      block_id: blockId,
-    })
-
-    while (list.has_more && list.next_cursor) {
-      const { results, has_more, next_cursor }
-        = await this.notion.blocks.children.list({
-          block_id: blockId,
-          start_cursor: list.next_cursor,
-        })
-      list.results = list.results.concat(results)
-      list.has_more = has_more
-      list.next_cursor = next_cursor
-    }
-
-    return list.results as BlockObjectResponse[]
   }
 }
 
