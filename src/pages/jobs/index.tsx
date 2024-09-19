@@ -34,11 +34,11 @@ interface IssuesProps {
   initialJobs: Issue[]
 }
 
-async function fetchUser(username: string) {
+async function fetchUser(username: string): Promise<User> {
   const { data } = await octokit.rest.users.getByUsername({ username })
   return {
     login: data.login,
-    name: data.name,
+    name: data.name || data.login,
     avatar_url: data.avatar_url,
   }
 }
@@ -59,12 +59,11 @@ function JobsPage({ initialJobs }: IssuesProps) {
   const [page, setPage] = useState(1)
   const [loading, setLoading] = useState(false)
   const [hasMore, setHasMore] = useState(true)
-
   const router = useRouter()
 
-  const handleShareCV = async (e: FormEvent<HTMLFormElement>) => {
+  const handleShareCV = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const userInput = (e.currentTarget.cv.value as string)?.trim().toLowerCase()
+    const userInput = (e.currentTarget.cv.value as string).trim().toLowerCase()
 
     if (userInput === 'y') {
       router.push('/share-cv')
@@ -86,7 +85,7 @@ function JobsPage({ initialJobs }: IssuesProps) {
       const { data: newJobs } = await octokit.rest.issues.listForRepo({
         owner: 'awesome-jobs',
         repo: 'vietnam',
-        per_page: 10,
+        per_page: 3,
         page: page + 1,
       })
 
@@ -138,12 +137,7 @@ function JobsPage({ initialJobs }: IssuesProps) {
         </form>
         <div className="space-y-6">
           {jobs.map(i => (
-            <Link
-              key={i.id}
-              href={i.html_url}
-              className="flex space-x-4"
-              title={i.title}
-            >
+            <Link key={i.id} href={i.html_url} className="flex space-x-4" title={i.title}>
               <div className="flex-shrink-0">
                 <Image
                   src={i.user.avatar_url}
@@ -156,25 +150,23 @@ function JobsPage({ initialJobs }: IssuesProps) {
               </div>
               <div className="flex-grow">
                 <div className="flex space-x-2">
-                  <b className="text-slate-900 dark:text-slate-200">
-                    {i.user.name || i.user.login}
-                  </b>
-                  <time>{formatDate(i.created_at)}</time>
+                  <b className="text-slate-900 dark:text-slate-200">{i.user.name}</b>
+                  <time>{i.created_at}</time>
                 </div>
                 <p className="dark:text-slate-400">{i.title}</p>
               </div>
             </Link>
-          ),
-          )}
+          ))}
         </div>
         {hasMore && (
           <button
             type="button"
             onClick={loadMoreJobs}
             disabled={loading}
-            className={
-              cn('mt-6 py-2 px-4 bg-sky-500 flex-auto shadow text-white rounded-md text-sm font-semibold hover:bg-sky-600 dark:hover:bg-sky-400', loading && 'opacity-50 cursor-not-allowed')
-            }
+            className={cn(
+              'mt-6 py-2 px-4 bg-sky-500 flex-auto shadow text-white rounded-md text-sm font-semibold hover:bg-sky-600 dark:hover:bg-sky-400',
+              loading && 'opacity-50 cursor-not-allowed',
+            )}
           >
             {loading
               ? (
@@ -186,9 +178,7 @@ function JobsPage({ initialJobs }: IssuesProps) {
                     Loading...
                   </span>
                 )
-              : (
-                  'Load More'
-                )}
+              : 'Load More'}
           </button>
         )}
       </section>
@@ -201,7 +191,7 @@ export const getStaticProps: GetStaticProps<IssuesProps> = async () => {
     const { data: jobs } = await octokit.rest.issues.listForRepo({
       owner: 'awesome-jobs',
       repo: 'vietnam',
-      per_page: 10,
+      per_page: 5,
       page: 1,
     })
 
@@ -215,7 +205,7 @@ export const getStaticProps: GetStaticProps<IssuesProps> = async () => {
     }
   }
   catch (error) {
-    toast.error(`Error fetching jobs: ${error}`)
+    console.error(`Error fetching jobs: ${error}`)
     return {
       props: {
         initialJobs: [],
