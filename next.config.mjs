@@ -40,7 +40,9 @@ const nextConfig = {
 }
 
 const millionConfig = {
-  auto: true,
+  mute: true,
+  auto: { rsc: true },
+  rsc: true,
 }
 
 export default million.next(nextConfig, millionConfig)

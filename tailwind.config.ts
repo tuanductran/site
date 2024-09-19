@@ -232,6 +232,9 @@ export default {
       }),
     },
   },
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   plugins: [
     typography,
     tailwindFroms,
