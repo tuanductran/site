@@ -19,6 +19,7 @@
     "@vercel/speed-insights": "^1.0.12",
     "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1",
+    "million": "^3.1.11",
     "next": "15.0.0-rc.0",
     "nprogress": "^0.2.0",
     "plaiceholder": "3.0.0",
