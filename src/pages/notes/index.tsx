@@ -17,7 +17,7 @@ function NotesPage({ notes }: NotesProps) {
   return (
     <>
       <NextSeo
-        title={`${seoTitle} - ${siteConfig.name}`}
+        title={seoTitle}
         description={seoDescription}
         canonical={`${siteConfig.siteURL}/notes`}
         openGraph={{

@@ -17,7 +17,7 @@ function BooksPage({ books }: BooksProps) {
   return (
     <>
       <NextSeo
-        title={`${seoTitle} - ${siteConfig.name}`}
+        title={seoTitle}
         description={seoDescription}
         canonical={`${siteConfig.siteURL}/books`}
         openGraph={{

@@ -17,7 +17,7 @@ function ArticlesPage({ articles }: ArticlesProps) {
   return (
     <>
       <NextSeo
-        title={`${seoTitle} - ${siteConfig.name}`}
+        title={seoTitle}
         description={seoDescription}
         canonical={`${siteConfig.siteURL}/articles`}
         openGraph={{

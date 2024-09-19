@@ -1,3 +1,4 @@
+import withPlaiceholder from '@plaiceholder/next'
 import million from 'million/compiler'
 
 /** @type {import('next').NextConfig} */
@@ -21,6 +22,7 @@ const nextConfig = {
       { hostname: '**.imagekit.io' },
       { hostname: '**.notion.so' },
       { hostname: '**.googleusercontent.com' },
+      { hostname: '**.githubusercontent.com' },
     ],
   },
   async redirects() {
@@ -45,4 +47,4 @@ const millionConfig = {
   rsc: true,
 }
 
-export default million.next(nextConfig, millionConfig)
+export default withPlaiceholder(million.next(nextConfig, millionConfig))

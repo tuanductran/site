@@ -1,5 +1,5 @@
 import { ChannelLink } from '@components/ChannelLink'
-import { AdguardIcon, BootstrapIcon, FigmaIcon, NextDNSIcon, NextIcon, NotionIcon, NuxtIcon, ReactIcon, TailwindIcon, UbuntuIcon, UnocssIcon, VueIcon } from '@components/icons'
+import { AdguardIcon, NextDNSIcon } from '@components/icons'
 import Link from '@components/Link'
 import { NoteLink } from '@components/NoteLink'
 import { siteConfig } from '@data'
@@ -164,76 +164,6 @@ function IndexPage({ notes }: IndexProps) {
           </p>
         </div>
         <div className="my-6 flex h-14 w-full flex-row space-x-2 overflow-x-auto">
-          <Link
-            href="https://nuxt.com/"
-            className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
-            title="Nuxt.js"
-          >
-            <NuxtIcon className="size-6 fill-current" />
-          </Link>
-          <Link
-            href="https://vuejs.org/"
-            className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
-            title="Vue.js"
-          >
-            <VueIcon className="size-6 fill-current" />
-          </Link>
-          <Link
-            href="https://getbootstrap.com/"
-            className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
-            title="Bootstrap CSS"
-          >
-            <BootstrapIcon className="size-6 fill-current" />
-          </Link>
-          <Link
-            href="https://tailwindcss.com/"
-            className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
-            title="TailwindCSS"
-          >
-            <TailwindIcon className="size-6 fill-current" />
-          </Link>
-          <Link
-            href="https://unocss.dev/"
-            className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
-            title="UnoCSS"
-          >
-            <UnocssIcon className="size-6 fill-current" />
-          </Link>
-          <Link
-            href="https://www.figma.com/"
-            className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
-            title="Figma"
-          >
-            <FigmaIcon className="size-6 fill-current" />
-          </Link>
-          <Link
-            href="https://ubuntu.com/"
-            className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
-            title="Ubuntu"
-          >
-            <UbuntuIcon className="size-6 fill-current" />
-          </Link>
-          <Link
-            href="https://www.notion.so/"
-            className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
-            title="Notion"
-          >
-            <NotionIcon className="size-6 fill-current" />
-          </Link>
-          <Link
-            href="https://nextjs.org/"
-            className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
-            title="Next.js"
-          >
-            <NextIcon className="size-6 fill-current" />
-          </Link>
-          <Link
-            href="https://react.dev/"
-            className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
-            title="React.js"
-          >
-            <ReactIcon className="size-6 fill-current" />
-          </Link>
           <Link
             href="https://nextdns.io/?from=wpp35fr3"
             className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"

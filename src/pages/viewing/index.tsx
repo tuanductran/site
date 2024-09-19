@@ -17,7 +17,7 @@ function ViewingPage({ viewing }: ViewingProps) {
   return (
     <>
       <NextSeo
-        title={`${seoTitle} - ${siteConfig.name}`}
+        title={seoTitle}
         description={seoDescription}
         canonical={`${siteConfig.siteURL}/viewing`}
         openGraph={{
