@@ -37,6 +37,11 @@ const nextConfig = {
         destination: '/notes/:slug*',
         permanent: true,
       },
+      {
+        source: '/jobs',
+        destination: 'https://github.com/awesome-jobs/vietnam/issues',
+        permanent: true,
+      },
     ]
   },
 }

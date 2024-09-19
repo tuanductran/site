@@ -10,11 +10,11 @@ const navItems = {
   '/books': {
     name: 'Books',
   },
-  '/jobs': {
-    name: 'Jobs',
-  },
   '/notes': {
     name: 'Notes',
+  },
+  '/share-cv': {
+    name: 'Share CV',
   },
   '/viewing': {
     name: 'Viewing',
