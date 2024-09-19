@@ -6,15 +6,12 @@ interface FormData {
   fullName: string
   email: string
   cvLink: string
+  socialLink: string
+  position: string
 }
 
 export default function CVForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<FormData>()
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>()
 
   const onSubmit = async (data: FormData) => {
     const response = await fetch('/api/submit-cv', {
@@ -31,13 +28,14 @@ export default function CVForm() {
       reset()
     }
     else {
-      toast.error('Error submitting CV')
+      toast.error(result.message || 'Error submitting CV')
     }
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
+        {/* Full Name */}
         <div className="sm:col-span-2">
           <label htmlFor="fullName" className="block mb-2 text-sm font-medium text-slate-900 dark:text-white">
             Full Name
@@ -55,9 +53,10 @@ export default function CVForm() {
           />
           {errors.fullName && <p className="mt-1 text-sm text-red-600">{errors.fullName.message}</p>}
         </div>
+        {/* Email Address */}
         <div className="w-full">
           <label htmlFor="email" className="block mb-2 text-sm font-medium text-slate-900 dark:text-white">
-            Email
+            Email Address
           </label>
           <input
             type="email"
@@ -67,11 +66,12 @@ export default function CVForm() {
               errors.email ? 'border-red-500' : 'border-slate-300',
               'text-slate-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',
             )}
-            placeholder="Email"
-            {...register('email', { required: 'Email is required' })}
+            placeholder="Email Address"
+            {...register('email', { required: 'Email Address is required' })}
           />
           {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>}
         </div>
+        {/* CV Link */}
         <div className="w-full">
           <label htmlFor="cvLink" className="block mb-2 text-sm font-medium text-slate-900 dark:text-white">
             CV Link
@@ -88,6 +88,42 @@ export default function CVForm() {
             {...register('cvLink', { required: 'CV Link is required' })}
           />
           {errors.cvLink && <p className="mt-1 text-sm text-red-600">{errors.cvLink.message}</p>}
+        </div>
+        {/* Social Link */}
+        <div className="w-full">
+          <label htmlFor="socialLink" className="block mb-2 text-sm font-medium text-slate-900 dark:text-white">
+            Social Link
+          </label>
+          <input
+            type="url"
+            id="socialLink"
+            className={cn(
+              'bg-slate-50 border',
+              errors.socialLink ? 'border-red-500' : 'border-slate-300',
+              'text-slate-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',
+            )}
+            placeholder="Social Link"
+            {...register('socialLink', { required: 'Social Link is required' })}
+          />
+          {errors.socialLink && <p className="mt-1 text-sm text-red-600">{errors.socialLink.message}</p>}
+        </div>
+        {/* Position Applying For */}
+        <div className="w-full">
+          <label htmlFor="position" className="block mb-2 text-sm font-medium text-slate-900 dark:text-white">
+            Position Applying For
+          </label>
+          <input
+            type="text"
+            id="position"
+            className={cn(
+              'bg-slate-50 border',
+              errors.position ? 'border-red-500' : 'border-slate-300',
+              'text-slate-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',
+            )}
+            placeholder="Position Applying For"
+            {...register('position', { required: 'Position is required' })}
+          />
+          {errors.position && <p className="mt-1 text-sm text-red-600">{errors.position.message}</p>}
         </div>
       </div>
       <button

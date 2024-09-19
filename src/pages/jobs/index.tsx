@@ -100,7 +100,7 @@ function JobsPage({ initialJobs }: IssuesProps) {
       }
     }
     catch (error) {
-      toast.error('Error fetching more jobs:', error)
+      toast.error(`Error fetching more jobs: ${error}`)
     }
     finally {
       setLoading(false)
@@ -215,7 +215,7 @@ export const getStaticProps: GetStaticProps<IssuesProps> = async () => {
     }
   }
   catch (error) {
-    toast.error('Error fetching jobs:', error)
+    toast.error(`Error fetching jobs: ${error}`)
     return {
       props: {
         initialJobs: [],

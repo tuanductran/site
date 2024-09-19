@@ -5,13 +5,15 @@ interface FormData {
   fullName: string
   email: string
   cvLink: string
+  socialLink: string
+  position: string
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     const notion = new Client({ auth: process.env.CV_NOTION_TOKEN })
 
-    const { fullName, email, cvLink }: FormData = req.body
+    const { fullName, email, cvLink, socialLink, position }: FormData = req.body
 
     try {
       await notion.pages.create({
@@ -21,11 +23,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         properties: {
           'Full Name': {
             title: [
-              {
-                text: {
-                  content: fullName,
-                },
-              },
+              { text: { content: fullName } },
             ],
           },
           'Email': {
@@ -33,6 +31,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           },
           'CV Link': {
             url: cvLink,
+          },
+          'Social Link': {
+            url: socialLink,
+          },
+          'Position': {
+            rich_text: [
+              { text: { content: position } },
+            ],
           },
         },
       })
