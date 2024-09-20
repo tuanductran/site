@@ -7,6 +7,8 @@ import { Toaster } from 'react-hot-toast'
 
 import { Navbar } from './components/Navbar'
 
+const ogImageDefault = `${siteConfig.siteURL}/og?title=${siteConfig.name}`
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteURL),
   title: {
@@ -21,6 +23,11 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     locale: 'en_US',
     type: 'website',
+    images: [
+        {
+          url: ogImageDefault,
+        },
+      ],
   },
   robots: {
     index: true,
@@ -35,6 +42,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     title: siteConfig.name,
+    description: siteConfig.desc,
+    images: [ogImageDefault],
     card: 'summary_large_image',
   },
 }
