@@ -1,1 +1,0 @@
-export { ArticlesLayout } from './ArticlesLayout'
