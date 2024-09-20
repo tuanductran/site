@@ -128,19 +128,29 @@ export function NotionBlockRenderer({ block }: NotionBlockProps) {
       const header = value.children[0].table_row.cells
       const body = value.children.slice(value.has_column_header ? 1 : 0)
       return (
-        <div className="relative overflow-x-auto sm:rounded-lg">
-          <table className="w-full text-sm text-left text-slate-500 dark:text-slate-400">
-            <thead className="text-xs text-slate-700 uppercase bg-slate-50 dark:bg-slate-700 dark:text-slate-400">
+        <div className="overflow-x-auto max-w-screen">
+          <table>
+            <thead>
               <tr>
                 { header.map((cell: TableRowBlockObjectResponse) => {
-                  const { plain_text } = cell[0]
+                  const {
+                    annotations: { bold, color, italic, strikethrough, underline },
+                    plain_text,
+                    href,
+                  } = cell[0]
                   return (
                     <th
                       key={plain_text}
                       scope="col"
-                      className="px-6 py-3"
+                      className={cn({
+                        'font-bold': bold,
+                        italic,
+                        'line-through': strikethrough,
+                        underline,
+                      })}
+                      style={color === 'default' ? {} : { color }}
                     >
-                      {plain_text}
+                      {href ? <Link href={href}>{plain_text}</Link> : plain_text}
                     </th>
                   )
                 })}
@@ -148,14 +158,24 @@ export function NotionBlockRenderer({ block }: NotionBlockProps) {
             </thead>
             <tbody>
               {body.map((row: TableRowBlockObjectResponse) => (
-                <tr key={row.id} className="bg-white border-b dark:bg-slate-800 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-600">
+                <tr key={row.id}>
                   {row.table_row.cells.map((cell: RichTextItemResponse[]) => {
-                    const { plain_text, href } = cell[0]
+                    const {
+                      annotations: { bold, color, italic, strikethrough, underline },
+                      plain_text,
+                      href,
+                    } = cell[0]
                     return (
                       <td
                         key={plain_text}
                         scope="row"
-                        className="px-6 py-4"
+                        className={cn({
+                          'font-bold': bold,
+                          italic,
+                          'line-through': strikethrough,
+                          underline,
+                        })}
+                        style={color === 'default' ? {} : { color }}
                       >
                         {href ? <Link href={href}>{plain_text}</Link> : plain_text}
                       </td>

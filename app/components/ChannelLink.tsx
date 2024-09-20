@@ -1,6 +1,5 @@
-import Image from 'next/image'
-
 import { ArrowIcon } from './icons'
+import Image from './Image'
 import Link from './Link'
 
 interface Props {
