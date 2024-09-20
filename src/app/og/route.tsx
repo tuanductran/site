@@ -7,7 +7,7 @@ const font = fetch(new URL('./Inter-SemiBold.otf', import.meta.url)).then(res =>
   res.arrayBuffer(),
 )
 
-export default async function GET(req: NextRequest) {
+export async function GET(req: NextRequest) {
   const inter = await font
 
   const { searchParams } = req.nextUrl
