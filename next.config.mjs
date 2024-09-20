@@ -1,11 +1,7 @@
-import withPlaiceholder from '@plaiceholder/next'
 import million from 'million/compiler'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    largePageDataBytes: 800 * 1000,
-  },
   images: {
     contentSecurityPolicy: 'default-src \'self\'; script-src \'none\'; sandbox;',
     dangerouslyAllowSVG: true,
@@ -52,4 +48,4 @@ const millionConfig = {
   rsc: true,
 }
 
-export default withPlaiceholder(million.next(nextConfig, millionConfig))
+export default million.next(nextConfig, millionConfig)

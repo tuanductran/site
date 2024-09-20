@@ -238,11 +238,5 @@ export default {
   plugins: [
     typography,
     tailwindFroms,
-    function ({ addVariant }) {
-      addVariant('supports-scrollbars', '@supports selector(::-webkit-scrollbar)')
-      addVariant('scrollbar', '&::-webkit-scrollbar')
-      addVariant('scrollbar-track', '&::-webkit-scrollbar-track')
-      addVariant('scrollbar-thumb', '&::-webkit-scrollbar-thumb')
-    },
   ],
 } satisfies Config
