@@ -7,8 +7,6 @@ import { Toaster } from 'react-hot-toast'
 
 import { Navbar } from './components/Navbar'
 
-const ogImageDefault = `${siteConfig.siteURL}/og?title=${siteConfig.name}`
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteURL),
   title: {
@@ -24,10 +22,10 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
     images: [
-        {
-          url: ogImageDefault,
-        },
-      ],
+      {
+        url: `${siteConfig.siteURL}/og?title=${siteConfig.name}`,
+      },
+    ],
   },
   robots: {
     index: true,
@@ -43,7 +41,7 @@ export const metadata: Metadata = {
   twitter: {
     title: siteConfig.name,
     description: siteConfig.desc,
-    images: [ogImageDefault],
+    images: [`${siteConfig.siteURL}/og?title=${siteConfig.name}`],
     card: 'summary_large_image',
   },
 }
@@ -56,12 +54,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-         <link rel="shortcut icon" href="/favicon/CA0E67E9-AAD0-4D36-82D8-674C7504DFD1.jpg" />
+        <link rel="shortcut icon" href="/favicon/CA0E67E9-AAD0-4D36-82D8-674C7504DFD1.jpg" />
       </head>
       <body className="antialiased text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900">
         <Toaster />
-        <div className="max-w-3xl mb-20 sm:mb-32 md:mb-40 flex flex-col mx-auto">
-          <main className="flex-1 max-w-7xl flex flex-col px-4 sm:px-6 md:px-8">
+        <div className="container max-w-3xl mb-20 sm:mb-32 md:mb-40 flex flex-col mx-auto">
+          <main className="flex-1 flex flex-col px-4 sm:px-6 md:px-8">
             <Navbar />
             {children}
           </main>

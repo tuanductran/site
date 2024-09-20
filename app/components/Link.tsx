@@ -6,7 +6,7 @@ interface CustomLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> 
 
 const CustomLink: React.FC<CustomLinkProps> = ({ href, children, ...rest }) => {
   const isInternalLink = href.startsWith('/')
-  const isAnchorLink = href?.startsWith('#')
+  const isAnchorLink = href.startsWith('#')
 
   if (isInternalLink) {
     return (

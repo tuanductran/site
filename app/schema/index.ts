@@ -6,14 +6,18 @@ const SocialMediaSchema = z.strictObject({
   name: z.string(),
 })
 
+export const NavItemSchema = z.strictObject({
+  href: z.string(),
+  name: z.string(),
+})
+
 export const siteConfig = z.strictObject({
   about: z.any(),
   name: z.string(),
   desc: z.string(),
   siteURL: z.string(),
   socialMedia: z.array(SocialMediaSchema),
-  subName: z.string(),
-  totalPosts: z.number().min(5).int(),
+  navItems: z.array(NavItemSchema),
 })
 
 export const ArticleSchema = z.strictObject({
@@ -22,7 +26,6 @@ export const ArticleSchema = z.strictObject({
   id: z.string(),
   isPublished: z.boolean(),
   slug: z.string(),
-  tags: z.array(z.string()),
   title: z.string(),
 })
 
@@ -30,7 +33,6 @@ export const BooksSchema = z.strictObject({
   createdAt: z.string(),
   id: z.string(),
   public_url: z.string(),
-  tags: z.array(z.string()),
   title: z.string(),
 })
 
@@ -41,14 +43,12 @@ export const NoteSchema = z.strictObject({
   isFeatured: z.boolean(),
   isPublished: z.boolean(),
   slug: z.string(),
-  tags: z.array(z.string()),
   title: z.string(),
 })
 
 export const ViewingSchema = z.strictObject({
   createdAt: z.string(),
   id: z.string(),
-  tags: z.array(z.string()),
   title: z.string(),
   url: z.string(),
 })

@@ -8,7 +8,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "paths": {
-      "@*": ["./src/app/*"]
+      "@*": ["./app/*"]
     },
     "resolveJsonModule": true,
     "allowJs": true,

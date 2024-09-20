@@ -1,5 +1,5 @@
 import { ChannelLink } from '@components/ChannelLink'
-import { AdguardIcon, NextDNSIcon } from '@components/icons'
+import { BootstrapIcon, FigmaIcon, NuxtIcon, TailwindIcon, VueIcon } from '@components/icons'
 import Link from '@components/Link'
 import { NoteLink } from '@components/NoteLink'
 import { siteConfig } from '@data'
@@ -150,18 +150,39 @@ export default async function Page() {
       </div>
       <div className="my-6 flex h-14 w-full flex-row space-x-2 overflow-x-auto">
         <Link
-          href="https://nextdns.io/?from=wpp35fr3"
+          href="https://vuejs.org/"
           className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
-          title="NextDNS"
+          title="Vue.js"
         >
-          <NextDNSIcon className="size-6 fill-current" />
+          <VueIcon className="size-6 fill-current" />
         </Link>
         <Link
-          href="https://github.com/AdguardTeam/AdGuardHome"
+          href="https://nuxt.com/"
           className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
-          title="Adguard Home"
+          title="Nuxt.js"
         >
-          <AdguardIcon className="size-6 fill-current" />
+          <NuxtIcon className="size-6 fill-current" />
+        </Link>
+        <Link
+          href="https://figma.com/"
+          className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
+          title="Figma"
+        >
+          <FigmaIcon className="size-6 fill-current" />
+        </Link>
+        <Link
+          href="https://tailwindcss.com/"
+          className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
+          title="Tailwind CSS"
+        >
+          <TailwindIcon className="size-6 fill-current" />
+        </Link>
+        <Link
+          href="https://getbootstrap.com/"
+          className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
+          title="Bootstrap CSS"
+        >
+          <BootstrapIcon className="size-6 fill-current" />
         </Link>
       </div>
       <div className="prose prose-slate dark:prose-dark">

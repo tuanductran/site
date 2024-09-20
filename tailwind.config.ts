@@ -4,24 +4,8 @@ import type { Config } from 'tailwindcss'
 
 export default {
   darkMode: 'media',
-  content: ['./src/**/*.{tsx,jsx,ts,js}'],
+  content: ['./app/**/*.{tsx,ts}'],
   theme: {
-    screens: {
-      'sm': '640px',
-      'md': '768px',
-      'lg': '1024px',
-      'xl': '1280px',
-      '2xl': '1536px',
-    },
-    aspectRatio: {
-      auto: 'auto',
-      square: '1 / 1',
-      video: '16 / 9',
-      ...Array.from({ length: 16 }, (_, i) => i + 1).reduce((acc, n) => {
-        acc[n] = n.toString()
-        return acc
-      }, {}),
-    },
     extend: {
       colors: {
         code: {

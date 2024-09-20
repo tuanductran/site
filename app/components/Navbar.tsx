@@ -1,40 +1,21 @@
-import Link from './Link'
+import { siteConfig } from '@data'
 
-const navItems = {
-  '/': {
-    name: 'Home',
-  },
-  '/articles': {
-    name: 'Articles',
-  },
-  '/books': {
-    name: 'Books',
-  },
-  '/notes': {
-    name: 'Notes',
-  },
-  '/share-cv': {
-    name: 'Share CV',
-  },
-  '/viewing': {
-    name: 'Viewing',
-  },
-}
+import Link from './Link'
 
 export function Navbar() {
   return (
     <header className="py-6 lg:py-8" role="banner">
       <nav className="flex flex-row items-start relative overflow-x-auto" role="navigation">
         <div className="flex flex-row space-x-4">
-          {Object.entries(navItems).map(([path, { name }]) => {
+          {siteConfig.navItems.map((i) => {
             return (
               <Link
-                key={path}
-                href={path}
-                title={name}
+                key={i.href}
+                href={i.href}
+                title={i.name}
                 className="text-slate-700 font-semibold text-sm leading-6 dark:text-slate-200 flex align-middle relative hover:text-sky-500 dark:hover:text-sky-400"
               >
-                {name}
+                {i.name}
               </Link>
             )
           })}

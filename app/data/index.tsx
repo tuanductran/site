@@ -52,6 +52,12 @@ export const siteConfig: siteMetadata = {
       icon: LinkedInIcon,
     },
   ],
-  subName: 'UI Designer',
-  totalPosts: 6,
+  navItems: [
+    { href: '/', name: 'Home' },
+    { href: '/articles', name: 'Articles' },
+    { href: '/books', name: 'Books' },
+    { href: '/notes', name: 'Notes' },
+    { href: '/share-cv', name: 'Share CV' },
+    { href: '/viewing', name: 'Viewing' },
+  ],
 }

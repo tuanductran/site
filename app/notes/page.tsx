@@ -12,6 +12,7 @@ export const metadata = {
 export default async function Notes() {
   const notes = await notesApi.getNotes()
   const isEmpty = notes.length === 0
+
   return (
     <section>
       <h1 className="mb-6 text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">{seoTitle}</h1>

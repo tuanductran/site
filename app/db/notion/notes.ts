@@ -65,10 +65,6 @@ class NotesService {
             'title' in page.properties.title
               ? slugify(page.properties.title.title[0].plain_text)
               : '',
-          tags:
-            'multi_select' in page.properties.tags
-              ? page.properties.tags.multi_select.map(tag => tag.name)
-              : [],
           title:
             'title' in page.properties.title
               ? page.properties.title.title[0].plain_text

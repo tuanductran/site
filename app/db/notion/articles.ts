@@ -61,10 +61,6 @@ class ArticlesService {
             'title' in page.properties.Title
               ? slugify(page.properties.Title.title[0].plain_text)
               : '',
-          tags:
-            'multi_select' in page.properties.Tags
-              ? page.properties.Tags.multi_select.map(tag => tag.name)
-              : [],
           title:
             'title' in page.properties.Title
               ? page.properties.Title.title[0].plain_text
