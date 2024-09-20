@@ -1,6 +1,6 @@
 import CVForm from '@components/cvForm'
 
-const seoTitle = 'Share Your CV - Impress Employers'
+const seoTitle = 'Share Your CV'
 const seoDescription = 'Easily and quickly share your CV to stand out to potential employers.'
 
 export const metadata = {
