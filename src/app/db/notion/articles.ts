@@ -25,19 +25,6 @@ class ArticlesService {
       })
   }
 
-  async getPaginatedArticles(page: number = 1, limit: number = 10) {
-    const articles = await this.getDatabaseContent(this.databaseId)
-
-    const startIndex = (page - 1) * limit
-    const paginatedArticles = articles.slice(startIndex, startIndex + limit)
-
-    return {
-      articles: paginatedArticles,
-      currentPage: page,
-      totalPages: Math.ceil(articles.length / limit),
-    }
-  }
-
   async getArticle(id: string) {
     return this.getPageContent(id)
   }
