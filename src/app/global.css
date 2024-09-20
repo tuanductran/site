@@ -11,11 +11,13 @@
   @apply !my-5;
 }
 
-pre::-webkit-scrollbar {
+pre::-webkit-scrollbar,
+.hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
-pre {
+pre,
+.hide-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
