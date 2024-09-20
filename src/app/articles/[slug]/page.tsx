@@ -27,7 +27,7 @@ export async function generateMetadata({
   } = post
 
   const canonicalUrl = `${siteConfig.siteURL}/articles/${slug}`
-  const ogImageUrl = `${siteConfig.siteURL}/api/og?title=${title}`
+  const ogImageUrl = `${siteConfig.siteURL}/og?title=${title}`
 
   return {
     title,
