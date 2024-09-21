@@ -11,11 +11,9 @@ export const metadata = {
 export default function ShareCV() {
   return (
     <section>
-      <h1 className="mb-4 text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">{seoTitle}</h1>
-      <p className="prose prose-slate dark:prose-dark">{seoDescription}</p>
-      <div className="mx-auto">
-        <CVForm />
-      </div>
+      <h1 className="text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">{seoTitle}</h1>
+      <p className="my-4 prose prose-slate dark:prose-dark">{seoDescription}</p>
+      <CVForm />
     </section>
   )
 }
