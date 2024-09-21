@@ -65,7 +65,7 @@ export default async function Article({ params }) {
   const articleContent = await articlesApi.getArticle(article.id)
 
   const canonicalUrl = `${siteConfig.siteURL}/articles/${article.slug}`
-  const ogImageUrl = `${siteConfig.siteURL}/api/og?title=${article.title}`
+  const ogImageUrl = `${siteConfig.siteURL}/og?title=${article.title}`
 
   return (
     <section>
