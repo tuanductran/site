@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 import { Toaster } from 'react-hot-toast'
 
+import LoadingBar from './components/LoadingBar'
 import { Navbar } from './components/Navbar'
 
 export const metadata: Metadata = {
@@ -57,6 +58,7 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon/CA0E67E9-AAD0-4D36-82D8-674C7504DFD1.jpg" />
       </head>
       <body className="antialiased text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900">
+        <LoadingBar />
         <Toaster />
         <div className="container max-w-3xl mb-20 sm:mb-32 md:mb-40 flex flex-col mx-auto">
           <main className="flex-1 flex flex-col px-4 sm:px-6 md:px-8">

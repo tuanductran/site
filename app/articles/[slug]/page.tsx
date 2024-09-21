@@ -92,7 +92,7 @@ export default async function Article({ params }) {
       <h1 className="text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">
         {article.title}
       </h1>
-      <div className="flex justify-between items-center my-6">
+      <div className="flex justify-between items-center my-4">
         <Suspense fallback={<p className="h-5" />}>
           <p className="text-sm text-slate-700 dark:text-slate-400">
             {formatDate(article.createdAt)}

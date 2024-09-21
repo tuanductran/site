@@ -2,7 +2,7 @@ import { z } from 'zod'
 
 const SocialMediaSchema = z.strictObject({
   icon: z.any(),
-  link: z.string().startsWith('https://').optional(),
+  link: z.string(),
   name: z.string(),
 })
 

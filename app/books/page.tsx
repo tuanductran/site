@@ -14,7 +14,7 @@ export default async function Books() {
   const isEmpty = books.length === 0
   return (
     <section>
-      <h1 className="mb-6 text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">{seoTitle}</h1>
+      <h1 className="mb-4 text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">{seoTitle}</h1>
       {isEmpty && <p className="prose prose-slate dark:prose-dark">Yay, no books found.</p>}
       {books.map((books) => {
         return (

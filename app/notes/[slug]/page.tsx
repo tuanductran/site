@@ -90,7 +90,7 @@ export default async function Note({ params }) {
       <h1 className="text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">
         {note.title}
       </h1>
-      <div className="flex justify-between items-center my-6 text-sm text-slate-700 dark:text-slate-400">
+      <div className="flex justify-between items-center my-4 text-sm text-slate-700 dark:text-slate-400">
         <Suspense fallback={<p className="h-5" />}>
           <p>
             {formatDate(note.createdAt)}

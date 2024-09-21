@@ -1,25 +1,20 @@
-import million from 'million/compiler'
+import withPlaiceholder from '@plaiceholder/next'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    ppr: true,
+  },
   images: {
-    contentSecurityPolicy: 'default-src \'self\'; script-src \'none\'; sandbox;',
-    dangerouslyAllowSVG: true,
-    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       { hostname: '**.amazonaws.com' },
-      { hostname: '**.placeholder.com' },
-      { hostname: '**.unsplash.com' },
-      { hostname: '**.twimg.com' },
-      { hostname: '**.cloudfront.net' },
-      { hostname: '**.hashnode.com' },
-      { hostname: '**.craft.do' },
-      { hostname: '**.cloudinary.com' },
       { hostname: '**.imagekit.io' },
       { hostname: '**.notion.so' },
       { hostname: '**.googleusercontent.com' },
-      { hostname: '**.githubusercontent.com' },
     ],
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: 'default-src \'self\'; script-src \'none\'; sandbox;',
+    formats: ['image/avif', 'image/webp'],
   },
   async redirects() {
     return [
@@ -42,10 +37,4 @@ const nextConfig = {
   },
 }
 
-const millionConfig = {
-  mute: true,
-  auto: { rsc: true },
-  rsc: true,
-}
-
-export default million.next(nextConfig, millionConfig)
+export default withPlaiceholder(nextConfig)

@@ -34,6 +34,15 @@ input[type='email'] {
   @apply !m-0;
 }
 
+/* Progress indicator styling */
+#nprogress {
+  @apply pointer-events-none;
+}
+
+#nprogress .bar {
+  @apply bg-sky-500 dark:bg-sky-400 opacity-75 fixed z-[999] top-0 left-0 w-full h-[2px];
+}
+
 .max-w-screen {
   max-width: 100vw;
 }
@@ -58,40 +67,28 @@ input[type='email'] {
 
 .token.attr-value,
 .token.class,
-.token.string {
+.token.string,
+.token.attr-value *,
+.token.property {
   @apply text-sky-300;
 }
 
 .token.punctuation,
-.token.attr-equals {
-  @apply text-slate-500;
-}
-
-.token.attr-value * {
-  @apply text-sky-300;
-}
-
+.token.attr-equals,
 .token.attr-value .attr-equals,
 .token.attr-value .attr-equals + .punctuation,
 .token.attr-value > .punctuation:last-child {
   @apply text-slate-500;
 }
 
-.token.property {
-  @apply text-sky-300;
-}
-
-.token.unit {
+.token.unit,
+.language-css .token.function {
   @apply text-teal-200;
 }
 
 .language-shell .token:not(.comment),
 .token.atapply .token:not(.rule):not(.important):not(.punctuation) {
   color: inherit;
-}
-
-.language-css .token.function {
-  @apply text-teal-200;
 }
 
 .token.comment,
