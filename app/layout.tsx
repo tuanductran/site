@@ -1,6 +1,5 @@
 import './global.css'
 import { siteConfig } from '@data'
-import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import { Toaster } from 'react-hot-toast'
@@ -66,7 +65,6 @@ export default function RootLayout({
             {children}
           </main>
         </div>
-        <SpeedInsights />
         <Script
           src="https://cloud.umami.is/script.js"
           data-website-id="965f3c0e-5020-4994-8926-fe09d69bb199"
