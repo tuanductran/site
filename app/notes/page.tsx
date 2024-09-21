@@ -15,7 +15,7 @@ export default async function Notes() {
 
   return (
     <section>
-      <h1 className="mb-4 text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">{seoTitle}</h1>
+      <h1 className="mb-8 text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">{seoTitle}</h1>
       {isEmpty && <p className="prose prose-slate dark:prose-dark">Yay, no notes found.</p>}
       {notes.map((notes) => {
         return (

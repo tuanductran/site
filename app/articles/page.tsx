@@ -17,7 +17,7 @@ export default async function ArticlesPage() {
   const isEmpty = articles.length === 0
   return (
     <section>
-      <h1 className="mb-4 text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">{seoTitle}</h1>
+      <h1 className="mb-8 text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">{seoTitle}</h1>
       {isEmpty && <p className="prose prose-slate dark:prose-dark">Yay, no articles found.</p>}
       {articles.map((articles) => {
         return (

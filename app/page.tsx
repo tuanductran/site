@@ -11,10 +11,10 @@ export default async function Page() {
   const featuredNotes = notes.filter(note => note.isFeatured)
   return (
     <section>
-      <h1 className="mb-4 text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">{siteConfig.name}</h1>
+      <h1 className="mb-8 text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">{siteConfig.name}</h1>
       <p className="prose prose-slate dark:prose-dark">{siteConfig.about}</p>
-      <div className="my-4">
-        <div className="hide-scrollbar -my-4 flex gap-8 overflow-y-auto py-4 px-8">
+      <div className="my-8">
+        <div className="hide-scrollbar -my-8 flex gap-8 overflow-y-auto py-4 px-8">
           <div className="relative aspect-[9/10] w-44 sm:w-72 flex-none overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800 rotate-2">
             <Image
               alt="Tự chữa lành - thông qua hiểu biết về khoa học tâm thức"
@@ -110,7 +110,7 @@ export default async function Page() {
       <div className="prose prose-slate dark:prose-dark">
         <p>Tôi đã lựa chọn và tổng hợp những kênh YouTube nổi bật nhất về tâm linh và vũ trụ để chia sẻ với bạn và nhiều người khác.</p>
       </div>
-      <div className="my-4 flex w-full flex-col space-x-0 space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+      <div className="my-8 flex w-full flex-col space-x-0 space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
         <ChannelLink
           imgSrc="https://yt3.googleusercontent.com/1Kux1I5B3eSkURlbMa_OBll_84fYbaufQR4Rt6q9b4-ZNNzcmmpeCUy3sG8DcfhbIi0rdwshqA=s160-c-k-c0x00ffffff-no-rj"
           channelName="BA Universe"
@@ -125,7 +125,7 @@ export default async function Page() {
       <div className="prose prose-slate dark:prose-dark">
         <p>Tôi đã tổng hợp và chia sẻ với bạn cũng như nhiều người khác những bài viết nổi bật về tâm linh và vũ trụ.</p>
       </div>
-      <div className="my-4 flex w-full flex-col space-y-4">
+      <div className="my-8 flex w-full flex-col space-y-4">
         {featuredNotes.slice(0, 3).map(note => (
           <NoteLink
             key={note.id}
@@ -148,7 +148,7 @@ export default async function Page() {
           để kiểm soát dữ liệu của mình, chặn theo dõi và duyệt web một cách an toàn.
         </p>
       </div>
-      <div className="my-4 flex h-14 w-full flex-row space-x-2 overflow-x-auto">
+      <div className="my-8 flex h-14 w-full flex-row space-x-2 overflow-x-auto">
         <Link
           href="https://vuejs.org/"
           className="flex items-center justify-between rounded-lg bg-slate-50 dark:bg-slate-800 dark:highlight-white/5 px-3 py-4"
