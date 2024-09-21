@@ -25,7 +25,7 @@ export async function generateMetadata({
   } = post
 
   const canonicalUrl = `${siteConfig.siteURL}/notes/${slug}`
-  const ogImageUrl = `${siteConfig.siteURL}/api/og?title=${title}`
+  const ogImageUrl = `${siteConfig.siteURL}/og?title=${title}`
 
   return {
     title,
@@ -63,7 +63,7 @@ export default async function Note({ params }) {
   const noteContent = await notesApi.getNote(note.id)
 
   const canonicalUrl = `${siteConfig.siteURL}/notes/${note.slug}`
-  const ogImageUrl = `${siteConfig.siteURL}/api/og?title=${note.title}`
+  const ogImageUrl = `${siteConfig.siteURL}/og?title=${note.title}`
 
   return (
     <section>
