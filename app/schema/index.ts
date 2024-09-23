@@ -27,6 +27,7 @@ export const ArticleSchema = z.strictObject({
   isPublished: z.boolean(),
   slug: z.string(),
   title: z.string(),
+  description: z.string(),
 })
 
 export const BooksSchema = z.strictObject({

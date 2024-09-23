@@ -65,6 +65,10 @@ class ArticlesService {
             'title' in page.properties.Title
               ? page.properties.Title.title[0].plain_text
               : '',
+          description:
+            'rich_text' in page.properties.Description
+              ? page.properties.Description.rich_text[0].plain_text
+              : '',
         }
       })
       .filter(p => p.isPublished)
