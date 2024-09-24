@@ -1,6 +1,5 @@
 import Link from '@components/Link'
 import { articlesApi, getViewsCount } from '@db'
-import { Suspense } from 'react'
 
 import ViewCounter from './view-counter'
 
@@ -31,9 +30,7 @@ export default async function ArticlesPage() {
               <h3 className="text-base font-semibold tracking-tight text-slate-900 dark:text-slate-200 line-clamp-1">
                 {articles.title}
               </h3>
-              <Suspense fallback={<p className="h-6" />}>
-                <Views slug={articles.slug} />
-              </Suspense>
+              <Views slug={articles.slug} />
             </div>
           </Link>
         )

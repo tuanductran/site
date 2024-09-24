@@ -6,7 +6,6 @@ import { formatDate } from '@lib/date'
 import type { BlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { Suspense } from 'react'
 
 export async function generateMetadata({
   params,
@@ -90,12 +89,10 @@ export default async function Note({ params }) {
       <h1 className="text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">
         {note.title}
       </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm text-slate-700 dark:text-slate-400">
-        <Suspense fallback={<p className="h-5" />}>
-          <p>
-            {formatDate(note.createdAt)}
-          </p>
-        </Suspense>
+      <div className="flex justify-between items-center mt-2 mb-8">
+        <p className="text-sm text-slate-700 dark:text-slate-400">
+          {formatDate(note.createdAt)}
+        </p>
       </div>
       <Prose>
         {noteContent.map((block: BlockObjectResponse) => (

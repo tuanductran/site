@@ -93,14 +93,10 @@ export default async function Article({ params }) {
         {article.title}
       </h1>
       <div className="flex justify-between items-center mt-2 mb-8">
-        <Suspense fallback={<p className="h-5" />}>
-          <p className="text-sm text-slate-700 dark:text-slate-400">
-            {formatDate(article.createdAt)}
-          </p>
-        </Suspense>
-        <Suspense fallback={<p className="h-5" />}>
-          <Views slug={article.slug} />
-        </Suspense>
+        <p className="text-sm text-slate-700 dark:text-slate-400">
+          {formatDate(article.createdAt)}
+        </p>
+        <Views slug={article.slug} />
       </div>
       <Prose>
         {articleContent.map((block: BlockObjectResponse) => (

@@ -2,6 +2,7 @@ import './global.css'
 import { siteConfig } from '@data'
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import type { ReactNode } from 'react'
 import { Toaster } from 'react-hot-toast'
 
 import LoadingBar from './components/LoadingBar'
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: ReactNode
 }) {
   return (
     <html lang="en">
