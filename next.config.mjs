@@ -2,9 +2,6 @@ import withPlaiceholder from '@plaiceholder/next'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    useLightningcss: true,
-  },
   images: {
     remotePatterns: [
       { hostname: '**.amazonaws.com' },
