@@ -51,8 +51,8 @@ class BooksService {
               ? page.properties.Title.title[0].plain_text
               : '',
           description:
-              'rich_text' in page.properties.description
-                ? page.properties.description.rich_text[0].plain_text
+              'rich_text' in page.properties.Description
+                ? page.properties.Description.rich_text[0].plain_text
                 : '',
         }
       })
