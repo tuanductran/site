@@ -10,6 +10,8 @@ import { Toaster } from 'react-hot-toast'
 
 import ThemeProvider from './theme-provider'
 
+export const runtime = 'edge'
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteURL),
   title: {
