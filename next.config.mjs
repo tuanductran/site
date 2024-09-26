@@ -2,9 +2,6 @@ import withPlaiceholder from '@plaiceholder/next'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    ppr: true,
-  },
   images: {
     remotePatterns: [
       { hostname: '**.amazonaws.com' },
@@ -31,6 +28,11 @@ const nextConfig = {
       {
         source: '/jobs',
         destination: 'https://github.com/awesome-jobs/vietnam/issues',
+        permanent: true,
+      },
+      {
+        source: '/viewing',
+        destination: 'https://tuanducdev.notion.site/83127584ff9040b18e8bcecbc8c0cc23?v=8cb62ccd290b45fda3c743795f5c5d09&pvs=4',
         permanent: true,
       },
     ]
