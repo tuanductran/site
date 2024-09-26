@@ -47,15 +47,7 @@ export const NoteSchema = z.strictObject({
   title: z.string(),
 })
 
-export const ViewingSchema = z.strictObject({
-  createdAt: z.string(),
-  id: z.string(),
-  title: z.string(),
-  url: z.string(),
-})
-
 export type siteMetadata = z.infer<typeof siteConfig>
 export type NotionArticle = z.infer<typeof ArticleSchema>
 export type NotionBooks = z.infer<typeof BooksSchema>
 export type NotionNote = z.infer<typeof NoteSchema>
-export type NotionViewing = z.infer<typeof ViewingSchema>

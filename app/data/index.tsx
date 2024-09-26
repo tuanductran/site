@@ -58,6 +58,5 @@ export const siteConfig: siteMetadata = {
     { href: '/books', name: 'Books' },
     { href: '/notes', name: 'Notes' },
     { href: '/share-cv', name: 'Share CV' },
-    { href: '/viewing', name: 'Viewing' },
   ],
 }
