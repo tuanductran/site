@@ -1,3 +1,5 @@
+'use client'
+
 import { ANIMATION_FINAL, ANIMATION_INITIAL } from '@lib/animation'
 import type { NotionArticle } from '@schema'
 import { clsx } from 'clsx'
