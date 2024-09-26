@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@lib/cn'
+import clsx from 'clsx'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 
@@ -45,7 +45,7 @@ export default function CVForm() {
           <input
             type="text"
             id="fullName"
-            className={cn(
+            className={clsx(
               'bg-slate-50 border',
               errors.fullName ? 'border-red-500' : 'border-slate-300',
               'text-slate-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',
@@ -63,7 +63,7 @@ export default function CVForm() {
           <input
             type="email"
             id="email"
-            className={cn(
+            className={clsx(
               'bg-slate-50 border',
               errors.email ? 'border-red-500' : 'border-slate-300',
               'text-slate-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',
@@ -81,7 +81,7 @@ export default function CVForm() {
           <input
             type="url"
             id="cvLink"
-            className={cn(
+            className={clsx(
               'bg-slate-50 border',
               errors.cvLink ? 'border-red-500' : 'border-slate-300',
               'text-slate-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',
@@ -99,7 +99,7 @@ export default function CVForm() {
           <input
             type="url"
             id="socialLink"
-            className={cn(
+            className={clsx(
               'bg-slate-50 border',
               errors.socialLink ? 'border-red-500' : 'border-slate-300',
               'text-slate-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',
@@ -117,7 +117,7 @@ export default function CVForm() {
           <input
             type="text"
             id="position"
-            className={cn(
+            className={clsx(
               'bg-slate-50 border',
               errors.position ? 'border-red-500' : 'border-slate-300',
               'text-slate-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',

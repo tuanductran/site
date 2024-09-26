@@ -1,14 +1,19 @@
 'use client'
 
+import { PageTitle } from '@components/PageTitle'
+
 export default function Error() {
   return (
-    <section>
-      <h1 className="mb-8 text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">
-        Error!
-      </h1>
-      <p className="prose prose-slate dark:prose-dark">
-        Oh no, something went wrong... maybe refresh?
-      </p>
-    </section>
+    <div className="flex min-h-full flex-col pt-16 pb-12">
+      <main className="mx-auto flex w-full max-w-7xl flex-grow flex-col justify-center px-4 sm:px-6 lg:px-8">
+        <div className="py-16">
+          <div className="text-center">
+            <p className="text-base font-semibold text-primary capitalize">Error!</p>
+            <PageTitle>Something went wrong.</PageTitle>
+            <p className="mt-2 text-base text-gray-500">Oh no, something went wrong... maybe refresh?</p>
+          </div>
+        </div>
+      </main>
+    </div>
   )
 }

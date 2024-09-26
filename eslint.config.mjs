@@ -113,6 +113,10 @@ export default antfu(
           message:
             '`useMemo` with an empty dependency array can\'t provide a stable reference, use `useRef` instead.',
         },
+        {
+          selector: 'JSXIdentifier[name="React"]',
+          message: 'Avoid using React directly. Consider using JSX without import.',
+        },
       ],
     },
     settings: {

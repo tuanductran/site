@@ -44,11 +44,16 @@ class BooksService {
         return {
           createdAt: formatDate(page.created_time),
           id: page.id,
-          public_url: page.url,
+          slug: page.url,
+          status: 'formula' in page.properties.Status ? page.properties.Status.formula : '',
           title:
             'title' in page.properties.Title
               ? page.properties.Title.title[0].plain_text
               : '',
+          description:
+              'rich_text' in page.properties.description
+                ? page.properties.description.rich_text[0].plain_text
+                : '',
         }
       })
   }

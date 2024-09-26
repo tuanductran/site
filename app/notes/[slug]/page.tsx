@@ -1,8 +1,8 @@
 import { NotionBlockRenderer } from '@components/notion/NotionBlockRenderer'
-import { Prose } from '@components/Prose'
+import { PrismHightler } from '@components/PrismHightler'
 import { siteConfig } from '@data'
 import { notesApi } from '@db'
-import { formatDate } from '@lib/date'
+import { NotesLayout } from '@layout/NotesLayout'
 import type { BlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
@@ -66,7 +66,7 @@ export default async function Note({ params }) {
   const ogImageUrl = `${siteConfig.siteURL}/og?title=${note.title}`
 
   return (
-    <section>
+    <>
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -87,21 +87,14 @@ export default async function Note({ params }) {
           }),
         }}
       />
-      <h1 className="text-2xl font-extrabold tracking-tight md:text-3xl text-slate-900 dark:text-white">
-        {note.title}
-      </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm text-slate-700 dark:text-slate-400">
-        <Suspense fallback={<p className="h-5" />}>
-          <p>
-            {formatDate(note.createdAt)}
-          </p>
-        </Suspense>
-      </div>
-      <Prose>
+      <NotesLayout note={note}>
         {noteContent.map((block: BlockObjectResponse) => (
           <NotionBlockRenderer key={block.id} block={block} />
         ))}
-      </Prose>
-    </section>
+      </NotesLayout>
+      <Suspense>
+        <PrismHightler />
+      </Suspense>
+    </>
   )
 }

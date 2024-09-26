@@ -62,13 +62,21 @@ class NotesService {
               ? page.properties.public.checkbox
               : false,
           slug:
-            'title' in page.properties.title
-              ? slugify(page.properties.title.title[0].plain_text)
-              : '',
+              'title' in page.properties.title
+                ? slugify(page.properties.title.title[0].plain_text)
+                : '',
+          tags:
+              'multi_select' in page.properties.tags
+                ? page.properties.tags.multi_select.map(tag => tag.name)
+                : [],
           title:
             'title' in page.properties.title
               ? page.properties.title.title[0].plain_text
               : '',
+          description:
+              'rich_text' in page.properties.description
+                ? page.properties.description.rich_text[0].plain_text
+                : '',
         }
       })
       .filter(post => post.isPublished)

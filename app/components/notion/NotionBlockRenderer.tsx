@@ -1,7 +1,6 @@
 import Image from '@components/Image'
 import Link from '@components/Link'
 import { Quote } from '@components/Quote'
-import { cn } from '@lib/cn'
 import type {
   BulletedListItemBlockObjectResponse,
   NumberedListItemBlockObjectResponse,
@@ -10,6 +9,7 @@ import type {
   TextRichTextItemResponse,
   ToggleBlockObjectResponse,
 } from '@notionhq/client/build/src/api-endpoints'
+import clsx from 'clsx'
 
 // TODO: improve types here, cleanup the code
 interface NotionBlockProps {
@@ -142,7 +142,7 @@ export function NotionBlockRenderer({ block }: NotionBlockProps) {
                     <th
                       key={plain_text}
                       scope="col"
-                      className={cn({
+                      className={clsx({
                         'font-bold': bold,
                         italic,
                         'line-through': strikethrough,
@@ -169,7 +169,7 @@ export function NotionBlockRenderer({ block }: NotionBlockProps) {
                       <td
                         key={plain_text}
                         scope="row"
-                        className={cn({
+                        className={clsx({
                           'font-bold': bold,
                           italic,
                           'line-through': strikethrough,
@@ -269,7 +269,7 @@ function NotionText({ textItems }: { textItems: TextRichTextItemResponse[] }) {
         return (
           <span
             key={text.content}
-            className={cn({
+            className={clsx({
               'font-bold': bold,
               italic,
               'line-through': strikethrough,
