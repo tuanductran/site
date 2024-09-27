@@ -1,7 +1,11 @@
 import withPlaiceholder from '@plaiceholder/next'
+import million from 'million/compiler'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    ppr: true,
+  },
   images: {
     remotePatterns: [
       { hostname: '**.amazonaws.com' },
@@ -39,4 +43,12 @@ const nextConfig = {
   },
 }
 
-export default withPlaiceholder(nextConfig)
+const millionConfig = {
+  mute: true,
+  auto: { rsc: true },
+  rsc: true,
+}
+
+export default withPlaiceholder(
+  million.next(nextConfig, millionConfig),
+)

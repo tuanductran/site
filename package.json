@@ -32,6 +32,7 @@
     "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1",
     "focus-visible": "^5.2.0",
+    "million": "^3.1.11",
     "next": "14.3.0-canary.87",
     "next-themes": "^0.3.0",
     "plaiceholder": "^3.0.0",
@@ -40,7 +41,6 @@
     "react-dom": "19.0.0-rc-f994737d14-20240522",
     "react-hook-form": "^7.53.0",
     "react-hot-toast": "^2.4.1",
-    "react-paginate": "^8.2.0",
     "sharp": "^0.33.5",
     "tailwindcss": "^3.4.11",
     "zod": "^3.23.8"
