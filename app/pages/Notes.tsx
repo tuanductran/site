@@ -7,7 +7,7 @@ import { filterTags } from '@lib/filter'
 import Pagination from '@notes/Pagination'
 import type { NotionNote } from '@schema'
 import { useSearchParams } from 'next/navigation'
-import { useMemo, useState } from 'react'
+import { Suspense, useMemo, useState } from 'react'
 
 interface Props {
   title: string
@@ -36,19 +36,21 @@ export function Notes({ title, notes, tags }: Props) {
         <header>
           <h1 className="text-5xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">{title}</h1>
         </header>
-        <NotionTags
-          tags={tags}
-          selectedTag={selectedTag}
-          setSelectedTag={setSelectedTag}
-        />
-        <div className="mt-8 sm:mt-10">
-          <div className="my-16 space-y-20 lg:space-y-20">
-            {currentNotes.map((note: NotionNote) => (
-              <NoteWithImage key={note.slug} note={note} />
-            ))}
+        <Suspense fallback={<div>Loading...</div>}>
+          <NotionTags
+            tags={tags}
+            selectedTag={selectedTag}
+            setSelectedTag={setSelectedTag}
+          />
+          <div className="mt-8 sm:mt-10">
+            <div className="my-16 space-y-20 lg:space-y-20">
+              {currentNotes.map((note: NotionNote) => (
+                <NoteWithImage key={note.slug} note={note} />
+              ))}
+            </div>
+            <Pagination total={totalNotes} />
           </div>
-          <Pagination total={totalNotes} />
-        </div>
+        </Suspense>
       </Container>
     </div>
   )
