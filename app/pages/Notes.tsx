@@ -10,7 +10,7 @@ import { useState } from 'react'
 interface Props {
   title: string
   notes: NotionNote[]
-  tags: string[]
+  tags: Array<string>
 }
 
 export function Notes({ title, notes, tags }: Props) {
