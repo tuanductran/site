@@ -3,7 +3,7 @@
 import { Container } from '@components/Container'
 import { NoteWithImage } from '@components/Note'
 import { NotionTags } from '@components/Tags'
-import { filterTags } from '@lib/filter'
+import { filterArticles } from '@lib/filter'
 import type { NotionNote } from '@schema'
 import { useState } from 'react'
 
@@ -16,7 +16,7 @@ interface Props {
 export function Notes({ title, notes, tags }: Props) {
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
 
-  const filteredNotes = filterTags(notes, selectedTag)
+  const filteredNotes = filterArticles(notes, selectedTag)
 
   return (
     <div className="mx-auto">
@@ -32,7 +32,7 @@ export function Notes({ title, notes, tags }: Props) {
         <div className="mt-8 sm:mt-10">
           <div className="mt-16 space-y-20 lg:space-y-20">
             {filteredNotes.map((note: NotionNote) => (
-              <NoteWithImage key={note.slug} note={note} />
+              <NoteWithImage key={note.id} note={note} />
             ))}
           </div>
         </div>
