@@ -17,3 +17,14 @@ export function filterTags(type: any, tag: any) {
 
   return sortedTags.filter(type => type.tags.includes(tag))
 }
+
+export function filterArticles(articles, selectedTag) {
+  return articles
+    .sort((a, b) => Number(new Date(b.createdAt)))
+    .filter(article => {
+      if (selectedTag === null) {
+        return true
+      }
+      return article.tags.includes(selectedTag)
+    })
+}
