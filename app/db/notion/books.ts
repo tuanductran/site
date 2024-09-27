@@ -42,6 +42,10 @@ class BooksService {
         }
 
         return {
+          author:
+              'multi_select' in page.properties.Author
+                ? page.properties.Author.multi_select.map(author => author.name)
+                : [],
           createdAt: formatDate(page.created_time),
           id: page.id,
           slug: page.url,

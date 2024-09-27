@@ -2,10 +2,12 @@ import type { SVGProps } from 'react'
 
 export function ArrowLeftIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
+    <svg viewBox="0 -9 3 24" fill="none" aria-hidden="true" {...props}>
       <path
-        d="M7.25 11.25 3.75 8m0 0 3.5-3.25M3.75 8h8.5"
-        strokeWidth="1.5"
+        d="M3 0L0 3L3 6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

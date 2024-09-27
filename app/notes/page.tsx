@@ -15,7 +15,6 @@ export default async function NotesPage() {
   return (
     <Notes
       title={seoTitle}
-      description={seoDescription}
       notes={notes}
       tags={tags}
     />

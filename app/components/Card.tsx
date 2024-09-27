@@ -3,6 +3,8 @@ import type { LinkProps } from 'next/link'
 import Link from 'next/link'
 import type { AllHTMLAttributes, ElementType, PropsWithChildren } from 'react'
 
+import { ChevronRightIcon } from './icons'
+
 function CardRoot({
   as: Component = 'div',
   className,
@@ -18,7 +20,7 @@ function CardRoot({
 function CardLink({ children, ...props }: PropsWithChildren<LinkProps>) {
   return (
     <>
-      <span className="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
+      <div className="absolute -inset-y-6 -inset-x-4 z-0 group-hover:bg-zinc-50 dark:group-hover:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
       <Link {...props}>
         <span className="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
         <span className="relative z-10">{children}</span>
@@ -33,24 +35,24 @@ function CardTitle({
   children,
 }: PropsWithChildren<{ as?: ElementType, href?: string }>) {
   return (
-    <Component className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100 text-balance">
+    <Component className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
       {href ? <CardLink href={href}>{children}</CardLink> : children}
     </Component>
   )
 }
 
 function CardDescription({ children }: PropsWithChildren) {
-  return <p className="relative z-10 mt-2 text-sm">{children}</p>
+  return <p className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2">{children}</p>
 }
 
 function CardCta({ children }: PropsWithChildren) {
   return (
     <div
       aria-hidden="true"
-      className="relative z-10 mt-4 flex items-center text-sm font-medium text-primary"
+      className="relative z-10 mt-4 flex items-center text-sm font-medium text-primary dark:text-light"
     >
       {children}
-      <span className="ml-1">→</span>
+      <ChevronRightIcon className="ml-1 size-4 stroke-current" />
     </div>
   )
 }
@@ -72,7 +74,7 @@ function CardEyebrow({
     <Component
       className={clsx(
         className,
-        'relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500',
+        'relative z-10 order-first mb-3 flex items-center text-sm text-zinc-600 dark:text-zinc-400',
         decorate && 'pl-3.5',
       )}
       {...props}

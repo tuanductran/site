@@ -59,12 +59,12 @@ export default function RootLayout({
       <head>
         <link rel="shortcut icon" href="/favicon/CA0E67E9-AAD0-4D36-82D8-674C7504DFD1.jpg" />
       </head>
-      <body className="flex h-full flex-col bg-zinc-50 dark:bg-black text-zinc-700 dark:text-zinc-300">
+      <body className="flex h-full flex-col bg-zinc-50 dark:bg-zinc-950">
         <ThemeProvider>
           <Toaster />
-          <div className="fixed inset-0 flex justify-center sm:px-8">
-            <div className="flex w-full max-w-7xl lg:px-8">
-              <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20" />
+          <div className="fixed inset-0 flex justify-center">
+            <div className="max-w-8xl flex w-full">
+              <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-[#0F0F0F] dark:ring-zinc-300/20" />
             </div>
           </div>
           <div className="relative">

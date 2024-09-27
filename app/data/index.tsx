@@ -33,18 +33,6 @@ export const siteConfig: siteMetadata = {
       src: 'https://ik.imagekit.io/vnodesign/tuanductran.site/images/moi-no-luc-deu-se-duoc-hoi-dap_4i4AVeK0o.jpg',
       name: 'Mọi nỗ lực đều sẽ được hồi đáp',
     },
-    {
-      src: 'https://ik.imagekit.io/vnodesign/tuanductran.site/images/chi-can-ban-tot-hon-1_-moi-ngay_Bcivmur9b.jpg',
-      name: 'Chỉ cần bạn tốt hơn 1% mỗi ngày',
-    },
-    {
-      src: 'https://ik.imagekit.io/vnodesign/tuanductran.site/images/de-che-atlantis-va-nhung-vuong-quoc-bien-mat_esxe7YWoWV.jpg',
-      name: 'Đế chế Atlantics và những vương quốc biến mất',
-    },
-    {
-      src: 'https://ik.imagekit.io/vnodesign/tuanductran.site/images/tro-nen-thong-tue_oxL2KZedk.jpg',
-      name: 'Trở nên thông tuệ',
-    },
   ],
   name: 'Tuan Duc Tran',
   desc: 'Chào mừng bạn đến với không gian của tôi! Tôi là Trần Tuấn Đức, một nhà phát triển Front-End với tình yêu dành cho Vue.js và Nuxt.js',

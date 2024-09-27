@@ -30,9 +30,9 @@ export default {
         'ubuntu-mono': ['Ubuntu Mono', ...fontFamily.mono],
       },
       colors: {
-        'primary': '#2AB673',
-        'primary-light': '#55D799',
-        'primary-dark': '#117866',
+        primary: '#2AB673',
+        light: '#55D799',
+        dark: '#117866',
       },
       typography: (theme: any) => ({
         invert: {
@@ -72,7 +72,6 @@ export default {
             '--tw-prose-bullets': theme('colors.zinc.900'),
             '--tw-prose-hr': theme('colors.zinc.100'),
           },
-          // Figures
           'figcaption': {
             color: 'var(--tw-prose-captions)',
             fontSize: theme('fontSize.sm')[0],
@@ -82,7 +81,6 @@ export default {
           'figcaption > p': {
             margin: 0,
           },
-          // Lists
           'ul': {
             listStyleType: 'disc',
           },
@@ -115,7 +113,6 @@ export default {
             marginTop: theme('spacing.3'),
             marginBottom: theme('spacing.3'),
           },
-          // Code blocks
           'pre': {
             color: 'var(--tw-prose-pre-code)',
             fontSize: theme('fontSize.sm')[0],
@@ -136,7 +133,6 @@ export default {
             borderRadius: 0,
             padding: 0,
           },
-          // Horizontal rules
           'hr': {
             'marginTop': theme('spacing.20'),
             'marginBottom': theme('spacing.20'),
@@ -147,7 +143,6 @@ export default {
               marginRight: `calc(${theme('spacing.12')} * -1)`,
             },
           },
-          // Tables
           'table': {
             width: '100%',
             tableLayout: 'auto',

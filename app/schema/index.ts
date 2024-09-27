@@ -49,6 +49,7 @@ export const ArticleSchema = z.strictObject({
 })
 
 export const BooksSchema = z.strictObject({
+  author: z.array(z.string()),
   createdAt: z.string(),
   id: z.string(),
   slug: z.string(),

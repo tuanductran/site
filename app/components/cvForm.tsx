@@ -48,7 +48,7 @@ export default function CVForm() {
             className={clsx(
               'bg-slate-50 border',
               errors.fullName ? 'border-red-500' : 'border-slate-300',
-              'text-slate-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',
+              'text-slate-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',
             )}
             placeholder="Example: Nguyen Van A"
             {...register('fullName', { required: 'Full Name is required' })}
@@ -66,7 +66,7 @@ export default function CVForm() {
             className={clsx(
               'bg-slate-50 border',
               errors.email ? 'border-red-500' : 'border-slate-300',
-              'text-slate-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',
+              'text-slate-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',
             )}
             placeholder="Example: yourname@example.com"
             {...register('email', { required: 'Email Address is required' })}
@@ -84,7 +84,7 @@ export default function CVForm() {
             className={clsx(
               'bg-slate-50 border',
               errors.cvLink ? 'border-red-500' : 'border-slate-300',
-              'text-slate-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',
+              'text-slate-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',
             )}
             placeholder="Link to your CV (e.g., https://www.topcv.vn)"
             {...register('cvLink', { required: 'CV Link is required' })}
@@ -102,7 +102,7 @@ export default function CVForm() {
             className={clsx(
               'bg-slate-50 border',
               errors.socialLink ? 'border-red-500' : 'border-slate-300',
-              'text-slate-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',
+              'text-slate-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',
             )}
             placeholder="Social media link (e.g., LinkedIn, Twitter)"
             {...register('socialLink', { required: 'Social Link is required' })}
@@ -120,7 +120,7 @@ export default function CVForm() {
             className={clsx(
               'bg-slate-50 border',
               errors.position ? 'border-red-500' : 'border-slate-300',
-              'text-slate-900 text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',
+              'text-slate-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',
             )}
             placeholder="Position title (e.g., UI Designer)"
             {...register('position', { required: 'Position is required' })}
@@ -130,7 +130,7 @@ export default function CVForm() {
       </div>
       <button
         type="submit"
-        className="text-white bg-sky-700 hover:bg-sky-800 focus:ring-sky-300 font-medium rounded-lg text-sm w-full sm:w-auto p-2.5 text-center dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800"
+        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto p-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
         Submit Your CV
       </button>

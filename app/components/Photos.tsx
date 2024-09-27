@@ -4,8 +4,8 @@ import { PhotosItems } from './PhotosItems'
 
 export function Photos() {
   return (
-    <div className="my-8">
-      <div className="hide-scrollbar -my-4 flex gap-8 overflow-y-auto py-4 px-8">
+    <div className="mt-16 sm:mt-20">
+      <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
         {siteConfig.booksIems.map((books, index) => (
           <PhotosItems
             key={books.src}

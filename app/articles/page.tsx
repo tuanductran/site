@@ -15,7 +15,6 @@ export default async function ArticlesPage() {
   return (
     <Articles
       title={seoTitle}
-      description={seoDescription}
       articles={articles}
       tags={tags}
     />

@@ -15,7 +15,6 @@ export default async function BooksPage() {
   return (
     <Books
       title={seoTitle}
-      description={seoDescription}
       books={books}
       status={status}
     />
