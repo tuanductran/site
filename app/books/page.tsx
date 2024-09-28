@@ -1,7 +1,7 @@
 import { booksApi } from '@db'
 import { Books } from '@pages/Books'
 
-const seoTitle = 'Books Collection'
+const seoTitle = 'Books'
 const seoDescription = 'Explore our extensive collection of books'
 
 export const metadata = {
