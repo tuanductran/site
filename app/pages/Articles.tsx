@@ -3,7 +3,7 @@
 import { ArticleWithImage } from '@components/Article'
 import { Container } from '@components/Container'
 import { NotionTags } from '@components/Tags'
-import { filterTags } from '@lib/filter'
+import { filterArticles } from '@lib/filter'
 import type { NotionArticle } from '@schema'
 import { useState } from 'react'
 
@@ -15,7 +15,7 @@ interface Props {
 
 export function Articles({ title, articles, tags }: Props) {
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
-  const filteredArticles = filterTags(articles, selectedTag)
+  const sortArticles = filterArticles(articles, selectedTag)
 
   return (
     <div className="mx-auto">
@@ -30,7 +30,7 @@ export function Articles({ title, articles, tags }: Props) {
         />
         <div className="mt-8 sm:mt-10">
           <div className="mt-16 space-y-20 lg:space-y-20">
-            {filteredArticles.map((article: NotionArticle) => (
+            {sortArticles.map((article: NotionArticle) => (
               <ArticleWithImage key={article.slug} article={article} />
             ))}
           </div>
