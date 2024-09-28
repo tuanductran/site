@@ -1,7 +1,7 @@
 import { articlesApi } from '@db'
 import { Articles } from '@pages/Articles'
 
-const seoTitle = 'Articles Collection'
+const seoTitle = 'Articles'
 const seoDescription = 'Explore all your articles in one place'
 
 export const metadata = {
