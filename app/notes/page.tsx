@@ -1,7 +1,7 @@
 import { notesApi } from '@db'
 import { Notes } from '@pages/Notes'
 
-const seoTitle = 'Notes Collection'
+const seoTitle = 'Notes'
 const seoDescription = 'Explore all your notes in one place'
 
 export const metadata = {
