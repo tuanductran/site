@@ -1,7 +1,7 @@
 export function filterStatus(articles, selectedTag) {
   return articles
     .sort((a, b) => Number(new Date(b.createdAt)))
-    .filter(article => {
+    .filter((article) => {
       if (selectedTag === null) {
         return true
       }
@@ -12,7 +12,7 @@ export function filterStatus(articles, selectedTag) {
 export function filterArticles(articles, selectedTag) {
   return articles
     .sort((a, b) => Number(new Date(b.createdAt)))
-    .filter(article => {
+    .filter((article) => {
       if (selectedTag === null) {
         return true
       }
