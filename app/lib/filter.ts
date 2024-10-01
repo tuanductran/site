@@ -1,4 +1,6 @@
-export function filterStatus(articles, selectedTag) {
+import type { NotionArticle, NotionBooks, NotionNote } from '@schema'
+
+export function filterStatus(articles: NotionBooks[], selectedTag: string | null) {
   return articles
     .sort((a, b) => Number(new Date(b.createdAt)))
     .filter((article) => {
@@ -9,7 +11,7 @@ export function filterStatus(articles, selectedTag) {
     })
 }
 
-export function filterArticles(articles, selectedTag) {
+export function filterArticles(articles: NotionArticle[] | NotionNote[], selectedTag: string | null) {
   return articles
     .sort((a, b) => Number(new Date(b.createdAt)))
     .filter((article) => {

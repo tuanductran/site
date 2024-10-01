@@ -1,3 +1,4 @@
+import { Button } from '@headlessui/react'
 import clsx from 'clsx'
 import type { FC } from 'react'
 
@@ -9,7 +10,7 @@ interface TagProps {
 
 const Tag: FC<TagProps> = ({ onClick, title, isSelected }) => {
   return (
-    <button
+    <Button
       type="button"
       className={clsx(
         'cursor-pointer whitespace-nowrap rounded-md border px-3 py-px text-xs hover:bg-zinc-50 dark:text-zinc-100 dark:hover:bg-transparent',
@@ -18,7 +19,7 @@ const Tag: FC<TagProps> = ({ onClick, title, isSelected }) => {
       onClick={onClick}
     >
       {title}
-    </button>
+    </Button>
   )
 }
 
