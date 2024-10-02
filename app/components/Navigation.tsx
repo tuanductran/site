@@ -12,7 +12,7 @@ import Link from './Link'
 
 export function NavLink({ href, children }: PropsWithChildren<{ href: string }>) {
   return (
-    <Link href={href} className="transition hover:text-primary">
+    <Link href={href} className="transition hover:text-primary dark:hover:text-light">
       {children}
     </Link>
   )
@@ -28,10 +28,13 @@ function NavItem({ href, children }: PropsWithChildren<{ href: string }>) {
         href={href}
         className={clsx(
           'relative block px-3 py-2 transition',
-          isActive ? 'text-primary' : 'hover:text-primary',
+          isActive ? 'text-primary dark:text-light' : 'hover:text-primary dark:hover:text-light',
         )}
       >
         {children}
+        {isActive && (
+          <span className="via-primary0/40 absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-primary/0 to-primary/0 dark:from-light/0 dark:via-light/40 dark:to-light/0" />
+        )}
       </Link>
     </li>
   )
@@ -64,7 +67,7 @@ export function DesktopNavigation(props: PropsWithChildren<HTMLAttributes<HTMLDi
 export function MobileNavigation(props: HTMLAttributes<HTMLDivElement>) {
   return (
     <Popover {...props}>
-      <PopoverButton className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
+      <PopoverButton className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-900/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
         Menu
         <ChevronDownIcon className="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400" />
       </PopoverButton>
@@ -97,7 +100,7 @@ export function MobileNavigation(props: HTMLAttributes<HTMLDivElement>) {
               <PopoverButton aria-label="Close menu" className="-m-1 p-1">
                 <CloseIcon className="size-6 text-zinc-500 dark:text-zinc-400" />
               </PopoverButton>
-              <h2 className="text-sm font-medium">Navigation</h2>
+              <h2 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">Navigation</h2>
             </div>
             <nav className="mt-6">
               <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
