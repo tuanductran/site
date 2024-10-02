@@ -1,6 +1,5 @@
 'use client'
 
-import { Button, Input, Label } from '@headlessui/react'
 import clsx from 'clsx'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
@@ -40,10 +39,10 @@ export default function CVForm() {
       <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
         {/* Full Name */}
         <div className="sm:col-span-2">
-          <Label htmlFor="fullName" className="block mb-2 text-sm font-medium text-slate-900 dark:text-white">
+          <label htmlFor="fullName" className="block mb-2 text-sm font-medium text-slate-900 dark:text-white">
             Full Name
-          </Label>
-          <Input
+          </label>
+          <input
             type="text"
             id="fullName"
             className={clsx(
@@ -58,10 +57,10 @@ export default function CVForm() {
         </div>
         {/* Email Address */}
         <div className="w-full">
-          <Label htmlFor="email" className="block mb-2 text-sm font-medium text-slate-900 dark:text-white">
+          <label htmlFor="email" className="block mb-2 text-sm font-medium text-slate-900 dark:text-white">
             Email Address
-          </Label>
-          <Input
+          </label>
+          <input
             type="email"
             id="email"
             className={clsx(
@@ -76,10 +75,10 @@ export default function CVForm() {
         </div>
         {/* CV Link */}
         <div className="w-full">
-          <Label htmlFor="cvLink" className="block mb-2 text-sm font-medium text-slate-900 dark:text-white">
+          <label htmlFor="cvLink" className="block mb-2 text-sm font-medium text-slate-900 dark:text-white">
             CV Link
-          </Label>
-          <Input
+          </label>
+          <input
             type="url"
             id="cvLink"
             className={clsx(
@@ -94,10 +93,10 @@ export default function CVForm() {
         </div>
         {/* Social Link */}
         <div className="w-full">
-          <Label htmlFor="socialLink" className="block mb-2 text-sm font-medium text-slate-900 dark:text-white">
+          <label htmlFor="socialLink" className="block mb-2 text-sm font-medium text-slate-900 dark:text-white">
             Social Link
-          </Label>
-          <Input
+          </label>
+          <input
             type="url"
             id="socialLink"
             className={clsx(
@@ -112,10 +111,10 @@ export default function CVForm() {
         </div>
         {/* Position Applying For */}
         <div className="w-full">
-          <Label htmlFor="position" className="block mb-2 text-sm font-medium text-slate-900 dark:text-white">
+          <label htmlFor="position" className="block mb-2 text-sm font-medium text-slate-900 dark:text-white">
             Position Applying For
-          </Label>
-          <Input
+          </label>
+          <input
             type="text"
             id="position"
             className={clsx(
@@ -129,12 +128,12 @@ export default function CVForm() {
           {errors.position && <p className="mt-1 text-sm text-red-600">{errors.position.message}</p>}
         </div>
       </div>
-      <Button
+      <button
         type="submit"
         className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto p-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
         Submit Your CV
-      </Button>
+      </button>
     </form>
   )
 }
