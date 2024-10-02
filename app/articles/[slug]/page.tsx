@@ -25,7 +25,7 @@ export async function generateMetadata({
   } = post
 
   const canonicalUrl = `${siteConfig.siteURL}/articles/${slug}`
-  const ogImageUrl = `${siteConfig.siteURL}/og?title=${title}`
+  const ogImageUrl = `${siteConfig.apiURL}/og?title=${title}`
 
   return {
     title,
@@ -63,7 +63,7 @@ export default async function Article({ params }) {
   const articleContent = await articlesApi.getArticle(article.id)
 
   const canonicalUrl = `${siteConfig.siteURL}/articles/${article.slug}`
-  const ogImageUrl = `${siteConfig.siteURL}/og?title=${article.title}`
+  const ogImageUrl = `${siteConfig.apiURL}/og?title=${article.title}`
 
   return (
     <>

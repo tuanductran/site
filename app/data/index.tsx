@@ -12,6 +12,7 @@ import type { siteMetadata } from '@schema'
 
 export const siteConfig: siteMetadata = {
   about: 'Chào mừng bạn đến với không gian của tôi! Tôi là Trần Tuấn Đức, một nhà phát triển Front-End với tình yêu dành cho Vue.js và Nuxt.js. Nhưng ngoài việc kiến tạo những trải nghiệm web tuyệt vời, tôi còn tìm thấy niềm đam mê sâu sắc trong việc khám phá những bí ẩn của tâm linh và vũ trụ.',
+  apiURL: 'https://og.tuanductran.site',
   booksIems: [
     {
       src: 'https://ik.imagekit.io/vnodesign/tuanductran.site/images/tu-chua-lanh-thong-qua-hieu-biet-ve-khoa-hoc-tam-thuc_JVHWkk06K.jpg',
@@ -91,18 +92,6 @@ export const siteConfig: siteMetadata = {
       name: 'Github',
       link: 'https://github.com/tuanductran/site',
       icon: GitHubIcon,
-    },
-  ],
-  template: [
-    {
-      title: '100+ My Github Starred Repositories',
-      type: 'Notion',
-      description: '100+ My Github Starred Repositories',
-      logo: '',
-      link: {
-        href: 'https://tuanducdev.notion.site/b2364ca05ba7489bb2e803039bbf17cd?v=28f967c06a994eb19908422fef4d8a24&pvs=4',
-        name: '100+ My Github Starred Repositories',
-      },
     },
   ],
   footerItems: [

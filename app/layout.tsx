@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${siteConfig.siteURL}/og?title=${siteConfig.name}`,
+        url: `${siteConfig.apiURL}/og?title=${siteConfig.name}`,
       },
     ],
   },

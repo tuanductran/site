@@ -16,16 +16,9 @@ export const WithLinksSchema = z.strictObject({
   name: z.string(),
 })
 
-export const TemplateSchema = z.strictObject({
-  title: z.string(),
-  type: z.string(),
-  description: z.string(),
-  logo: z.string(),
-  link: WithLinksSchema,
-})
-
 export const siteConfig = z.strictObject({
   about: z.string(),
+  apiURL: z.string(),
   booksIems: z.array(WithImagesSchema),
   name: z.string(),
   desc: z.string(),
@@ -33,7 +26,6 @@ export const siteConfig = z.strictObject({
   socialMedia: z.array(WithIconsSchema),
   navItems: z.array(WithLinksSchema),
   techStack: z.array(WithIconsSchema),
-  template: z.array(TemplateSchema),
   footerItems: z.array(WithLinksSchema),
 })
 
