@@ -13,6 +13,7 @@ export const NavItemSchema = z.strictObject({
 
 export const siteConfig = z.strictObject({
   about: z.any(),
+  apiURL: z.string(),
   name: z.string(),
   desc: z.string(),
   siteURL: z.string(),

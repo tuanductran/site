@@ -37,6 +37,7 @@ export const siteConfig: siteMetadata = {
       . Nhưng ngoài việc kiến tạo những trải nghiệm web tuyệt vời, tôi còn tìm thấy niềm đam mê sâu sắc trong việc khám phá những bí ẩn của tâm linh và vũ trụ.
     </>
   ),
+  apiURL: 'https://og.tuanductran.site',
   name: 'Tuan Duc Tran',
   desc: 'Chào mừng bạn đến với không gian của tôi! Tôi là Trần Tuấn Đức, một nhà phát triển Front-End với tình yêu dành cho Vue.js và Nuxt.js',
   siteURL: 'https://tuanductran.site',
