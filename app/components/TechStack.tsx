@@ -22,9 +22,9 @@ export function TechStack() {
         ))}
       </ol>
       <div className="mx-6 mt-6">
-        <Button href="/tech" variant="secondary" className="group w-full">
+        <Button href="/tech" title="See more" variant="secondary" className="group w-full">
           See more
-          <ArrowIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
+          <ArrowIcon className="size-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
         </Button>
       </div>
     </div>
