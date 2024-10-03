@@ -30,9 +30,9 @@ export default {
         'ubuntu-mono': ['Ubuntu Mono', ...fontFamily.mono],
       },
       colors: {
-        primary: '#2AB673',
-        light: '#55D799',
-        dark: '#117866',
+        primary: '#36A1FE', // Sky 400
+        light: '#3BA9FE', // Sky 300
+        dark: '#0284C7', // Sky 600
       },
       typography: (theme: any) => ({
         invert: {
