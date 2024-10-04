@@ -1,14 +1,16 @@
-import ViewCounter from '@articles/view-counter'
 import { NotionBlockRenderer } from '@components/notion/NotionBlockRenderer'
 import { PrismHightler } from '@components/PrismHightler'
 import { Prose } from '@components/Prose'
 import { siteConfig } from '@data'
-import { articlesApi, getViewsCount, increment } from '@db'
+import { articlesApi } from '@db'
 import { formatDate } from '@lib/date'
 import type { BlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
+import { Redis } from '@upstash/redis'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { cache, Suspense } from 'react'
+import { Suspense } from 'react'
+
+import { ReportView } from './view'
 
 export async function generateMetadata({
   params,
@@ -54,6 +56,10 @@ export async function generateMetadata({
   }
 }
 
+const redis = Redis.fromEnv()
+
+export const revalidate = 60
+
 export default async function Article({ params }) {
   const articles = await articlesApi.getArticles()
   const article = articles.find(article => article.slug === params.slug)
@@ -64,11 +70,15 @@ export default async function Article({ params }) {
 
   const articleContent = await articlesApi.getArticle(article.id)
 
+  const views
+    = (await redis.get<number>(['pageviews', 'articles', article.slug].join(':'))) ?? 0
+
   const canonicalUrl = `${siteConfig.siteURL}/articles/${article.slug}`
   const ogImageUrl = `${siteConfig.apiURL}/og?title=${article.title}`
 
   return (
     <section>
+      <ReportView slug={article.slug} />
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -96,7 +106,11 @@ export default async function Article({ params }) {
         <p className="text-sm text-slate-700 dark:text-slate-400">
           {formatDate(article.createdAt)}
         </p>
-        <Views slug={article.slug} />
+        <p className="text-neutral-600 dark:text-neutral-400">
+          {`${Intl.NumberFormat('en-US', { notation: 'compact' }).format(
+            views ?? 0,
+          )} views`}
+        </p>
       </div>
       <Prose>
         {articleContent.map((block: BlockObjectResponse) => (
@@ -108,12 +122,4 @@ export default async function Article({ params }) {
       </Suspense>
     </section>
   )
-}
-
-const incrementViews = cache(increment)
-
-async function Views({ slug }: { slug: string }) {
-  const views = await getViewsCount()
-  incrementViews(slug)
-  return <ViewCounter allViews={views} slug={slug} />
 }

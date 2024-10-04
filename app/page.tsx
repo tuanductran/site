@@ -6,6 +6,8 @@ import { siteConfig } from '@data'
 import { notesApi } from '@db'
 import Image from 'next/image'
 
+export const revalidate = 60
+
 export default async function Page() {
   const notes = await notesApi.getNotes()
   const featuredNotes = notes.filter(note => note.isFeatured)

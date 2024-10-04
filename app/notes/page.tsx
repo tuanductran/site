@@ -9,6 +9,8 @@ export const metadata = {
   description: seoDescription,
 }
 
+export const revalidate = 60
+
 export default async function Notes() {
   const notes = await notesApi.getNotes()
   const isEmpty = notes.length === 0

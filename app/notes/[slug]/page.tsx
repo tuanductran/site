@@ -51,6 +51,8 @@ export async function generateMetadata({
   }
 }
 
+export const revalidate = 60
+
 export default async function Note({ params }) {
   const notes = await notesApi.getNotes()
   const note = notes.find(note => note.slug === params.slug)

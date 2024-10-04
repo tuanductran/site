@@ -9,6 +9,8 @@ export const metadata = {
   description: seoDescription,
 }
 
+export const revalidate = 60
+
 export default async function Books() {
   const books = await booksApi.getBooks()
   const isEmpty = books.length === 0
