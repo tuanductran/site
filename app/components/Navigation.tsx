@@ -10,7 +10,7 @@ import { Fragment } from 'react'
 import { ChevronDownIcon, CloseIcon } from './icons'
 import Link from './Link'
 
-export function NavLink({ href, children }: PropsWithChildren<{ href: string }>) {
+export function NavLink({ children, href }: PropsWithChildren<{ href: string }>) {
   return (
     <Link href={href} className="transition hover:text-primary dark:hover:text-light">
       {children}
@@ -18,7 +18,7 @@ export function NavLink({ href, children }: PropsWithChildren<{ href: string }>)
   )
 }
 
-function NavItem({ href, children }: PropsWithChildren<{ href: string }>) {
+function NavItem({ children, href }: PropsWithChildren<{ href: string }>) {
   const pathname = usePathname()
   const isActive = pathname === href
 
@@ -40,7 +40,7 @@ function NavItem({ href, children }: PropsWithChildren<{ href: string }>) {
   )
 }
 
-export function MobileNavItem({ href, children }: PropsWithChildren<{ href: string }>) {
+export function MobileNavItem({ children, href }: PropsWithChildren<{ href: string }>) {
   return (
     <li>
       <PopoverButton as={Link} href={href} className="block py-2">

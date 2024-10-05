@@ -47,9 +47,7 @@ This project is a robust web application utilizing Next.js and Notion, designed 
    - `BOOKS_DATABASE_ID`: Database ID for books.
    - `CV_NOTION_TOKEN`: Token for accessing CV database.
    - `CV_NOTION_DATABASE_ID`: Database ID for CV entries.
-   - `VIEWING_DATABASE_ID`: Database ID for viewing content.
    - `NOTION_TOKEN`: Token for Notion API access.
-   - `POSTGRES_URL`: URL for connecting to your PostgreSQL database.
 
 ## Creating a Notion API Integration
 

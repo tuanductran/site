@@ -3,12 +3,18 @@ import clsx from 'clsx'
 import type { FC } from 'react'
 
 interface TagProps {
+  isSelected: boolean
   onClick: () => void
   title: string
-  isSelected: boolean
 }
 
-const Tag: FC<TagProps> = ({ onClick, title, isSelected }) => {
+interface NotionTagsProps {
+  selectedTag: string | null
+  setSelectedTag: (tag: string | null) => void
+  tags: string[]
+}
+
+const Tag: FC<TagProps> = ({ isSelected, onClick, title }) => {
   return (
     <Button
       type="button"
@@ -21,12 +27,6 @@ const Tag: FC<TagProps> = ({ onClick, title, isSelected }) => {
       {title}
     </Button>
   )
-}
-
-interface NotionTagsProps {
-  selectedTag: string | null
-  setSelectedTag: (tag: string | null) => void
-  tags: string[]
 }
 
 export const NotionTags: FC<NotionTagsProps> = ({

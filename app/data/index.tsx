@@ -35,8 +35,18 @@ export const siteConfig: siteMetadata = {
       name: 'Mọi nỗ lực đều sẽ được hồi đáp',
     },
   ],
-  name: 'Tuan Duc Tran',
   desc: 'Chào mừng bạn đến với không gian của tôi! Tôi là Trần Tuấn Đức, một nhà phát triển Front-End với tình yêu dành cho Vue.js và Nuxt.js',
+  footerItems: [
+    { href: 'https://tuanducdev.notion.site/b2364ca05ba7489bb2e803039bbf17cd', name: '100+ My Github Starred Repositories' },
+    { href: 'https://tuanducdev.notion.site/1d58f8dca637441ab7c434d65fa1c288', name: 'Book Management Template' },
+  ],
+  name: 'Tuan Duc Tran',
+  navItems: [
+    { href: '/about', name: 'About' },
+    { href: '/articles', name: 'Articles' },
+    { href: '/books', name: 'Books' },
+    { href: '/share-cv', name: 'Share CV' },
+  ],
   siteURL: 'https://tuanductran.site',
   socialMedia: [
     {
@@ -50,53 +60,41 @@ export const siteConfig: siteMetadata = {
       icon: LinkedInIcon,
     },
   ],
-  navItems: [
-    { href: '/', name: 'Home' },
-    { href: '/articles', name: 'Articles' },
-    { href: '/books', name: 'Books' },
-    { href: '/notes', name: 'Notes' },
-    { href: '/viewing', name: 'Viewing' },
-  ],
   techStack: [
     {
-      name: 'React.js',
-      link: 'https://react.dev',
       icon: ReactIcon,
+      link: 'https://react.dev',
+      name: 'React.js',
     },
     {
-      name: 'Next.js',
-      link: 'https://nextjs.org',
       icon: NextIcon,
+      link: 'https://nextjs.org',
+      name: 'Next.js',
     },
     {
-      name: 'Notion',
-      link: 'https://notion.so',
       icon: NotionIcon,
+      link: 'https://notion.so',
+      name: 'Notion',
     },
     {
-      name: 'Tailwind CSS',
-      link: 'https://tailwindcss.com',
       icon: TailwindIcon,
+      link: 'https://tailwindcss.com',
+      name: 'Tailwind CSS',
     },
     {
-      name: 'Netlify',
-      link: 'https://netlify.com',
       icon: NetlifyIcon,
+      link: 'https://netlify.com',
+      name: 'Netlify',
     },
     {
-      name: 'Cloudflare',
-      link: 'https://www.cloudflare.com',
       icon: CloudflareIcon,
+      link: 'https://www.cloudflare.com',
+      name: 'Cloudflare',
     },
     {
-      name: 'Github',
-      link: 'https://github.com/tuanductran/site',
       icon: GitHubIcon,
+      link: 'https://github.com/tuanductran/site',
+      name: 'Github',
     },
-  ],
-  footerItems: [
-    { href: '/create-cv', name: 'Create CV' },
-    { href: '/share-cv', name: 'Share CV' },
-    { href: '/job', name: 'Find Job' },
   ],
 }

@@ -1,8 +1,8 @@
 import { siteConfig } from '@data'
-import { articlesApi } from '@db'
+import { getArticles } from '@db'
 
 export async function GET() {
-  const articles = await articlesApi.getArticles()
+  const articles = await getArticles()
 
   const ArticleItemsXml = articles.map(
     article =>

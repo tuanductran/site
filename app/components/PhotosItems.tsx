@@ -3,12 +3,12 @@ import clsx from 'clsx'
 import Image from './Image'
 
 interface Props {
-  src: string
-  name: string
   idx: number
+  name: string
+  src: string
 }
 
-export function PhotosItems({ src, name, idx }: Props) {
+export function PhotosItems({ idx, name, src }: Props) {
   const possibleRotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
 
   return (

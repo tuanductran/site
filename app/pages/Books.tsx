@@ -9,13 +9,13 @@ import type { NotionBooks } from '@schema'
 import { useState } from 'react'
 
 interface Props {
-  title: string
-  description: string
   books: NotionBooks[]
+  description: string
   status: string[]
+  title: string
 }
 
-export function Books({ title, description, books, status }: Props) {
+export function Books({ books, description, status, title }: Props) {
   const [selectedStatus, setSelectedStatus] = useState<string | null>(null)
   const filteredBooks = filterStatus(books, selectedStatus)
 

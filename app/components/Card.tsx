@@ -31,8 +31,8 @@ function CardLink({ children, ...props }: PropsWithChildren<LinkProps>) {
 
 function CardTitle({
   as: Component = 'h2',
-  href,
   children,
+  href,
 }: PropsWithChildren<{ as?: ElementType, href?: string }>) {
   return (
     <Component className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
@@ -59,9 +59,9 @@ function CardCta({ children }: PropsWithChildren) {
 
 function CardEyebrow({
   as: Component = 'p',
-  decorate = false,
-  className,
   children,
+  className,
+  decorate = false,
   ...props
 }: PropsWithChildren<
   {
@@ -90,9 +90,9 @@ function CardEyebrow({
 }
 
 export const Card = Object.assign(CardRoot, {
+  Cta: CardCta,
+  Description: CardDescription,
+  Eyebrow: CardEyebrow,
   Link: CardLink,
   Title: CardTitle,
-  Description: CardDescription,
-  Cta: CardCta,
-  Eyebrow: CardEyebrow,
 })

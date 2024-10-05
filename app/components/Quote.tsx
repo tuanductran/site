@@ -1,12 +1,12 @@
 import clsx from 'clsx'
 
 interface Props {
+  author?: string
   className?: string
   quote: string
-  author?: string
 }
 
-export function Quote({ className, quote, author }: Props) {
+export function Quote({ author, className, quote }: Props) {
   return (
     <blockquote
       className={clsx(className, 'rounded-md bg-zinc-100 p-4 dark:bg-zinc-800 border-l-0 ')}

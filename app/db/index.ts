@@ -1,1 +1,1 @@
-export { articlesApi, booksApi, notesApi } from './notion'
+export { getArticle, getArticles, getBooks } from './notion'

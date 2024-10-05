@@ -2,17 +2,17 @@ import { Client } from '@notionhq/client'
 import { NextResponse } from 'next/server'
 
 interface FormData {
-  fullName: string
-  email: string
   cvLink: string
-  socialLink: string
+  email: string
+  fullName: string
   position: string
+  socialLink: string
 }
 
 export async function POST(req: Request) {
   const notion = new Client({ auth: process.env.CV_NOTION_TOKEN })
 
-  const { fullName, email, cvLink, socialLink, position }: FormData = await req.json()
+  const { cvLink, email, fullName, position, socialLink }: FormData = await req.json()
 
   try {
     await notion.pages.create({

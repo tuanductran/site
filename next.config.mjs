@@ -4,45 +4,50 @@ import million from 'million/compiler'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    contentSecurityPolicy: 'default-src \'self\'; script-src \'none\'; sandbox;',
+    dangerouslyAllowSVG: true,
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       { hostname: '**.amazonaws.com' },
       { hostname: '**.imagekit.io' },
       { hostname: '**.notion.so' },
       { hostname: '**.googleusercontent.com' },
     ],
-    dangerouslyAllowSVG: true,
-    contentSecurityPolicy: 'default-src \'self\'; script-src \'none\'; sandbox;',
-    formats: ['image/avif', 'image/webp'],
   },
   async redirects() {
     return [
       {
+        destination: '/articles',
+        permanent: true,
         source: '/blog',
-        destination: '/notes',
-        permanent: true,
       },
       {
+        destination: '/articles/:slug*',
+        permanent: true,
         source: '/blog/:slug*',
-        destination: '/notes/:slug*',
-        permanent: true,
       },
       {
-        source: '/jobs',
         destination: 'https://github.com/awesome-jobs/vietnam/issues',
         permanent: true,
+        source: '/jobs',
       },
       {
-        source: '/viewing',
-        destination: 'https://tuanducdev.notion.site/83127584ff9040b18e8bcecbc8c0cc23?v=8cb62ccd290b45fda3c743795f5c5d09&pvs=4',
+        destination: 'https://tuanducdev.notion.site/c40aaaaf01c24479bb1313083b1c59ca',
         permanent: true,
+        source: '/notes',
+      },
+      {
+        destination: 'https://tuanducdev.notion.site/83127584ff9040b18e8bcecbc8c0cc23',
+        permanent: true,
+        source: '/viewing',
       },
     ]
   },
 }
 
 const millionConfig = {
-  mute: true,
   auto: { rsc: true },
+  mute: true,
   rsc: true,
 }
 

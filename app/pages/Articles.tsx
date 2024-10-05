@@ -8,12 +8,12 @@ import type { NotionArticle } from '@schema'
 import { useState } from 'react'
 
 interface Props {
-  title: string
   articles: NotionArticle[]
   tags: Array<string>
+  title: string
 }
 
-export function Articles({ title, articles, tags }: Props) {
+export function Articles({ articles, tags, title }: Props) {
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
   const sortArticles = filterArticles(articles, selectedTag)
 

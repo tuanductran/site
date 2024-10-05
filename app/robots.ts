@@ -1,11 +1,13 @@
-export default function robots() {
+import { siteConfig } from '@data'
+import type { MetadataRoute } from 'next'
+
+export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [
-      {
-        userAgent: '*',
-      },
-    ],
-    sitemap: 'https://tuanductran.site/sitemap.xml',
-    host: 'https://tuanductran.site',
+    rules: {
+      userAgent: '*',
+      allow: '/',
+    },
+    sitemap: `${siteConfig.siteURL}/sitemap.xml`,
+    host: siteConfig.siteURL,
   }
 }

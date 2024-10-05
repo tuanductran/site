@@ -5,15 +5,15 @@ import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 
 interface FormData {
-  fullName: string
-  email: string
   cvLink: string
-  socialLink: string
+  email: string
+  fullName: string
   position: string
+  socialLink: string
 }
 
 export default function CVForm() {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>()
+  const { formState: { errors }, handleSubmit, register, reset } = useForm<FormData>()
 
   const onSubmit = async (data: FormData) => {
     const response = await fetch('/api/submit-cv', {

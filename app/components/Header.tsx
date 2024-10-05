@@ -36,7 +36,7 @@ export function Header() {
     }
 
     function updateHeaderStyles() {
-      const { top, height } = headerRef.current!.getBoundingClientRect()
+      const { height, top } = headerRef.current!.getBoundingClientRect()
       const scrollY = clamp(window.scrollY, 0, document.body.scrollHeight - window.innerHeight)
 
       if (isInitial.current) {
@@ -106,11 +106,12 @@ export function Header() {
     }
 
     updateStyles()
+
     window.addEventListener('scroll', updateStyles, { passive: true })
     window.addEventListener('resize', updateStyles)
 
     return () => {
-      window.removeEventListener('scroll', updateStyles, { passive: true } as any) // TODO: why is TS complaining here?
+      window.removeEventListener('scroll', updateStyles, { passive: true } as any)
       window.removeEventListener('resize', updateStyles)
     }
   }, [isHomePage])

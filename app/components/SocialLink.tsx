@@ -4,13 +4,13 @@ import type { ElementType, ReactNode } from 'react'
 import Link from './Link'
 
 interface Props {
+  children?: ReactNode
   className?: string
   href: string
   icon: ElementType
-  children?: ReactNode
 }
 
-export function SocialLink({ className, href, children, icon: Icon }: Props) {
+export function SocialLink({ children, className, href, icon: Icon }: Props) {
   return (
     <li className={clsx(className, 'flex')}>
       <Link

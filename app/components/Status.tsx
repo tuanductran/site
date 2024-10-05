@@ -2,12 +2,18 @@ import clsx from 'clsx'
 import type { FC } from 'react'
 
 interface StatusProps {
+  isSelected: boolean
   onClick: () => void
   title: string
-  isSelected: boolean
 }
 
-const Status: FC<StatusProps> = ({ onClick, title, isSelected }) => {
+interface NotionStatusProps {
+  selectedStatus: string | null
+  setSelectedStatus: (status: string | null) => void
+  status: string[]
+}
+
+const Status: FC<StatusProps> = ({ isSelected, onClick, title }) => {
   return (
     <li className="cursor-pointer" onClick={onClick}>
       <h2 className={clsx(
@@ -19,12 +25,6 @@ const Status: FC<StatusProps> = ({ onClick, title, isSelected }) => {
       </h2>
     </li>
   )
-}
-
-interface NotionStatusProps {
-  selectedStatus: string | null
-  setSelectedStatus: (status: string | null) => void
-  status: string[]
 }
 
 export const NotionStatus: FC<NotionStatusProps> = ({

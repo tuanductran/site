@@ -3,11 +3,11 @@ import type { HTMLAttributes, PropsWithChildren } from 'react'
 import { Container } from './Container'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  title: string
   intro: string
+  title: string
 }
 
-export function PageContainer({ title, intro, children, ...rest }: PropsWithChildren<Props>) {
+export function PageContainer({ children, intro, title, ...rest }: PropsWithChildren<Props>) {
   return (
     <Container className="mt-12 sm:mt-24" {...rest}>
       <header>

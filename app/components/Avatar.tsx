@@ -9,7 +9,7 @@ type Props = {
   large?: boolean
 } & HTMLAttributes<HTMLAnchorElement>
 
-export function Avatar({ large = false, className, ...props }: Props) {
+export function Avatar({ className, large = false, ...props }: Props) {
   return (
     <Link href="/" aria-label={siteConfig.name} className={clsx(className, 'pointer-events-auto')} {...props}>
       <Image

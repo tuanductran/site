@@ -7,11 +7,11 @@ import type { NotionArticle } from '@schema'
 import type { ReactNode } from 'react'
 
 interface Props {
-  children: ReactNode
   article: NotionArticle
+  children: ReactNode
 }
 
-export function ArticlesLayout({ children, article }: Props) {
+export function ArticlesLayout({ article, children }: Props) {
   return (
     <Container className="mt-13 lg:mt-24">
       <div className="xl:relative">

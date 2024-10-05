@@ -1,14 +1,14 @@
 import { siteConfig } from '@data'
-import { articlesApi } from '@db'
+import { getArticles } from '@db'
 
 export default async function sitemap() {
-  const article = await articlesApi.getArticles()
+  const article = await getArticles()
   const articles = article.map(p => ({
     url: `${siteConfig.siteURL}/articles/${p.slug}`,
-    lastModified: p.createdAt,
+    lastModified: p.editedAt,
   }))
 
-  const routes = ['', '/articles', '/books', '/notes', '/share-cv', '/viewing'].map(route => ({
+  const routes = ['', '/articles', '/books', '/share-cv'].map(route => ({
     url: `${siteConfig.siteURL}${route}`,
     lastModified: new Date().toISOString().split('T')[0],
   }))

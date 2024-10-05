@@ -5,7 +5,7 @@ interface CustomLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string
 }
 
-const CustomLink: FC<CustomLinkProps> = ({ href, children, ...rest }) => {
+const CustomLink: FC<CustomLinkProps> = ({ children, href, ...rest }) => {
   const isInternalLink = href.startsWith('/')
   const isAnchorLink = href.startsWith('#')
 

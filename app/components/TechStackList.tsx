@@ -4,12 +4,11 @@ import { ArrowIcon } from './icons'
 import Link from './Link'
 
 interface Props {
-  name: string
-  icon: ElementType
   href: string
+  icon: ElementType
+  name: string
 }
-
-export function TechStackList({ name, icon: Icon, href }: Props) {
+export function TechStackList({ href, icon: Icon, name }: Props) {
   const label = href.replace(/^https?:\/\//, '')
   return (
     <Link href={href} title={name}>
