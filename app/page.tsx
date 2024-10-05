@@ -5,10 +5,10 @@ import { Photos } from '@components/Photos'
 import { SocialLink } from '@components/SocialLink'
 import { TechStack } from '@components/TechStack'
 import { siteConfig } from '@data'
-import { articlesApi } from '@db'
+import { getArticles } from '@db'
 
 export default async function Page() {
-  const articles = await articlesApi.getArticles()
+  const articles = await getArticles()
   return (
     <>
       <Container className="relative mt-9">
