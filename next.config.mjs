@@ -12,6 +12,7 @@ const nextConfig = {
       { hostname: '**.imagekit.io' },
       { hostname: '**.notion.so' },
       { hostname: '**.googleusercontent.com' },
+      { hostname: '**.tuanductran.site' },
     ],
   },
   async redirects() {
