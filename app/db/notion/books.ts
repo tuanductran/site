@@ -48,6 +48,7 @@ class BooksService {
                 : [],
           createdAt: formatDate(page.created_time),
           id: page.id,
+          icon: page.icon?.type === 'emoji' ? page.icon.emoji : '',
           slug: page.url,
           status: 'formula' in page.properties.Status ? page.properties.Status.formula : '',
           title:

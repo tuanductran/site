@@ -44,6 +44,7 @@ export const BooksSchema = z.strictObject({
   author: z.array(z.string()),
   createdAt: z.string(),
   id: z.string(),
+  icon: z.string(),
   slug: z.string(),
   status: z.any(),
   title: z.string(),
