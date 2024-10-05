@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { MoonIcon, SunIcon } from './icons'
 
 export function ThemeToggle() {
-  const [enabled, setEnabled] = useState(false)
+  const [theme, setTheme] = useState(false)
 
   useEffect(() => {
     const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
@@ -15,13 +15,13 @@ export function ThemeToggle() {
     const isDarkMode
       = savedDarkMode === 'true' || (savedDarkMode === null && isSystemDarkMode)
 
-    setEnabled(isDarkMode)
+    setTheme(isDarkMode)
     document.documentElement.classList.toggle('dark', isDarkMode)
 
     const handleSystemChange = (e: MediaQueryListEvent) => {
       if (savedDarkMode === null) {
         document.documentElement.classList.toggle('dark', e.matches)
-        setEnabled(e.matches)
+        setTheme(e.matches)
       }
     }
 
@@ -31,8 +31,8 @@ export function ThemeToggle() {
   }, [])
 
   function toggleMode() {
-    const isDarkMode = !enabled
-    setEnabled(isDarkMode)
+    const isDarkMode = !theme
+    setTheme(isDarkMode)
     document.documentElement.classList.toggle('dark', isDarkMode)
 
     if (
@@ -48,7 +48,7 @@ export function ThemeToggle() {
   return (
     <button
       type="button"
-      aria-label="Toggle dark mode"
+      aria-label="Toggle mode"
       className="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
       onClick={toggleMode}
     >
