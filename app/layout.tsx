@@ -3,7 +3,6 @@ import 'focus-visible'
 import { Footer } from '@components/Footer'
 import { Header } from '@components/Header'
 import { siteConfig } from '@data'
-import useDarkMode from '@hooks/useDarkMode'
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import type { ReactNode } from 'react'
@@ -58,15 +57,30 @@ export const metadata: Metadata = {
   },
 }
 
+const modeScript = `
+  const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)')
+  const updateMode = () => {
+    const systemDark = darkModeQuery.matches
+    const userDark = localStorage.isDarkMode === 'true' || (!('isDarkMode' in localStorage) && systemDark)
+    document.documentElement.classList.toggle('dark', userDark)
+    if (userDark === systemDark) delete localStorage.isDarkMode
+  }
+
+  darkModeQuery.addEventListener('change', updateMode)
+  window.addEventListener('storage', updateMode)
+  updateMode()
+`
+
 export default function RootLayout({
   children,
 }: {
   children: ReactNode
 }) {
-  useDarkMode()
   return (
     <html className="h-full antialiased" lang="en">
-      <head />
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: modeScript }} />
+      </head>
       <body className="flex h-full flex-col bg-zinc-50 dark:bg-zinc-950 min-h-screen">
         <Toaster />
         <div className="fixed inset-0 flex justify-center sm:px-8">
