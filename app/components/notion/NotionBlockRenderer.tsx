@@ -10,7 +10,6 @@ import type {
   ToggleBlockObjectResponse,
 } from '@notionhq/client/build/src/api-endpoints'
 import clsx from 'clsx'
-import { Fragment } from 'react'
 
 // TODO: improve types here, cleanup the code
 interface NotionBlockProps {
@@ -30,15 +29,21 @@ export function NotionBlockRenderer({ block }: NotionBlockProps) {
       )
     case 'heading_1':
       return (
-        <h1>{value.rich_text}</h1>
+        <h1>
+          <NotionText textItems={value.rich_text} />
+        </h1>
       )
     case 'heading_2':
       return (
-        <h2>{value.rich_text}</h2>
+        <h2>
+          <NotionText textItems={value.rich_text} />
+        </h2>
       )
     case 'heading_3':
       return (
-        <h3>{value.rich_text}</h3>
+        <h3>
+          <NotionText textItems={value.rich_text} />
+        </h3>
       )
     case 'bulleted_list':
       return (
@@ -129,7 +134,7 @@ export function NotionBlockRenderer({ block }: NotionBlockProps) {
               <tr>
                 { header.map((cell: TableRowBlockObjectResponse) => {
                   const {
-                    annotations: { bold },
+                    annotations: { bold, color, italic, strikethrough, underline },
                     plain_text,
                     href,
                   } = cell[0]
@@ -139,7 +144,11 @@ export function NotionBlockRenderer({ block }: NotionBlockProps) {
                       scope="col"
                       className={clsx({
                         'font-bold': bold,
+                        italic,
+                        'line-through': strikethrough,
+                        underline,
                       })}
+                      style={color === 'default' ? {} : { color }}
                     >
                       {href ? <Link href={href}>{plain_text}</Link> : plain_text}
                     </th>
@@ -152,7 +161,7 @@ export function NotionBlockRenderer({ block }: NotionBlockProps) {
                 <tr key={row.id}>
                   {row.table_row.cells.map((cell: RichTextItemResponse[]) => {
                     const {
-                      annotations: { bold },
+                      annotations: { bold, color, italic, strikethrough, underline },
                       plain_text,
                       href,
                     } = cell[0]
@@ -162,7 +171,11 @@ export function NotionBlockRenderer({ block }: NotionBlockProps) {
                         scope="row"
                         className={clsx({
                           'font-bold': bold,
+                          italic,
+                          'line-through': strikethrough,
+                          underline,
                         })}
+                        style={color === 'default' ? {} : { color }}
                       >
                         {href ? <Link href={href}>{plain_text}</Link> : plain_text}
                       </td>
@@ -213,7 +226,7 @@ export function NotionBlockRenderer({ block }: NotionBlockProps) {
       return (
         <figure>
           <div>
-            <Link href={src_file} title={caption_file || lastElementInArray.split('?')[0]}>
+            <Link href={src_file}>
               {lastElementInArray.split('?')[0]}
             </Link>
           </div>
@@ -249,11 +262,23 @@ function NotionText({ textItems }: { textItems: TextRichTextItemResponse[] }) {
   return (
     <>
       {textItems.map((textItem) => {
-        const { text } = textItem
+        const {
+          annotations: { bold, color, italic, strikethrough, underline },
+          text,
+        } = textItem
         return (
-          <Fragment key={text.content}>
+          <span
+            key={text.content}
+            className={clsx({
+              'font-bold': bold,
+              italic,
+              'line-through': strikethrough,
+              underline,
+            })}
+            style={color === 'default' ? {} : { color }}
+          >
             {text.link ? <Link href={text.link.url}>{text.content}</Link> : text.content}
-          </Fragment>
+          </span>
         )
       })}
     </>
