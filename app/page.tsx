@@ -1,6 +1,5 @@
 import { Article } from '@components/Article'
 import { Container } from '@components/Container'
-import { Newsletter } from '@components/Newsletter'
 import { Photos } from '@components/Photos'
 import { SocialLink } from '@components/SocialLink'
 import { TechStack } from '@components/TechStack'
@@ -57,7 +56,6 @@ export default async function Page() {
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Newsletter />
             <TechStack />
           </div>
         </div>

@@ -1,6 +1,6 @@
 import { Container } from '@components/Container'
 import Image from '@components/Image'
-import Link from '@components/Link'
+import { NavLink } from '@components/Navigation'
 import { PageTitle } from '@components/PageTitle'
 import { Section, SectionContent, SectionTitle } from '@components/Section'
 import { SocialLink } from '@components/SocialLink'
@@ -51,8 +51,8 @@ export default async function AboutPage() {
               src="/favicon/CA0E67E9-AAD0-4D36-82D8-674C7504DFD1.jpg"
               alt={siteConfig.name}
               sizes="(min-width: 1024px) 32rem, 20rem"
-              width={1280}
-              height={1280}
+              width={600}
+              height={600}
               className="size-full aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
               priority
             />
@@ -60,7 +60,7 @@ export default async function AboutPage() {
         </div>
         <div className="lg:order-first lg:row-span-2">
           <PageTitle>{siteConfig.name}</PageTitle>
-          <div className="mt-6 text-base">{siteConfig.desc}</div>
+          <div className="mt-6 text-base text-zinc-600 dark:text-zinc-400">{siteConfig.desc}</div>
           <div className="mt-6 flex gap-6">
             {siteConfig.socialMedia.map(social => (
               <SocialLink
@@ -76,8 +76,8 @@ export default async function AboutPage() {
             <SectionContent>
               <ul className="mt-1 list-decimal list-inside">
                 {booksReading.map(book => (
-                  <li key={book.id}>
-                    <Link href={book.slug} title={book.title} className="underline">{book.title}</Link>
+                  <li key={book.id} className="text-sm font-medium text-zinc-800 dark:text-zinc-200">
+                    <NavLink href={book.slug} title={book.title}>{book.title}</NavLink>
                   </li>
                 ))}
               </ul>

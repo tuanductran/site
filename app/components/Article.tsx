@@ -31,11 +31,11 @@ export function ArticleWithImage({ article }: Props) {
         title={article.title}
         className="relative flex cursor-pointer flex-col gap-10 lg:flex-row"
       >
-        <div className="relative aspect-[16/9] overflow-hidden rounded-2xl ring-1 ring-inset ring-zinc-900/10 dark:ring-white/10 sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
+        <div className="relative aspect-video overflow-hidden rounded-2xl ring-1 ring-inset ring-zinc-900/10 dark:ring-white/10 sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
           <Image
             src={`${siteConfig.apiURL}/og?title=${article.title}`}
             alt={article.title}
-            className="absolute inset-0 size-full object-cover transition duration-150 group-hover:scale-105"
+            className="absolute inset-0 size-full object-cover transition duration-150 group-hover:scale-105 aspect-video"
             width={1200}
             height={600}
             priority

@@ -8,6 +8,7 @@ interface Props {
   className?: string
   href: string
   icon: ElementType
+  [key: string]: any
 }
 
 export function SocialLink({ children, className, href, icon: Icon }: Props) {

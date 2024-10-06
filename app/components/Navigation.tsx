@@ -10,9 +10,9 @@ import { Fragment } from 'react'
 import { ChevronDownIcon, CloseIcon } from './icons'
 import Link from './Link'
 
-export function NavLink({ children, href }: PropsWithChildren<{ href: string }>) {
+export function NavLink({ children, href, title }: PropsWithChildren<{ href: string, title: string }>) {
   return (
-    <Link href={href} className="transition hover:text-primary dark:hover:text-light">
+    <Link href={href} className="transition hover:text-primary dark:hover:text-light" title={title}>
       {children}
     </Link>
   )
