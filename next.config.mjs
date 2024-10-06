@@ -1,5 +1,4 @@
 import withPlaiceholder from '@plaiceholder/next'
-import million from 'million/compiler'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -46,12 +45,4 @@ const nextConfig = {
   },
 }
 
-const millionConfig = {
-  auto: { rsc: true },
-  mute: true,
-  rsc: true,
-}
-
-export default withPlaiceholder(
-  million.next(nextConfig, millionConfig),
-)
+export default withPlaiceholder(nextConfig)
