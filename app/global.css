@@ -65,3 +65,12 @@ pre[class*='language-'] {
 .token.combinator {
   color: theme('colors.zinc.400');
 }
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  @apply !my-4;
+}
