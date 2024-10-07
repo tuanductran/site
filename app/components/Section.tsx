@@ -11,7 +11,7 @@ interface TitleProps {
 export function SectionTitle({ as: TitleComponent = 'h1', action, children }: TitleProps) {
   return (
     <header className="mt-16 flex flex-row items-center justify-between">
-      <TitleComponent className="text-xl font-bold leading-none tracking-tight">
+      <TitleComponent className="text-xl font-bold leading-none tracking-tight text-zinc-800 dark:text-zinc-100">
         {children}
       </TitleComponent>
       {action}
