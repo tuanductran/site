@@ -3,25 +3,13 @@ import { slugify } from '@lib/slugify'
 import { Client, isFullPage } from '@notionhq/client'
 import type { BlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
 import type { NotionArticle } from '@schema'
+import { cache } from 'react'
 
 import { BlockTypeTransformLookup } from './BlockTypeTransformLookup'
 
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
 })
-
-export async function getArticles() {
-  const articles = await getDatabaseContent(process.env.ARTICLES_DATABASE_ID!)
-
-  return articles
-    .sort((a, b) => {
-      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-    })
-}
-
-export async function getArticle(id: string) {
-  return getPageContent(id)
-}
 
 async function getDatabaseContent(databaseId: string): Promise<NotionArticle[]> {
   const db = await notion.databases.query({ database_id: databaseId })
@@ -72,7 +60,26 @@ async function getDatabaseContent(databaseId: string): Promise<NotionArticle[]> 
     .filter(p => p.isPublished)
 }
 
-async function getPageContent(pageId: string) {
+const getBlocks = cache(async (blockId: string) => {
+  const list = await notion.blocks.children.list({
+    block_id: blockId,
+  })
+
+  while (list.has_more && list.next_cursor) {
+    const { results, has_more, next_cursor }
+      = await notion.blocks.children.list({
+        block_id: blockId,
+        start_cursor: list.next_cursor,
+      })
+    list.results = list.results.concat(results)
+    list.has_more = has_more
+    list.next_cursor = next_cursor
+  }
+
+  return list.results as BlockObjectResponse[]
+})
+
+const getPageContent = cache(async (pageId: string) => {
   const blocks = await getBlocks(pageId)
 
   const blocksChildren = await Promise.all(
@@ -124,23 +131,17 @@ async function getPageContent(pageId: string) {
       return acc
     }, [])
   })
-}
+})
 
-async function getBlocks(blockId: string) {
-  const list = await notion.blocks.children.list({
-    block_id: blockId,
-  })
+export const getArticles = cache(async () => {
+  const articles = await getDatabaseContent(process.env.ARTICLES_DATABASE_ID!)
 
-  while (list.has_more && list.next_cursor) {
-    const { results, has_more, next_cursor }
-      = await notion.blocks.children.list({
-        block_id: blockId,
-        start_cursor: list.next_cursor,
-      })
-    list.results = list.results.concat(results)
-    list.has_more = has_more
-    list.next_cursor = next_cursor
-  }
+  return articles
+    .sort((a, b) => {
+      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    })
+})
 
-  return list.results as BlockObjectResponse[]
-}
+export const getArticle = cache(async (id: string) => {
+  return await getPageContent(id)
+})

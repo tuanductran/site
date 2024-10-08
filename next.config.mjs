@@ -29,16 +29,16 @@ const nextConfig = {
       {
         destination: 'https://github.com/awesome-jobs/vietnam/issues',
         permanent: true,
-        source: '/jobs',
+        source: '/careers',
       },
       {
         destination: 'https://tuanducdev.notion.site/c40aaaaf01c24479bb1313083b1c59ca',
-        permanent: true,
+        permanent: false,
         source: '/notes',
       },
       {
         destination: 'https://tuanducdev.notion.site/83127584ff9040b18e8bcecbc8c0cc23',
-        permanent: true,
+        permanent: false,
         source: '/viewing',
       },
     ]

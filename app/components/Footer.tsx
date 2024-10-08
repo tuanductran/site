@@ -1,7 +1,24 @@
 import { siteConfig } from '@data'
+import type { ElementType } from 'react'
 
 import { Container } from './Container'
+import Link from './Link'
 import { NavLink } from './Navigation'
+
+interface Props {
+  href: string
+  title: string
+  icon: ElementType
+}
+
+function FooterSocial({ href, title, icon: Icon }: Props) {
+  return (
+    <Link href={href} title={title} className="group -m-1 p-1">
+      <span className="sr-only">{title}</span>
+      <Icon className="size-5 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
+    </Link>
+  )
+}
 
 export function Footer() {
   return (
@@ -10,9 +27,23 @@ export function Footer() {
         <div className="border-t border-zinc-100 pt-10 pb-16 dark:border-zinc-700/40">
           <Container.Inner>
             <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-              <div className="flex gap-6 text-sm font-medium text-zinc-800 dark:text-zinc-200">
+              <div className="flex gap-6">
+                {siteConfig.socialMedia.map(social => (
+                  <FooterSocial
+                    key={social.name}
+                    href={social.link}
+                    title={social.name}
+                    icon={social.icon}
+                  />
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-6 text-sm font-medium text-zinc-800 dark:text-zinc-200">
                 {siteConfig.footerItems.map(item => (
-                  <NavLink key={item.href} href={item.href} title={item.name}>
+                  <NavLink
+                    key={item.name}
+                    href={item.href}
+                    title={item.name}
+                  >
                     {item.name}
                   </NavLink>
                 ))}

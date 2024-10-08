@@ -37,8 +37,8 @@ export const siteConfig: siteMetadata = {
   ],
   desc: 'Chào mừng bạn đến với không gian của tôi! Tôi là Trần Tuấn Đức, một nhà phát triển Front-End với tình yêu dành cho Vue.js và Nuxt.js',
   footerItems: [
-    { href: 'https://tuanducdev.notion.site/b2364ca05ba7489bb2e803039bbf17cd', name: '100+ My Github Starred Repositories' },
-    { href: 'https://tuanducdev.notion.site/1d58f8dca637441ab7c434d65fa1c288', name: 'Book Management Template' },
+    { href: 'https://zalo.me/g/lgkrvf226', name: 'Dev Community' },
+    { href: 'https://tuanductran.site/careers', name: 'Careers' },
   ],
   name: 'Tuan Duc Tran',
   navItems: [

@@ -35,7 +35,7 @@ export function ArticleWithImage({ article }: Props) {
           <Image
             src={`${siteConfig.apiURL}/og?title=${article.title}`}
             alt={article.title}
-            className="absolute inset-0 size-full object-cover transition duration-150 group-hover:scale-105 aspect-video"
+            className="absolute inset-0 size-full object-cover transition duration-150 group-hover:scale-105"
             width={1200}
             height={600}
             priority
