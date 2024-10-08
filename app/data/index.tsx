@@ -36,15 +36,12 @@ export const siteConfig: siteMetadata = {
     },
   ],
   desc: 'Chào mừng bạn đến với không gian của tôi! Tôi là Trần Tuấn Đức, một nhà phát triển Front-End với tình yêu dành cho Vue.js và Nuxt.js',
-  footerItems: [
-    { href: 'https://zalo.me/g/lgkrvf226', name: 'Dev Community' },
-    { href: 'https://tuanductran.site/careers', name: 'Careers' },
-  ],
   name: 'Tuan Duc Tran',
   navItems: [
     { href: '/about', name: 'About' },
     { href: '/articles', name: 'Articles' },
     { href: '/books', name: 'Books' },
+    { href: '/careers', name: 'Careers' },
     { href: '/share-cv', name: 'Share CV' },
   ],
   siteURL: 'https://tuanductran.site',

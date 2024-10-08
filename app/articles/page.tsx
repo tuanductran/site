@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${siteConfig.apiURL}/og?title=Articles`,
+        url: `${siteConfig.apiURL}/og?title=${encodeURIComponent('Articles')}`,
         width: 1200,
         height: 630,
         alt: 'Articles',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     title: 'Articles',
     description: 'Explore all your articles in one place',
-    images: [`${siteConfig.apiURL}/og?title=Articles`],
+    images: [`${siteConfig.apiURL}/og?title=${encodeURIComponent('Articles')}`],
     card: 'summary_large_image',
     creator: '@tuanducdesigner',
     site: '@tuanducdesigner',

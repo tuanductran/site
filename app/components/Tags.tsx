@@ -37,7 +37,7 @@ export const NotionTags: FC<NotionTagsProps> = ({
   return (
     <div className="mt-12 flex gap-2 hide-scrollbar overflow-x-auto">
       <Tag
-        title="All"
+        title="All Tags"
         isSelected={selectedTag === null}
         onClick={() => setSelectedTag(null)}
       />

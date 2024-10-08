@@ -3,7 +3,6 @@ import type { ElementType } from 'react'
 
 import { Container } from './Container'
 import Link from './Link'
-import { NavLink } from './Navigation'
 
 interface Props {
   href: string
@@ -35,17 +34,6 @@ export function Footer() {
                     title={social.name}
                     icon={social.icon}
                   />
-                ))}
-              </div>
-              <div className="flex flex-wrap gap-6 text-sm font-medium text-zinc-800 dark:text-zinc-200">
-                {siteConfig.footerItems.map(item => (
-                  <NavLink
-                    key={item.name}
-                    href={item.href}
-                    title={item.name}
-                  >
-                    {item.name}
-                  </NavLink>
                 ))}
               </div>
               <p className="text-sm text-zinc-400 dark:text-zinc-500">

@@ -35,7 +35,7 @@ export const NotionStatus: FC<NotionStatusProps> = ({
   return (
     <ul className="hide-scrollbar mb-6 pb-[1px] flex-none min-w-full overflow-y-auto space-x-6 flex border-b dark:border-zinc-800/50">
       <Status
-        title="All"
+        title="All Status"
         isSelected={selectedStatus === null}
         onClick={() => setSelectedStatus(null)}
       />

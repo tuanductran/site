@@ -33,7 +33,7 @@ export function ArticleWithImage({ article }: Props) {
       >
         <div className="relative aspect-video overflow-hidden rounded-2xl ring-1 ring-inset ring-zinc-900/10 dark:ring-white/10 sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
           <Image
-            src={`${siteConfig.apiURL}/og?title=${article.title}`}
+            src={`${siteConfig.apiURL}/og?title=${encodeURIComponent(article.title)}`}
             alt={article.title}
             className="absolute inset-0 size-full object-cover transition duration-150 group-hover:scale-105"
             width={1200}

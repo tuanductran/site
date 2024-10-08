@@ -21,7 +21,6 @@ export const siteConfig = z.strictObject({
   apiURL: z.string(),
   booksIems: z.array(WithImagesSchema),
   desc: z.string(),
-  footerItems: z.array(WithLinksSchema),
   name: z.string(),
   navItems: z.array(WithLinksSchema),
   siteURL: z.string(),
