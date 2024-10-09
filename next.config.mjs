@@ -36,11 +36,6 @@ const nextConfig = {
         source: '/careers',
       },
       {
-        destination: 'https://tuanducdev.notion.site/c40aaaaf01c24479bb1313083b1c59ca',
-        permanent: false,
-        source: '/notes',
-      },
-      {
         destination: 'https://tuanducdev.notion.site/83127584ff9040b18e8bcecbc8c0cc23',
         permanent: false,
         source: '/viewing',
