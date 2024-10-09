@@ -50,6 +50,18 @@ export const BooksSchema = z.strictObject({
   title: z.string(),
 })
 
+export const NoteSchema = z.strictObject({
+  createdAt: z.string(),
+  description: z.string(),
+  editedAt: z.string(),
+  id: z.string(),
+  isPublished: z.boolean(),
+  slug: z.string(),
+  tags: z.array(z.string()),
+  title: z.string(),
+})
+
 export type siteMetadata = z.infer<typeof siteConfig>
 export type NotionArticle = z.infer<typeof ArticleSchema>
 export type NotionBooks = z.infer<typeof BooksSchema>
+export type NotionNote = z.infer<typeof NoteSchema>

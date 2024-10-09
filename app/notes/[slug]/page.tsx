@@ -1,8 +1,8 @@
 import { NotionBlockRenderer } from '@components/notion/NotionBlockRenderer'
 import { PrismHightler } from '@components/PrismHightler'
 import { siteConfig } from '@data'
-import { getArticle, getArticles } from '@db'
-import { ArticlesLayout } from '@layout/ArticlesLayout'
+import { getNote, getNotes } from '@db'
+import { NotesLayout } from '@layout/NotesLayout'
 import type { BlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
@@ -11,8 +11,8 @@ import { Suspense } from 'react'
 export async function generateMetadata({
   params,
 }): Promise<Metadata | undefined> {
-  const articles = await getArticles()
-  const post = articles.find(p => p.slug === params.slug)
+  const notes = await getNotes()
+  const post = notes.find(p => p.slug === params.slug)
   if (!post) {
     return
   }
@@ -25,7 +25,7 @@ export async function generateMetadata({
     title,
   } = post
 
-  const canonicalUrl = `${siteConfig.siteURL}/articles/${slug}`
+  const canonicalUrl = `${siteConfig.siteURL}/notes/${slug}`
   const ogImageUrl = `${siteConfig.apiURL}/og?title=${encodeURIComponent(title)}`
 
   return {
@@ -71,17 +71,17 @@ export async function generateMetadata({
 }
 
 export default async function Article({ params }) {
-  const articles = await getArticles()
-  const article = articles.find(article => article.slug === params.slug)
+  const notes = await getNotes()
+  const note = notes.find(note => note.slug === params.slug)
 
-  if (!article) {
+  if (!note) {
     notFound()
   }
 
-  const articleContent = await getArticle(article.id)
+  const noteContent = await getNote(note.id)
 
-  const canonicalUrl = `${siteConfig.siteURL}/articles/${article.slug}`
-  const ogImageUrl = `${siteConfig.apiURL}/og?title=${article.title}`
+  const canonicalUrl = `${siteConfig.siteURL}/notes/${note.slug}`
+  const ogImageUrl = `${siteConfig.apiURL}/og?title=${note.title}`
 
   return (
     <>
@@ -92,10 +92,10 @@ export default async function Article({ params }) {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'BlogPosting',
-            'headline': article.title,
-            'datePublished': article.createdAt,
-            'dateModified': article.editedAt,
-            'description': article.title,
+            'headline': note.title,
+            'datePublished': note.createdAt,
+            'dateModified': note.editedAt,
+            'description': note.description,
             'image': ogImageUrl,
             'url': canonicalUrl,
             'author': {
@@ -105,11 +105,11 @@ export default async function Article({ params }) {
           }),
         }}
       />
-      <ArticlesLayout article={article}>
-        {articleContent.map((block: BlockObjectResponse) => (
+      <NotesLayout note={note}>
+        {noteContent.map((block: BlockObjectResponse) => (
           <NotionBlockRenderer key={block.id} block={block} />
         ))}
-      </ArticlesLayout>
+      </NotesLayout>
       <Suspense>
         <PrismHightler />
       </Suspense>

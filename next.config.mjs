@@ -1,7 +1,11 @@
 import withPlaiceholder from '@plaiceholder/next'
+import { withSentryConfig } from '@sentry/nextjs'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    scrollRestoration: true,
+  },
   images: {
     contentSecurityPolicy: 'default-src \'self\'; script-src \'none\'; sandbox;',
     dangerouslyAllowSVG: true,
@@ -45,4 +49,17 @@ const nextConfig = {
   },
 }
 
-export default withPlaiceholder(nextConfig)
+export default withSentryConfig(
+  withPlaiceholder(nextConfig),
+  {
+    org: process.env.SENTRY_ORG,
+    project: process.env.SENTRY_PROJECT,
+    dist: '1',
+  },
+  {
+    widenClientFileUpload: true,
+    transpileClientSDK: true,
+    hideSourceMaps: true,
+    disableLogger: true,
+  },
+)

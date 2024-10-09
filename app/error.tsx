@@ -1,8 +1,14 @@
 'use client'
 
 import { PageTitle } from '@components/PageTitle'
+import * as Sentry from '@sentry/nextjs'
+import { useEffect } from 'react'
 
-export default function Error() {
+export default function Error({ error }: { error: Error & { digest?: string } }) {
+  useEffect(() => {
+    Sentry.captureException(error)
+  }, [error])
+
   return (
     <div className="flex min-h-full flex-col pt-16 pb-12">
       <main className="mx-auto flex w-full max-w-7xl flex-grow flex-col justify-center px-4 sm:px-6 lg:px-8">

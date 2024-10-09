@@ -29,6 +29,9 @@ export default {
         'source': ['Source Sans Pro', ...fontFamily.sans],
         'ubuntu-mono': ['Ubuntu Mono', ...fontFamily.mono],
       },
+      maxWidth: {
+        '8xl': '90rem',
+      },
       colors: {
         primary: '#36A1FE', // Sky 400
         light: '#3BA9FE', // Sky 300

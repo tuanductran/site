@@ -81,10 +81,10 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: modeScript }} />
       </head>
-      <body className="flex h-full flex-col bg-zinc-50 dark:bg-zinc-950 min-h-screen">
+      <body className="flex h-full flex-col bg-zinc-50 dark:bg-zinc-950">
         <Toaster />
-        <div className="fixed inset-0 flex justify-center sm:px-8">
-          <div className="max-w-7xl flex w-full">
+        <div className="fixed inset-0 flex justify-center">
+          <div className="max-w-8xl flex w-full">
             <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-[#0F0F0F] dark:ring-zinc-300/20" />
           </div>
         </div>
