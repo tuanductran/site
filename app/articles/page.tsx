@@ -24,6 +24,7 @@ export const metadata: Metadata = {
       },
     ],
   },
+  title: 'Articles',
   twitter: {
     title: 'Articles',
     description: 'Explore all your articles in one place',

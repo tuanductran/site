@@ -24,6 +24,7 @@ export const metadata: Metadata = {
       },
     ],
   },
+  title: 'Share Your CV',
   twitter: {
     title: 'Share Your CV',
     description: 'Easily and quickly share your CV to stand out to potential employers.',

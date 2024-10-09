@@ -29,6 +29,7 @@ export const metadata: Metadata = {
       },
     ],
   },
+  title: 'About',
   twitter: {
     title: 'About',
     description: 'A few words about me.',

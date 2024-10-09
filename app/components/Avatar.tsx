@@ -11,7 +11,7 @@ type Props = {
 
 export function Avatar({ className, large = false, ...props }: Props) {
   return (
-    <Link href="/" aria-label={siteConfig.name} className={clsx(className, 'pointer-events-auto')} {...props}>
+    <Link href="/" title={siteConfig.name} className={clsx(className, 'pointer-events-auto')} {...props}>
       <Image
         src="/favicon/CA0E67E9-AAD0-4D36-82D8-674C7504DFD1.jpg"
         alt={siteConfig.name}
