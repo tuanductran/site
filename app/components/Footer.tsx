@@ -14,7 +14,7 @@ function FooterSocial({ href, title, icon: Icon }: Props) {
   return (
     <Link href={href} title={title} className="group -m-1 p-1">
       <span className="sr-only">{title}</span>
-      <Icon className="size-5 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
+      <Icon className="size-5 text-zinc-500 transition group-hover:text-zinc-600 dark:text-zinc-400 dark:group-hover:text-zinc-300" />
     </Link>
   )
 }
