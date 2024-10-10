@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.1.9",
+    "@million/lint": "^1.0.9",
     "@notionhq/client": "^2.2.15",
     "@plaiceholder/next": "^3.0.0",
     "@radix-ui/react-avatar": "^1.1.1",

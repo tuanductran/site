@@ -7,9 +7,9 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   title: string
 }
 
-export function PageContainer({ children, intro, title, ...rest }: PropsWithChildren<Props>) {
+export function PageContainer({ children, intro, title }: PropsWithChildren<Props>) {
   return (
-    <Container className="mt-12 sm:mt-24" {...rest}>
+    <Container className="mt-12 sm:mt-24">
       <header>
         <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
           {title}

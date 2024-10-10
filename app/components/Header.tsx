@@ -6,8 +6,9 @@ import { useEffect, useRef } from 'react'
 import { Avatar } from './Avatar'
 import { AvatarContainer } from './AvatarContainer'
 import { Container } from './Container'
+import { ChevronRightIcon } from './icons'
+import Link from './Link'
 import { DesktopNavigation, MobileNavigation } from './Navigation'
-import { ThemeToggle } from './ThemeToggle'
 
 function clamp(number: number, a: number, b: number) {
   const min = Math.min(a, b)
@@ -145,13 +146,29 @@ export function Header() {
                   </AvatarContainer>
                 )}
               </div>
-              <div className="flex flex-1 justify-end md:justify-center">
-                <MobileNavigation className="pointer-events-auto md:hidden" />
-                <DesktopNavigation className="pointer-events-auto hidden md:block" />
+              <div className="flex flex-1 justify-end xl:justify-center">
+                <MobileNavigation className="pointer-events-auto xl:hidden" />
+                <DesktopNavigation className="pointer-events-auto hidden xl:block" />
               </div>
-              <div className="flex justify-end md:flex-1">
-                <div className="pointer-events-auto">
-                  <ThemeToggle />
+              <div className="flex items-center justify-end xl:flex-1">
+                <Link
+                  href="/dev-community"
+                  className="dark:text-zinc pointer-events-auto mr-7 hidden text-sm font-medium text-zinc-800/90 transition hover:text-primary dark:text-zinc-200 dark:hover:text-light xl:block"
+                  title="Go to Dev Community"
+                >
+                  Dev Community
+                </Link>
+                <div className="flex items-center justify-end space-x-6">
+                  <div className="pointer-events-auto">
+                    <Link
+                      href="/share-cv"
+                      className="dark:shine group flex items-center whitespace-nowrap rounded-full bg-zinc-800/90 px-4 py-2 text-xs font-medium text-zinc-50 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition hover:bg-zinc-600 dark:bg-zinc-100 dark:text-zinc-800 dark:ring-white/10 dark:hover:bg-zinc-200 sm:text-sm"
+                      title="Share your CV"
+                    >
+                      Share CV
+                      <ChevronRightIcon className="ml-1 h-auto w-4 stroke-zinc-400 dark:stroke-zinc-600" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

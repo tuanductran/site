@@ -13,7 +13,7 @@ export function Note({ note }: Props) {
   return (
     <article className="group">
       <Link
-        href={`/notes/${note.slug}`}
+        href={note.slug}
         title={note.title}
         className="relative flex cursor-pointer flex-col gap-10 lg:flex-row"
       >

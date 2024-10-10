@@ -18,7 +18,7 @@ export function NavLink({ children, href, title }: PropsWithChildren<{ href: str
   )
 }
 
-function NavItem({ children, href }: PropsWithChildren<{ href: string }>) {
+function NavItem({ children, href, title }: PropsWithChildren<{ href: string, title: string }>) {
   const pathname = usePathname()
   const isActive = pathname === href
 
@@ -30,6 +30,7 @@ function NavItem({ children, href }: PropsWithChildren<{ href: string }>) {
           'relative block px-3 py-2 transition',
           isActive ? 'text-primary dark:text-light' : 'hover:text-primary dark:hover:text-light',
         )}
+        title={title}
       >
         {children}
         {isActive && (
@@ -40,10 +41,10 @@ function NavItem({ children, href }: PropsWithChildren<{ href: string }>) {
   )
 }
 
-export function MobileNavItem({ children, href }: PropsWithChildren<{ href: string }>) {
+export function MobileNavItem({ children, href, title }: PropsWithChildren<{ href: string, title: string }>) {
   return (
     <li>
-      <PopoverButton as={Link} href={href} className="block py-2">
+      <PopoverButton as={Link} href={href} className="block py-2" title={title}>
         {children}
       </PopoverButton>
     </li>
@@ -55,7 +56,7 @@ export function DesktopNavigation(props: PropsWithChildren<HTMLAttributes<HTMLDi
     <nav {...props}>
       <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 whitespace-nowrap">
         {siteConfig.navItems.map(item => (
-          <NavItem key={item.href} href={item.href}>
+          <NavItem key={item.href} href={item.href} title={item.name}>
             {item.name}
           </NavItem>
         ))}
@@ -105,7 +106,7 @@ export function MobileNavigation(props: HTMLAttributes<HTMLDivElement>) {
             <nav className="mt-6">
               <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
                 {siteConfig.navItems.map(item => (
-                  <MobileNavItem key={item.href} href={item.href}>
+                  <MobileNavItem key={item.href} href={item.href} title={item.name}>
                     {item.name}
                   </MobileNavItem>
                 ))}

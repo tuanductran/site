@@ -39,16 +39,16 @@ export default function CVForm() {
       <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
         {/* Full Name */}
         <div className="sm:col-span-2">
-          <label htmlFor="fullName" className="block mb-2 text-sm font-medium text-slate-900 dark:text-white">
+          <label htmlFor="fullName" className="block mb-2 text-sm font-medium text-zinc-900 dark:text-zinc-100">
             Full Name
           </label>
           <input
             type="text"
             id="fullName"
             className={clsx(
-              'bg-slate-50 border',
-              errors.fullName ? 'border-red-500' : 'border-slate-300',
-              'text-slate-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',
+              'bg-zinc-50 border',
+              errors.fullName ? 'border-red-500' : 'border-zinc-300',
+              'text-zinc-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-zinc-400 dark:text-white',
             )}
             placeholder="Example: Nguyen Van A"
             {...register('fullName', { required: 'Full Name is required' })}
@@ -57,16 +57,16 @@ export default function CVForm() {
         </div>
         {/* Email Address */}
         <div className="w-full">
-          <label htmlFor="email" className="block mb-2 text-sm font-medium text-slate-900 dark:text-white">
+          <label htmlFor="email" className="block mb-2 text-sm font-medium text-zinc-900 dark:text-zinc-100">
             Email Address
           </label>
           <input
             type="email"
             id="email"
             className={clsx(
-              'bg-slate-50 border',
-              errors.email ? 'border-red-500' : 'border-slate-300',
-              'text-slate-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',
+              'bg-white border',
+              errors.email ? 'border-red-500' : 'border-zinc-900/10',
+              'placeholder:text-zinc-400 text-sm rounded-lg focus:ring-primary/10 focus:border-primary block w-full p-2.5 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:border-zinc-700 dark:placeholder:text-zinc-500',
             )}
             placeholder="Example: yourname@example.com"
             {...register('email', { required: 'Email Address is required' })}
@@ -75,16 +75,16 @@ export default function CVForm() {
         </div>
         {/* CV Link */}
         <div className="w-full">
-          <label htmlFor="cvLink" className="block mb-2 text-sm font-medium text-slate-900 dark:text-white">
+          <label htmlFor="cvLink" className="block mb-2 text-sm font-medium text-zinc-900 dark:text-zinc-100">
             CV Link
           </label>
           <input
             type="url"
             id="cvLink"
             className={clsx(
-              'bg-slate-50 border',
-              errors.cvLink ? 'border-red-500' : 'border-slate-300',
-              'text-slate-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',
+              'bg-white border',
+              errors.cvLink ? 'border-red-500' : 'border-zinc-900/10',
+              'placeholder:text-zinc-400 text-sm rounded-lg focus:ring-primary/10 focus:border-primary block w-full p-2.5 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:border-zinc-700 dark:placeholder:text-zinc-500',
             )}
             placeholder="Link to your CV (e.g., https://www.topcv.vn)"
             {...register('cvLink', { required: 'CV Link is required' })}
@@ -93,16 +93,16 @@ export default function CVForm() {
         </div>
         {/* Social Link */}
         <div className="w-full">
-          <label htmlFor="socialLink" className="block mb-2 text-sm font-medium text-slate-900 dark:text-white">
+          <label htmlFor="socialLink" className="block mb-2 text-sm font-medium text-zinc-900 dark:text-zinc-100">
             Social Link
           </label>
           <input
             type="url"
             id="socialLink"
             className={clsx(
-              'bg-slate-50 border',
-              errors.socialLink ? 'border-red-500' : 'border-slate-300',
-              'text-slate-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',
+              'bg-zinc-50 border',
+              errors.socialLink ? 'border-red-500' : 'border-zinc-900/10',
+              'placeholder:text-zinc-400 text-sm rounded-lg focus:ring-primary/10 focus:border-primary block w-full p-2.5 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:border-zinc-700 dark:placeholder:text-zinc-500',
             )}
             placeholder="Social media link (e.g., LinkedIn, Twitter)"
             {...register('socialLink', { required: 'Social Link is required' })}
@@ -111,16 +111,16 @@ export default function CVForm() {
         </div>
         {/* Position Applying For */}
         <div className="w-full">
-          <label htmlFor="position" className="block mb-2 text-sm font-medium text-slate-900 dark:text-white">
+          <label htmlFor="position" className="block mb-2 text-sm font-medium text-zinc-900 dark:text-zinc-100">
             Position Applying For
           </label>
           <input
             type="text"
             id="position"
             className={clsx(
-              'bg-slate-50 border',
-              errors.position ? 'border-red-500' : 'border-slate-300',
-              'text-slate-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white',
+              'bg-zinc-50 border',
+              errors.position ? 'border-red-500' : 'border-zinc-900/10',
+              'placeholder:text-zinc-400 text-sm rounded-lg focus:ring-primary/10 focus:border-primary block w-full p-2.5 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:border-zinc-700 dark:placeholder:text-zinc-500',
             )}
             placeholder="Position title (e.g., UI Designer)"
             {...register('position', { required: 'Position is required' })}
@@ -130,7 +130,7 @@ export default function CVForm() {
       </div>
       <button
         type="submit"
-        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto p-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        className="text-zinc-100 bg-zinc-800 hover:bg-zinc-700 font-medium rounded-lg text-sm w-full sm:w-auto p-2.5 text-center dark:bg-zinc-800 dark:hover:bg-zinc-700"
       >
         Submit Your CV
       </button>

@@ -13,7 +13,7 @@ export function Quote({ author, className, quote }: Props) {
     >
       <div className="relative text-lg font-medium md:flex-grow overflow-visible">
         <svg
-          className="absolute top-0 left-0 h-8 w-8 -ml-8 -mt-8 text-zinc-300 z-10"
+          className="absolute top-0 left-0 size-8 -ml-8 -mt-8 text-zinc-300 z-10"
           fill="currentColor"
           viewBox="0 0 32 32"
           aria-hidden="true"
@@ -24,7 +24,6 @@ export function Quote({ author, className, quote }: Props) {
           {quote}
         </p>
       </div>
-
       {author && (
         <footer className="mt-1">
           <p className="text-base font-semibold text-zinc-500" suppressHydrationWarning>

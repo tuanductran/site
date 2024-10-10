@@ -20,7 +20,7 @@ const Tag: FC<TagProps> = ({ isSelected, onClick, title }) => {
       type="button"
       className={clsx(
         'cursor-pointer whitespace-nowrap rounded-md border px-3 py-px text-xs hover:bg-zinc-50 dark:text-zinc-100 dark:hover:bg-transparent',
-        isSelected ? 'border-sky-700 text-sky-900 dark:border-sky-400/50 dark:text-sky-300/90' : 'border-zinc-200 dark:border-zinc-700 dark:hover:border-zinc-500',
+        isSelected ? 'border-green-700 text-green-900 dark:border-green-400/50 dark:text-green-300/90' : 'border-zinc-200 dark:border-zinc-700 dark:hover:border-zinc-500',
       )}
       onClick={onClick}
     >

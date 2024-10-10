@@ -43,7 +43,7 @@ export const siteConfig: siteMetadata = {
     { href: '/books', name: 'Books' },
     { href: '/careers', name: 'Careers' },
     { href: '/notes', name: 'Notes' },
-    { href: '/share-cv', name: 'Share CV' },
+    { href: '/projects', name: 'Projects' },
   ],
   siteURL: 'https://tuanductran.site',
   socialMedia: [

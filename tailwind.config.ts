@@ -33,9 +33,11 @@ export default {
         '8xl': '90rem',
       },
       colors: {
-        primary: '#36A1FE', // Sky 400
-        light: '#3BA9FE', // Sky 300
-        dark: '#0284C7', // Sky 600
+        primary: '#2AB673',
+        light: '#55D799',
+        dark: '#117866',
+        ultraLight: '#CCEFE9',
+        ultraDark: '#0D5E4F',
       },
       typography: (theme: any) => ({
         invert: {

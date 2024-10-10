@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 
 import { MoonIcon, SunIcon } from './icons'
 
+// Currently not used
 export function ThemeToggle() {
   const [theme, setTheme] = useState(false)
 
