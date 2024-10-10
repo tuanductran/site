@@ -1,1 +1,1 @@
-export { getArticle, getArticles, getBooks, getNote, getNotes } from './notion'
+export { getArticle, getArticles, getBooks, getNotes } from './notion'

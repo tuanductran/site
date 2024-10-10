@@ -5,8 +5,6 @@ import type { BlockObjectResponse } from '@notionhq/client/build/src/api-endpoin
 import type { NotionArticle } from '@schema'
 import { cache } from 'react'
 
-import { BlockTypeTransformLookup } from './BlockTypeTransformLookup'
-
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
 })
@@ -82,55 +80,46 @@ const getBlocks = cache(async (blockId: string) => {
 const getPageContent = cache(async (pageId: string) => {
   const blocks = await getBlocks(pageId)
 
-  const blocksChildren = await Promise.all(
+  const blocksWithChildren = await Promise.all(
     blocks.map(async (block) => {
-      const { id } = block
-      const contents = block[block.type as keyof typeof block] as any
-      if (
-        !['unsupported', 'child_page'].includes(block.type)
-        && block.has_children
-      ) {
-        contents.children = await getBlocks(id)
+      if (!['unsupported', 'child_page'].includes(block.type) && block.has_children) {
+        const children = await getBlocks(block.id)
+        return { ...block, children }
       }
-
       return block
     }),
   )
 
-  return Promise.all(
-    blocksChildren.map(async (block) => {
-      return BlockTypeTransformLookup[block.type](block)
-    }),
-  ).then((blocks) => {
-    return blocks.reduce((acc: any, curr) => {
-      if (curr.type === 'bulleted_list_item') {
-        if (acc[acc.length - 1]?.type === 'bulleted_list') {
-          acc[acc.length - 1][acc[acc.length - 1].type].children?.push(curr)
-        }
-        else {
-          acc.push({
-            type: 'bulleted_list',
-            bulleted_list: { children: [curr] },
-          })
-        }
-      }
-      else if (curr.type === 'numbered_list_item') {
-        if (acc[acc.length - 1]?.type === 'numbered_list') {
-          acc[acc.length - 1][acc[acc.length - 1].type].children?.push(curr)
-        }
-        else {
-          acc.push({
-            type: 'numbered_list',
-            numbered_list: { children: [curr] },
-          })
-        }
+  return blocksWithChildren.reduce((acc: any, block) => {
+    if (block.type === 'bulleted_list_item') {
+      const lastItem = acc[acc.length - 1]
+      if (lastItem?.type === 'bulleted_list') {
+        lastItem.bulleted_list.children.push(block)
       }
       else {
-        acc.push(curr)
+        acc.push({
+          type: 'bulleted_list',
+          bulleted_list: { children: [block] },
+        })
       }
-      return acc
-    }, [])
-  })
+    }
+    else if (block.type === 'numbered_list_item') {
+      const lastItem = acc[acc.length - 1]
+      if (lastItem?.type === 'numbered_list') {
+        lastItem.numbered_list.children.push(block)
+      }
+      else {
+        acc.push({
+          type: 'numbered_list',
+          numbered_list: { children: [block] },
+        })
+      }
+    }
+    else {
+      acc.push(block)
+    }
+    return acc
+  }, [])
 })
 
 export const getArticles = cache(async () => {

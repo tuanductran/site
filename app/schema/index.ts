@@ -40,10 +40,8 @@ export const ArticleSchema = z.strictObject({
 })
 
 export const BooksSchema = z.strictObject({
-  author: z.array(z.string()),
   createdAt: z.string(),
   description: z.string(),
-  icon: z.string(),
   id: z.string(),
   slug: z.string(),
   status: z.any(),
@@ -53,7 +51,6 @@ export const BooksSchema = z.strictObject({
 export const NoteSchema = z.strictObject({
   createdAt: z.string(),
   description: z.string(),
-  editedAt: z.string(),
   id: z.string(),
   isPublished: z.boolean(),
   slug: z.string(),

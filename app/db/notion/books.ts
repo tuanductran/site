@@ -26,12 +26,8 @@ async function getDatabaseContent(databaseId: string): Promise<NotionBooks[]> {
     }
 
     return {
-      author: 'multi_select' in page.properties.Author
-        ? page.properties.Author.multi_select.map(author => author.name)
-        : [],
       createdAt: formatDate(page.created_time),
       id: page.id,
-      icon: page.icon?.type === 'emoji' ? page.icon.emoji : page.icon?.type === 'external' ? page.icon.external.url : '',
       slug: page.url,
       status: 'formula' in page.properties.Status ? page.properties.Status.formula : '',
       title: 'title' in page.properties.Title ? page.properties.Title.title[0].plain_text : '',

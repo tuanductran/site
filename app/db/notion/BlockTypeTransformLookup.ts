@@ -1,14 +1,11 @@
 import type { BlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
 import { getPlaiceholder } from 'plaiceholder'
 
-const noop = async (block: BlockObjectResponse) => block
+const noop = async (block: BlockObjectResponse): Promise<BlockObjectResponse> => block
 
 type BlockType = BlockObjectResponse['type']
 
-export const BlockTypeTransformLookup: Record<
-  BlockType,
-  (block: BlockObjectResponse) => Promise<BlockObjectResponse>
-> = {
+export const BlockTypeTransformLookup: Record<BlockType, (block: BlockObjectResponse) => Promise<BlockObjectResponse>> = {
   file: noop,
   paragraph: noop,
   heading_1: noop,
