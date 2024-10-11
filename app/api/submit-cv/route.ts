@@ -45,6 +45,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: 'CV submitted successfully!' }, { status: 200 })
   }
   catch (error) {
-    return NextResponse.json({ message: 'Error submitting CV', error: error instanceof Error ? error.message : 'Unknown error' }, { status: 500 })
+    return NextResponse.json({ message: 'Error submitting CV', error: error instanceof Error ? error.message : error.message }, { status: 500 })
   }
 }

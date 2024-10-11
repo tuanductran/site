@@ -46,9 +46,9 @@ export default function CVForm() {
             type="text"
             id="fullName"
             className={clsx(
-              'bg-zinc-50 border',
-              errors.fullName ? 'border-red-500' : 'border-zinc-300',
-              'text-zinc-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-zinc-700 dark:border-zinc-600 dark:placeholder-zinc-400 dark:text-white',
+              'bg-white border',
+              errors.fullName ? 'border-red-500' : 'border-zinc-900/10',
+              'placeholder:text-zinc-400 sm:text-sm appearance-none rounded-md focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary block w-full p-2.5 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:border-zinc-700 dark:placeholder:text-zinc-500 dark:focus:border-light dark:focus:ring-light/10',
             )}
             placeholder="Example: Nguyen Van A"
             {...register('fullName', { required: 'Full Name is required' })}
@@ -66,7 +66,7 @@ export default function CVForm() {
             className={clsx(
               'bg-white border',
               errors.email ? 'border-red-500' : 'border-zinc-900/10',
-              'placeholder:text-zinc-400 text-sm rounded-lg focus:ring-primary/10 focus:border-primary block w-full p-2.5 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:border-zinc-700 dark:placeholder:text-zinc-500',
+              'placeholder:text-zinc-400 sm:text-sm appearance-none rounded-md focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary block w-full p-2.5 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:border-zinc-700 dark:placeholder:text-zinc-500 dark:focus:border-light dark:focus:ring-light/10',
             )}
             placeholder="Example: yourname@example.com"
             {...register('email', { required: 'Email Address is required' })}
@@ -84,7 +84,7 @@ export default function CVForm() {
             className={clsx(
               'bg-white border',
               errors.cvLink ? 'border-red-500' : 'border-zinc-900/10',
-              'placeholder:text-zinc-400 text-sm rounded-lg focus:ring-primary/10 focus:border-primary block w-full p-2.5 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:border-zinc-700 dark:placeholder:text-zinc-500',
+              'placeholder:text-zinc-400 sm:text-sm appearance-none rounded-md focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary block w-full p-2.5 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:border-zinc-700 dark:placeholder:text-zinc-500 dark:focus:border-light dark:focus:ring-light/10',
             )}
             placeholder="Link to your CV (e.g., https://www.topcv.vn)"
             {...register('cvLink', { required: 'CV Link is required' })}
@@ -100,9 +100,9 @@ export default function CVForm() {
             type="url"
             id="socialLink"
             className={clsx(
-              'bg-zinc-50 border',
+              'bg-white border',
               errors.socialLink ? 'border-red-500' : 'border-zinc-900/10',
-              'placeholder:text-zinc-400 text-sm rounded-lg focus:ring-primary/10 focus:border-primary block w-full p-2.5 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:border-zinc-700 dark:placeholder:text-zinc-500',
+              'placeholder:text-zinc-400 sm:text-sm appearance-none rounded-md focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary block w-full p-2.5 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:border-zinc-700 dark:placeholder:text-zinc-500 dark:focus:border-light dark:focus:ring-light/10',
             )}
             placeholder="Social media link (e.g., LinkedIn, Twitter)"
             {...register('socialLink', { required: 'Social Link is required' })}
@@ -118,9 +118,9 @@ export default function CVForm() {
             type="text"
             id="position"
             className={clsx(
-              'bg-zinc-50 border',
+              'bg-white border',
               errors.position ? 'border-red-500' : 'border-zinc-900/10',
-              'placeholder:text-zinc-400 text-sm rounded-lg focus:ring-primary/10 focus:border-primary block w-full p-2.5 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:border-zinc-700 dark:placeholder:text-zinc-500',
+              'placeholder:text-zinc-400 sm:text-sm appearance-none rounded-md focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary block w-full p-2.5 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:border-zinc-700 dark:placeholder:text-zinc-500 dark:focus:border-light dark:focus:ring-light/10',
             )}
             placeholder="Position title (e.g., UI Designer)"
             {...register('position', { required: 'Position is required' })}

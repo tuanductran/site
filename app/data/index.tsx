@@ -1,12 +1,14 @@
 import {
   CloudflareIcon,
   GitHubIcon,
+  InstagramIcon,
   LinkedInIcon,
   NetlifyIcon,
   NextIcon,
   NotionIcon,
   ReactIcon,
   TailwindIcon,
+  TwitterIcon,
 } from '@components/icons'
 import type { siteMetadata } from '@schema'
 
@@ -56,6 +58,16 @@ export const siteConfig: siteMetadata = {
       name: 'LinkedIn',
       link: 'https://www.linkedin.com/in/tuanductran',
       icon: LinkedInIcon,
+    },
+    {
+      name: 'Twitter',
+      link: 'https://x.com/tuanducdesigner',
+      icon: TwitterIcon,
+    },
+    {
+      name: 'Instagram',
+      link: 'https://www.instagram.com/ductt.56',
+      icon: InstagramIcon,
     },
   ],
   techStack: [
