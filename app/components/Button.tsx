@@ -11,7 +11,7 @@ const variantStyles = {
 
 export function Button({ className, href, variant = 'primary', ...props }) {
   className = clsx(
-    'inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none',
+    'inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition duration-300 active:transition-none',
     variantStyles[variant],
     className,
   )
