@@ -153,7 +153,7 @@ export function Header() {
               <div className="flex items-center justify-end xl:flex-1">
                 <Link
                   href="/dev-community"
-                  className="dark:text-zinc pointer-events-auto mr-7 hidden text-sm font-medium text-zinc-800/90 transition hover:text-primary dark:text-zinc-200 dark:hover:text-light xl:block"
+                  className="dark:text-zinc pointer-events-auto mr-7 hidden text-sm font-medium text-zinc-800/90 transition duration-300 hover:text-primary dark:text-zinc-200 dark:hover:text-light xl:block"
                   title="Go to Dev Community"
                 >
                   Dev Community
@@ -162,7 +162,7 @@ export function Header() {
                   <div className="pointer-events-auto">
                     <Link
                       href="/share-cv"
-                      className="dark:shine group flex items-center whitespace-nowrap rounded-full bg-zinc-800/90 px-4 py-2 text-xs font-medium text-zinc-50 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition hover:bg-zinc-600 dark:bg-zinc-100 dark:text-zinc-800 dark:ring-white/10 dark:hover:bg-zinc-200 sm:text-sm"
+                      className="dark:shine group flex items-center whitespace-nowrap rounded-full bg-zinc-800/90 px-4 py-2 text-xs font-medium text-zinc-50 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition duration-300 hover:bg-zinc-600 dark:bg-zinc-100 dark:text-zinc-800 dark:ring-white/10 dark:hover:bg-zinc-200 sm:text-sm"
                       title="Share your CV"
                     >
                       Share CV
