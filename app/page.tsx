@@ -39,7 +39,7 @@ export default async function Page() {
             {siteConfig.socialMedia.map(social => (
               <SocialLink
                 key={social.name}
-                aria-label={`Follow me on ${social.name}`}
+                title={social.name}
                 href={social.link}
                 icon={social.icon}
               />
