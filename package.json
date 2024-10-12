@@ -23,12 +23,12 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@headlessui/react": "^2.1.9",
+    "@headlessui/react": "^2.1.10",
     "@million/lint": "^1.0.9",
     "@notionhq/client": "^2.2.15",
     "@plaiceholder/next": "^3.0.0",
     "@radix-ui/react-avatar": "^1.1.1",
-    "@sentry/nextjs": "^8.33.1",
+    "@sentry/nextjs": "^8.34.0",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
     "autoprefixer": "^10.4.20",
@@ -47,18 +47,22 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.7.3",
-    "@eslint-react/eslint-plugin": "^1.14.3",
+    "@eslint-react/eslint-plugin": "^1.15.0",
+    "@testing-library/react": "^16.0.1",
     "@types/node": "^22.7.5",
     "@types/prismjs": "^1.26.4",
     "@types/react": "^18.3.11",
-    "@types/react-dom": "^18.3.0",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.2",
     "eslint": "^9.12.0",
     "eslint-plugin-command": "^0.2.6",
     "eslint-plugin-format": "^0.1.2",
-    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.12",
+    "jsdom": "^25.0.1",
     "postcss": "^8.4.47",
     "postcss-focus-visible": "^10.0.0",
-    "typescript": "5.5.4"
+    "typescript": "5.5.4",
+    "vitest": "^2.1.2"
   }
 }
