@@ -20,9 +20,9 @@ function CardRoot({
 function CardLink({ children, ...props }: PropsWithChildren<LinkProps>) {
   return (
     <>
-      <div className="absolute -inset-y-6 -inset-x-4 z-0 group-hover:bg-zinc-50 dark:group-hover:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
+      <div className="absolute -inset-y-6 -inset-x-4 z-0 group-hover:bg-zinc-50 dark:group-hover:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-adaptive" />
       <Link {...props}>
-        <span className="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
+        <span className="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-adaptive" />
         <span className="relative z-10">{children}</span>
       </Link>
     </>

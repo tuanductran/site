@@ -66,19 +66,12 @@ pre[class*='language-'] {
   color: theme('colors.zinc.400');
 }
 
-.prose h1,
-.prose h2,
-.prose h3,
-.prose h4,
-.prose h5,
-.prose h6 {
-  @apply !my-4;
-}
-
 @layer components {
   .shine {
-    box-shadow: -8px 0px 20px rgba(24, 226, 81, 0.3),
-      0px 0px 20px rgba(0, 192, 234, 0.3), 8px 0px 20px rgba(98, 72, 255, 0.3);
+    box-shadow:
+      -8px 0px 20px rgba(24, 226, 81, 0.3),
+      0px 0px 20px rgba(0, 192, 234, 0.3),
+      8px 0px 20px rgba(98, 72, 255, 0.3);
   }
 
   .dark .prose a {

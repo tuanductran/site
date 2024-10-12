@@ -1,6 +1,7 @@
 import Image from '@components/Image'
 import Link from '@components/Link'
 import { Quote } from '@components/Quote'
+import { highlightCode } from '@lib/code'
 import type {
   BulletedListItemBlockObjectResponse,
   NumberedListItemBlockObjectResponse,
@@ -30,24 +31,24 @@ export function NotionBlockRenderer({ block }: NotionBlockProps) {
     case 'heading_1':
       return (
         <h1>
-          <NotionText textItems={value.rich_text} />
+          {value.rich_text[0].plain_text}
         </h1>
       )
     case 'heading_2':
       return (
         <h2>
-          <NotionText textItems={value.rich_text} />
+          {value.rich_text[0].plain_text}
         </h2>
       )
     case 'heading_3':
       return (
         <h3>
-          <NotionText textItems={value.rich_text} />
+          {value.rich_text[0].plain_text}
         </h3>
       )
     case 'bulleted_list':
       return (
-        <ul>
+        <ul role="list">
           {value.children.map((block: any) => (
             <NotionBlockRenderer key={block.id} block={block} />
           ))}
@@ -55,7 +56,7 @@ export function NotionBlockRenderer({ block }: NotionBlockProps) {
       )
     case 'numbered_list':
       return (
-        <ol>
+        <ol role="list">
           {value.children.map((block: any) => (
             <NotionBlockRenderer key={block.id} block={block} />
           ))}
@@ -83,7 +84,7 @@ export function NotionBlockRenderer({ block }: NotionBlockProps) {
       return (
         <div>
           <label htmlFor={id} className="flex items-center justify-start space-x-3">
-            <input type="checkbox" id={id} defaultChecked={value.checked} disabled />
+            <input type="checkbox" id={id} defaultChecked={value.checked} readOnly />
             <NotionText textItems={value.rich_text} />
           </label>
         </div>
@@ -215,7 +216,7 @@ export function NotionBlockRenderer({ block }: NotionBlockProps) {
     case 'code':
       return (
         <pre className={`language-${value.language}`}>
-          <code>{value.rich_text[0].plain_text}</code>
+          <code className={`language-${value.language}`} dangerouslySetInnerHTML={{ __html: highlightCode(value.rich_text[0].plain_text, value.language) }} />
         </pre>
       )
     case 'file': {
