@@ -10,6 +10,7 @@ import type {
   ToggleBlockObjectResponse,
 } from '@notionhq/client/build/src/api-endpoints'
 import clsx from 'clsx'
+import { highlight } from 'sugar-high'
 
 // TODO: improve types here, cleanup the code
 interface NotionBlockProps {
@@ -212,12 +213,14 @@ export function NotionBlockRenderer({ block }: NotionBlockProps) {
       return <hr />
     case 'quote':
       return <Quote quote={value.rich_text[0].plain_text} />
-    case 'code':
+    case 'code': {
+      const codeHTML = highlight(value.rich_text[0].plain_text)
       return (
         <pre className={`language-${value.language}`}>
-          <code>{value.rich_text[0].plain_text}</code>
+          <code dangerouslySetInnerHTML={{ __html: codeHTML }} />
         </pre>
       )
+    }
     case 'file': {
       const src_file = value.type === 'external' ? value.external.url : value.file.url
       const splitSourceArray = src_file.split('/')

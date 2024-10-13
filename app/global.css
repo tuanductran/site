@@ -21,124 +21,25 @@ input[type='email'] {
   appearance: none;
 }
 
-code[class*="language-"],
-pre[class*="language-"] {
-	text-align: left;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-	word-wrap: normal;
-	color: #eee;
-	background: #2f2f2f;
-	font-family: Roboto Mono, monospace;
-	font-size: 1em;
-	line-height: 1.5em;
-	-moz-tab-size: 4;
-	-o-tab-size: 4;
-	tab-size: 4;
-	-webkit-hyphens: none;
-	-moz-hyphens: none;
-	-ms-hyphens: none;
-	hyphens: none;
+:root {
+  --sh-class: #2d5e9d;
+  --sh-identifier: #354150;
+  --sh-sign: #8996a3;
+  --sh-string: #007f7a;
+  --sh-keyword: #e02518;
+  --sh-comment: #a19595;
+  --sh-jsxliterals: #6266d1;
+  --sh-property: #e25a1c;
+  --sh-entity: #e25a1c;
 }
 
-code[class*="language-"]::-moz-selection,
-pre[class*="language-"]::-moz-selection,
-code[class*="language-"] ::-moz-selection,
-pre[class*="language-"] ::-moz-selection,
-code[class*="language-"]::selection,
-pre[class*="language-"]::selection,
-code[class*="language-"] ::selection,
-pre[class*="language-"] ::selection {
-	background: #363636;
-}
-
-:not(pre) > code[class*="language-"] {
-	white-space: normal;
-	border-radius: 0.2em;
-	padding: 0.1em;
-}
-
-pre[class*="language-"] {
-	overflow: auto;
-	position: relative;
-	margin: 0.5em 0;
-	padding: 1.25em 1em;
-}
-
-.language-css > code,
-.language-sass > code,
-.language-scss > code,
-.token.number,
-.token.unit {
-	color: #fd9170;
-}
-
-[class*="language-"] .namespace {
-	opacity: 0.7;
-}
-
-.token.atrule,
-.token.boolean,
-.token.constant,
-.token.function,
-.token.id,
-.token.important,
-.token.keyword,
-.token.symbol {
-	color: #c792ea;
-}
-
-.token.attr-name,
-.token.builtin,
-.token.class {
-	color: #ffcb6b;
-}
-
-.token.attr-value,
-.token.attribute,
-.token.pseudo-class,
-.token.pseudo-element,
-.token.string {
-	color: #a5e844;
-}
-
-.token.cdata,
-.token.char,
-.token.inserted,
-.token.property {
-	color: #80cbc4;
-}
-
-.token.class-name,
-.token.hexcode,
-.token.regex {
-	color: #f2ff00;
-}
-
-.token.comment,
-.token.prolog,
-.token.doctype {
-	color: #616161;
-}
-
-.token.deleted,
-.token.entity,
-.token.selector,
-.token.tag,
-.token.url,
-.token.variable {
-	color: #ff6666;
-}
-
-.token.id,
-.token.important {
-	font-weight: bold;
-}
-
-.token.operator,
-.token.punctuation {
-	color: #89ddff;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sh-class: #4c97f8;
+    --sh-identifier: white;
+    --sh-keyword: #f47067;
+    --sh-string: #0fa295;
+  }
 }
 
 @layer components {
