@@ -1,7 +1,6 @@
 import Image from '@components/Image'
 import Link from '@components/Link'
 import { Quote } from '@components/Quote'
-import { highlightCode } from '@lib/code'
 import type {
   BulletedListItemBlockObjectResponse,
   NumberedListItemBlockObjectResponse,
@@ -216,7 +215,7 @@ export function NotionBlockRenderer({ block }: NotionBlockProps) {
     case 'code':
       return (
         <pre className={`language-${value.language}`}>
-          <code className={`language-${value.language}`} dangerouslySetInnerHTML={{ __html: highlightCode(value.rich_text[0].plain_text, value.language) }} />
+          <code>{value.rich_text[0].plain_text}</code>
         </pre>
       )
     case 'file': {

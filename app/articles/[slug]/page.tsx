@@ -1,10 +1,12 @@
 import { NotionBlockRenderer } from '@components/notion/NotionBlockRenderer'
+import { PrismHightler } from '@components/PrismHightler'
 import { siteConfig } from '@data'
 import { getArticle, getArticles } from '@db'
 import { ArticlesLayout } from '@layout/ArticlesLayout'
 import type { BlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { Suspense } from 'react'
 
 export async function generateMetadata({
   params,
@@ -108,6 +110,9 @@ export default async function Article({ params }) {
           <NotionBlockRenderer key={block.id} block={block} />
         ))}
       </ArticlesLayout>
+      <Suspense>
+        <PrismHightler />
+      </Suspense>
     </>
   )
 }
