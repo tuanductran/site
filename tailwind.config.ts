@@ -36,8 +36,6 @@ export default {
         primary: '#2AB673',
         light: '#55D799',
         dark: '#117866',
-        ultraLight: '#CCEFE9',
-        ultraDark: '#0D5E4F',
       },
       typography: (theme: any) => ({
         invert: {

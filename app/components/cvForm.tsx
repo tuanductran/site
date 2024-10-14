@@ -2,7 +2,7 @@
 
 import clsx from 'clsx'
 import { useForm } from 'react-hook-form'
-import toast from 'react-hot-toast'
+import { toast } from 'sonner'
 
 interface FormData {
   cvLink: string

@@ -1,11 +1,9 @@
-import MillionLint from '@million/lint'
 import withPlaiceholder from '@plaiceholder/next'
 import { withSentryConfig } from '@sentry/nextjs'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    ppr: true,
     scrollRestoration: true,
   },
   images: {
@@ -46,7 +44,7 @@ const nextConfig = {
   },
 }
 
-export default MillionLint.next({ rsc: true })(withSentryConfig(
+export default withSentryConfig(
   withPlaiceholder(nextConfig),
   {
     org: process.env.SENTRY_ORG,
@@ -59,4 +57,4 @@ export default MillionLint.next({ rsc: true })(withSentryConfig(
     hideSourceMaps: true,
     disableLogger: true,
   },
-))
+)
