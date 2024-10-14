@@ -30,10 +30,13 @@ jobs:
         run: pnpm install
 
       - name: Eslint Check
-        run: pnpm eslint
+        run: pnpm lint
 
       - name: TypeScript Check
         run: pnpm typecheck
+
+      - name: Eslint Fix
+        run: pnpm lint:fix
 
       - name: Run AutoFix
         uses: autofix-ci/action@ff86a557419858bb967097bfc916833f5647fa8c
