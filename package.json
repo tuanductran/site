@@ -1,7 +1,7 @@
 {
   "name": "site",
   "version": "1.0.0",
-  "packageManager": "pnpm@9.12.1",
+  "packageManager": "pnpm@9.12.2",
   "description": "A product created from Next.js and Notion.",
   "author": "Tuan Duc Tran <tuanductran.dev@gmail.com>",
   "license": "MIT",
